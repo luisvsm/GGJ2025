@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkj2ljfux0vdo"]
+
+[ext_resource type="Texture2D" uid="uid://ddxtkpw1qrhc5" path="res://Circle.png" id="1_6q4h8"]
+
+[sub_resource type="Curve" id="Curve_s67lx"]
+_data = [Vector2(0, 0), 0.0, 5.27027, 0, 1, Vector2(0.189744, 1), 0.0, 0.0, 0, 0, Vector2(0.374359, 0), -5.41667, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ft3fb"]
+curve = SubResource("Curve_s67lx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8h1ss"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+alpha_curve = SubResource("CurveTexture_ft3fb")
+turbulence_enabled = true
+turbulence_influence_min = 0.065
+
+[node name="FunLilWormParticle" type="GPUParticles2D"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_8h1ss")
+texture = ExtResource("1_6q4h8")
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.8
+draw_order = 0
+trail_enabled = true
+trail_lifetime = 2.0
