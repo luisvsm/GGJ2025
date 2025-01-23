@@ -1,6 +1,6 @@
 import needle from 'needle';
 
-let discordWebhook = process.env.DISCORD_WEBHOOK || null;
+let discordWebhook = "ChangeToUseSecretManagerToStoreSecret";
 
 export class Discord {
 
@@ -11,7 +11,7 @@ export class Discord {
             content: inputMessage.toString().replace(/\*/g, '**')
         };
         console.log("Posting to discord: " + inputMessage);
-        if (discordWebhook != null){
+        if (discordWebhook != "ChangeToUseSecretManagerToStoreSecret"){
             const resp = await needle.post("https://discord.com/api/webhooks/" + discordWebhook, payload);
         }
     };
