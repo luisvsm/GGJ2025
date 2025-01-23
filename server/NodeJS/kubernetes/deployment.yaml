@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ggj24-nodejs-service
+  name: ggj25-luis-nodejs-service
 spec:
   selector:
-    helios.service: ggj24-nodejs
+    helios.service: ggj25-luis-nodejs
   type: LoadBalancer
   ports:
     - name: http-port
@@ -19,42 +19,38 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ggj24-nodejs
+  name: ggj25-luis-nodejs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      helios.service: ggj24-nodejs
+      helios.service: ggj25-luis-nodejs
   template:
     metadata:
       labels:
-        helios.service: ggj24-nodejs
-        name: ggj24-nodejs
+        helios.service: ggj25-luis-nodejs
+        name: ggj25-luis-nodejs
     spec:
       containers:
-      - name: ggj24-nodejs
-        image: 10.147.20.23:5000/ggj24/ggj24-nodejs:${gitHash}
+      - name: ggj25-luis-nodejs
+        image: 10.0.0.3:5000/ggj25/ggj25-luis-nodejs:${gitHash}
         ports:
         - containerPort: 3000
         - containerPort: 7776
-      serviceAccountName: ggj24
+      serviceAccountName: ggj25
 ---
 kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: ggj24-nodejs
+  name: ggj25-luis-nodejs
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls.certresolver: games
+    metallb.universe.tf/allow-shared-ip: "sharedkey"
+    metallb.universe.tf/address-pool: bifrost
 spec:
-  rules:
-    - host: ggj24.games.luisvsm.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: ggj24-nodejs-service
-                port:
-                  number: 3000
+  ports:
+  - name: "http"
+    port: 7780
+    targetPort: 7776
+  selector:
+    app: smokeping
+  type: LoadBalancer
