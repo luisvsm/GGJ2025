@@ -1,0 +1,195 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv7lrk0733tgy"]
+
+[ext_resource type="Script" path="res://example/LobbyUI.gd" id="1_1eweq"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2022, -415)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WrapperPanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 176.0
+offset_top = 124.0
+offset_right = -176.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LobbyStatus" type="Label" parent="CanvasLayer/WrapperPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -50.0
+offset_right = 38.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "Code: 123"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WrapperPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LobbyRows" type="VBoxContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("1_1eweq")
+
+[node name="JoinLobby" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Join Lobby"
+
+[node name="StartGame" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Game"
+
+[node name="LeaveLobby" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Leave Lobby"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="LobbyInputCode" type="Label" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Code: 123"
+horizontal_alignment = 1
+
+[node name="KeypadContainer" type="CenterContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="KeyRows" type="VBoxContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer"]
+layout_mode = 2
+
+[node name="KeyCols1" type="HBoxContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows"]
+layout_mode = 2
+
+[node name="Keypad1" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "1"
+
+[node name="Keypad2" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "2"
+
+[node name="Keypad3" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "3"
+
+[node name="KeyCols2" type="HBoxContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows"]
+layout_mode = 2
+
+[node name="Keypad4" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "4"
+
+[node name="Keypad5" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "5"
+
+[node name="Keypad6" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "6"
+
+[node name="KeyCols3" type="HBoxContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows"]
+layout_mode = 2
+
+[node name="Keypad7" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "7"
+
+[node name="Keypad8" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "8"
+
+[node name="Keypad9" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "9"
+
+[node name="KeypadButtons" type="HBoxContainer" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CloseJoinMenu" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+text = "Back"
+
+[node name="ResetKeypad" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+text = "Reset"
+
+[node name="Ready" type="Button" parent="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows/JoinLobby" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_join_lobby_pressed"]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows/StartGame" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows/LeaveLobby" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_leave_lobby_pressed"]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols1/Keypad1" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["1"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols1/Keypad2" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["2"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols1/Keypad3" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["3"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols2/Keypad4" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["4"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols2/Keypad5" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["5"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols2/Keypad6" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["6"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols3/Keypad7" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["7"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols3/Keypad8" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["8"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadContainer/KeyRows/KeyCols3/Keypad9" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_append_number" binds= ["9"]]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadButtons/CloseJoinMenu" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_close_join_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/KeypadButtons/ResetKeypad" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_reset_keypad_pressed"]
+[connection signal="pressed" from="CanvasLayer/WrapperPanel/HBoxContainer/VBoxContainer/Ready" to="CanvasLayer/WrapperPanel/HBoxContainer/LobbyRows" method="_on_ready_pressed"]

@@ -1,0 +1,210 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-1
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "1"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30250
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27050
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-2
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "2"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30251
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27051
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-3
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "3"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30252
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27052
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-4
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "4"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30253
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27053
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-5
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "5"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30254
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27054
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-6
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "6"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30255
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27055
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-7
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "7"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30256
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27056
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-8
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "8"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30257
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27057
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-9
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "9"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30258
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27058
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggj25-luis-gameserver-service-10
+  namespace: ggj25-luis
+spec:
+  selector:
+    ggj25-luis.service: "10"
+  type: NodePort
+  ports:
+  - name: http-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30259
+  - name: game-port
+    port: 7000
+    protocol: UDP
+    targetPort: 7000
+    nodePort: 27059
