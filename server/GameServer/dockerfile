@@ -6,4 +6,4 @@ COPY . /usr/src/app
 EXPOSE 7777/udp
 EXPOSE 5050/tcp
 
-CMD ./GGJ24.x86_64
+CMD ./game.x86_64
