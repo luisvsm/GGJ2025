@@ -24,6 +24,12 @@ GameServerStatus="*res://game_server/GameServerStatus.gd"
 
 project/assembly_name="New Game Project"
 
+[file_customization]
+
+folder_colors={
+"res://art_assets/": "yellow"
+}
+
 [input]
 
 CreateParticle={
