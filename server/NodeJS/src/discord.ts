@@ -13,7 +13,9 @@ export class Discord {
         console.log("Posting to discord: " + inputMessage);
         if (discordWebhook != "ChangeToUseSecretManagerToStoreSecret"){
             console.log("https://discord.com/api/webhooks/" + discordWebhook);
-            const resp = await needle.post("https://discord.com/api/webhooks/" + discordWebhook, payload);
+            needle.post("https://discord.com/api/webhooks/" + discordWebhook, payload, function(err, resp) {
+                console.log(err)
+            });
         }
     };
 
