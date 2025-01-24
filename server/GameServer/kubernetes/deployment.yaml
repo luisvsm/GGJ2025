@@ -10,7 +10,7 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "1"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30250
@@ -19,6 +19,10 @@ spec:
   - name: game-port
     port: 27050
     protocol: UDP
+    targetPort: 7000
+  - name: game-port
+    port: 27050
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1

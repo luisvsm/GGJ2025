@@ -9,7 +9,7 @@ signal player_connected(peer_id, player_info)
 signal player_disconnected(peer_id)
 signal server_disconnected
 
-const PORT = 7000
+const PORT = 27050
 const DEFAULT_SERVER_IP = "127.0.0.1" # IPv4 localhost
 const MAX_CONNECTIONS = 20
 
@@ -48,8 +48,11 @@ func _ready():
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
 	multiplayer.connected_to_server.connect(_on_connected_ok)
 	multiplayer.connection_failed.connect(_on_connected_fail)
-	create_game()
-	GameServerStatus.Start()
+	if GameServerStatus.IsGameServer():
+		create_game()
+		GameServerStatus.Start()
+	else:
+		join_game(IP.resolve_hostname("luis.ggj25.helios.connectedplay.io"))
 
 func join_game(address = ""):
 	print("join_game")

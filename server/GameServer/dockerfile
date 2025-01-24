@@ -6,4 +6,5 @@ COPY . /usr/src/app
 EXPOSE 7777/udp
 EXPOSE 5050/tcp
 
-CMD ./game.x86_64 server
+ENTRYPOINT ["game.x86_64"]
+CMD ["server"]
