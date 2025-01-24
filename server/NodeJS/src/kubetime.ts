@@ -150,7 +150,7 @@ export class KubeTime {
     public async WaitForPodToBeReady(podName:string, gameMode:number | null = null):Promise<boolean>{
         const timeoutDurationInSeconds = 20;
 
-        let timeout = Date.now() + (timeoutDurationInSeconds * 1000);
+        let timeout = Date.now() + (timeoutDurationInSeconds * 10000);
         let ready = false;
 
         console.log("Waiting for pod: " + podName);
@@ -172,7 +172,7 @@ export class KubeTime {
 
                     return true;
                 } catch (e) {
-                    console.log("Game server is not ready");
+                    console.log("Game server is not ready", e);
                 }
             }
 
