@@ -289,12 +289,12 @@ export class KubeTime {
                 //if(this.podsBeingTerminated[item.metadata.name] == true){
                 //    break;
                 //}
-                if(item == undefined || item.status == undefined || item.status.containerStatuses == undefined){
+                if(item == undefined || item.status == undefined || item.status.conditions == undefined){
                     break;
                 }
 
-                item.status.containerStatuses.forEach(status => {
-                    console.log("condition", status);
+                item.status.conditions.forEach(condition => {
+                    console.log("condition", condition);
                 });
                 
                 const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
