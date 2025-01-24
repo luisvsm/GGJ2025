@@ -170,7 +170,7 @@ export class KubeTime {
     public async WaitForPodToBeReady(podName:string, gameMode:number | null = null):Promise<boolean>{
         const timeoutDurationInSeconds = 20;
 
-        let timeout = Date.now() + (timeoutDurationInSeconds * 10000);
+        let timeout = Date.now() + (timeoutDurationInSeconds * 1000);
         let ready = false;
 
         console.log("Waiting for pod: " + podName);
@@ -296,8 +296,13 @@ export class KubeTime {
                 podsAlive.push(item.metadata.name);
 
                 const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
-                
-                if(resp.body.shouldTerminate === true){
+                console.log("Should terminate server?", resp.body)
+                if(
+                    (resp.body.gameHasStarted == true && resp.body.playersConnected <= 0) ||
+                    (resp.body.gameHasStarted == false && resp.body.uptime > 30) ||
+                    resp.body.requestedTermination == true ||
+                    resp.body.uptime > 60 * 60 * 8 // More than 8 hours of uptime 
+                ){
                     discord.Post("Terminating pod: " + item.metadata.name);
                     console.log("Terminating " + item.metadata.name);
                     this.podsBeingTerminated[item.metadata.name] = true;
