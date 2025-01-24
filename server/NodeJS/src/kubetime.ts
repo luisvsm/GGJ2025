@@ -89,8 +89,8 @@ export class KubeTime {
             gameServTCP.hostPort = 7000
             let webServTCP = new V1ContainerPort()
             webServTCP.protocol = "TCP"
-            gameServTCP.containerPort = 8080
-            gameServTCP.hostPort = 8080
+            webServTCP.containerPort = 8080
+            webServTCP.hostPort = 8080
 
             container.ports.push(gameServUDP)
             container.ports.push(gameServTCP)
