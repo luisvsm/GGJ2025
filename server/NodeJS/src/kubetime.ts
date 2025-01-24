@@ -1,4 +1,4 @@
-import { KubeConfig, CoreV1Api, V1Container, V1Pod, V1PodSpec, V1ObjectMeta } from '@kubernetes/client-node';
+import { KubeConfig, CoreV1Api, V1Container, V1Pod, V1PodSpec, V1ObjectMeta, V1EnvVar } from '@kubernetes/client-node';
 
 import { randomUUID } from 'crypto';
 import needle from 'needle';
@@ -72,6 +72,11 @@ export class KubeTime {
             let container = new V1Container();
             container.name = namespace + "-gameserver-" + randomUUID();
             container.image = "10.0.0.3:5000/ggj25/" + namespace +"-gameserver:" + clientVersion;
+            container.env = []
+            let envVar = new V1EnvVar()
+            envVar.name = "server"
+            envVar.value = "true"
+            container.env.push(envVar)
 
             let gameServerPod = new V1Pod();
             gameServerPod.apiVersion = "v1";

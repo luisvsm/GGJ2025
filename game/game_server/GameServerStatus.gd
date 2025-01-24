@@ -52,6 +52,8 @@ func IsGameServer() -> bool:
 	var args = Array(OS.get_cmdline_args())
 	if args.size() > 1 and args[1] == "server":
 		return true
+	elif OS.get_environment("server") == "true":
+		return true
 	else:
 		return false
 
