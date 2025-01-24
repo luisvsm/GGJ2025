@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: ggj25-luis-nodejs
-        image: 10.0.0.3:32000/ggj25/ggj25-luis-nodejs:${gitHash}
+        image: 10.0.0.3:5000/ggj25/ggj25-luis-nodejs:${gitHash}
         ports:
         - containerPort: 3000
         - containerPort: 7776
