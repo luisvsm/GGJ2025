@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwd5sae7ynt76"]
+[gd_scene load_steps=9 format=3 uid="uid://bwd5sae7ynt76"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControllerRB.gd" id="1_vmu64"]
 [ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_aa23h"]
@@ -12,8 +12,11 @@ friction = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b7ynu"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdwbi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ga6f"]
 albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1p3m"]
+albedo_color = Color(0, 1, 0, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -63,10 +66,15 @@ shape = SubResource("BoxShape3D_livgw")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_0xl34")
 script = ExtResource("1_vmu64")
-moveSpeed = 350.0
-jumpForce = 10.0
+moveForce = 400.0
+jumpForce = 300.0
+jumpCoolDown = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.25, 0)
@@ -75,7 +83,12 @@ shape = SubResource("BoxShape3D_b7ynu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = ExtResource("2_aa23h")
-surface_material_override/0 = SubResource("StandardMaterial3D_rdwbi")
+surface_material_override/0 = SubResource("StandardMaterial3D_7ga6f")
+
+[node name="MeshInstance3D - Body" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.592737, 0)
+mesh = ExtResource("2_aa23h")
+surface_material_override/0 = SubResource("StandardMaterial3D_p1p3m")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
