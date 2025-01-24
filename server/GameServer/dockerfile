@@ -7,4 +7,4 @@ EXPOSE 7000/udp
 EXPOSE 7000/tcp
 EXPOSE 8080/tcp
 
-ENTRYPOINT ["/bin/bash", "-c", "./game.sh"]
+ENTRYPOINT ["/bin/sh", "./game.sh"]

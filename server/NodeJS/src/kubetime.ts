@@ -109,7 +109,7 @@ export class KubeTime {
             console.log("Created pod: " + container.name);
             return {
                 name:container.name,
-                port: Number("301" + ("00" + nextServerNumber.toString()).slice(-2))
+                port: Number("302" + ("00" + nextServerNumber.toString()).slice(-2))
             }
             
         } catch (err) {
@@ -183,6 +183,7 @@ export class KubeTime {
                 serviceNumber = await this.GetPodPort(podName);
             }else{
                 try {
+                    console.log("Req: http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + serviceNumber-1) + "/info")
                     const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + serviceNumber-1) + "/info", {parse_response:false});
                     JSON.parse(resp.body);
                     console.log("Pod "+podName+" ready after " + (timeoutDurationInSeconds - ((timeout - Date.now())/1000)).toString() + " seconds.");
@@ -254,7 +255,7 @@ export class KubeTime {
                 if(gameModeToFind.toString() == gameMode){
                     return {
                         name: item.metadata.name,
-                        port: Number("301" + ("00" + serviceNumber.toString()).slice(-2))
+                        port: Number("302" + ("00" + serviceNumber.toString()).slice(-2))
                     }
                 }
             }
