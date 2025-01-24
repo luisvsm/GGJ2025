@@ -10,9 +10,11 @@ export class Discord {
         var payload = {
             content: inputMessage.toString().replace(/\*/g, '**')
         };
-        console.log("Posting to discord: " + inputMessage);
         if (discordWebhook != "ChangeToUseSecretManagerToStoreSecret"){
-            const resp = await needle.post("https://discord.com/api/webhooks/" + discordWebhook, payload);
+            needle.post("https://discord.com/api/webhooks/" + discordWebhook, payload, function(err, resp) {
+                if(err)
+                    console.log("Error posting to Discord: ", err);
+            });
         }
     };
 
