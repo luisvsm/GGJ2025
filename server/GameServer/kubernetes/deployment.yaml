@@ -16,11 +16,11 @@ spec:
     port: 30250
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27050
     protocol: UDP
     targetPort: 7000
-  - name: game-port
+  - name: game-port-tcp
     port: 27050
     protocol: TCP
     targetPort: 7000

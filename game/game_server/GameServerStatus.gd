@@ -29,7 +29,7 @@ func Start() -> void:
 # > requestedTermination is true (the game server has requested that it be terminated for some reason)
 # > if the web server request fails 3 times in a row
 func GetServerStatus() -> String:
-	return "{gameHasStarted:%s,uptime:%s,playersConnected:%s,requestedTermination:%s}"%[
+	return "{\"gameHasStarted\":%s,\"uptime\":%s,\"playersConnected\":%s,\"requestedTermination\":%s}"%[
 		gameHasStarted,
 		Time.get_unix_time_from_system() - serverStartTime,
 		playersConnected,
