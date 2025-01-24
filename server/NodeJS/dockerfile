@@ -6,4 +6,5 @@ COPY dist /usr/src/app
 EXPOSE 3000/tcp
 EXPOSE 7776/tcp
 
-CMD "node" "index.mjs"
+CMD ["-f","/dev/null"]
+#CMD ["node" "index.mjs"]
