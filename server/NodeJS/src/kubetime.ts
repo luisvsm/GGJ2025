@@ -109,7 +109,7 @@ export class KubeTime {
             console.log("Created pod: " + container.name);
             return {
                 name:container.name,
-                port: Number("302" + ("00" + nextServerNumber.toString()).slice(-2))
+                port: Number("270" + (this.startingWebServicePort + nextServerNumber-1))
             }
             
         } catch (err) {
@@ -255,7 +255,7 @@ export class KubeTime {
                 if(gameModeToFind.toString() == gameMode){
                     return {
                         name: item.metadata.name,
-                        port: Number("302" + ("00" + serviceNumber.toString()).slice(-2))
+                        port: Number("270" + (this.startingWebServicePort + parseInt(serviceNumber)-1))
                     }
                 }
             }
