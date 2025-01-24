@@ -15,7 +15,7 @@ export interface GameServerPodInfo{
 export class KubeTime {
     public k8sApi: CoreV1Api;
     private podsBeingTerminated:{[id: string]:boolean} = {}
-    private localClusterIP = ""
+    private localClusterIP = "10.0.0.3"
     private startingWebServicePort = 50
     private maxServers = 10;
 
@@ -71,7 +71,7 @@ export class KubeTime {
             
             let container = new V1Container();
             container.name = namespace + "-gameserver-" + randomUUID();
-            container.image = this.localClusterIP+":5000/ggj25/" + namespace +"-gameserver:" + clientVersion;
+            container.image = this.localClusterIP+":32000/ggj25/" + namespace +"-gameserver:" + clientVersion;
 
             let gameServerPod = new V1Pod();
             gameServerPod.apiVersion = "v1";
@@ -274,7 +274,7 @@ export class KubeTime {
 
                 podsAlive.push(item.metadata.name);
 
-                const resp = await needle('get', "http://10.147.20.23:302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
+                const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
                 
                 if(resp.body.shouldTerminate === true){
                     discord.Post("Terminating pod: " + item.metadata.name);
@@ -314,7 +314,7 @@ export class KubeTime {
                     break;
                 }
 
-                const resp = await needle('get', "http://10.147.20.23:302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
+                const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
                 console.log(serviceNumber + ":", JSON.stringify(resp.body));
             }
         } catch (err) {
