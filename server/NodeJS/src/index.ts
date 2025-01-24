@@ -549,7 +549,7 @@ server.listen(tcpPort, '0.0.0.0');
 // kubeTime.ReadPods();
 
 setInterval(
-	function(){kubeTime.LookForServersToTerminate()}, 20 * 1000
+	function(){kubeTime.LookForServersToTerminate()}, 10 * 1000
 ); 
 
 
