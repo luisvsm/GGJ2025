@@ -296,15 +296,17 @@ export class KubeTime {
                 podsAlive.push(item.metadata.name);
 
                 const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
-                console.log("Should terminate server?", resp.body)
+                
+                console.log("Server details:", resp.body, parseInt(resp.body.playersConnected), parseInt(resp.body.playersConnected) <= 0);
                 if(
-                    (resp.body.gameHasStarted == true && resp.body.playersConnected <= 0) ||
-                    (resp.body.gameHasStarted == false && resp.body.uptime > 30) ||
+                    (resp.body.gameHasStarted == true && parseInt(resp.body.playersConnected) <= 0) ||
+                    (resp.body.gameHasStarted == false && parseInt(resp.body.uptime) > 30) ||
                     resp.body.requestedTermination == true ||
-                    resp.body.uptime > 60 * 60 * 8 // More than 8 hours of uptime 
+                    parseInt(resp.body.uptime) > 60 * 60 * 8 // More than 8 hours of uptime 
                 ){
                     discord.Post("Terminating pod: " + item.metadata.name);
                     console.log("Terminating " + item.metadata.name);
+                    console.log("Server details:", resp.body);
                     this.podsBeingTerminated[item.metadata.name] = true;
                     await this.k8sApi.deleteNamespacedPod({namespace, name:item.metadata.name});
                 }
