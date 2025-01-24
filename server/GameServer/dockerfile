@@ -3,7 +3,8 @@ FROM ubuntu:24.04
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
-EXPOSE 7777/udp
-EXPOSE 5050/tcp
+EXPOSE 7000/udp
+EXPOSE 7000/tcp
+EXPOSE 8080/tcp
 
 CMD ./game.x86_64
