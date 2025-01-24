@@ -293,7 +293,9 @@ export class KubeTime {
                     break;
                 }
 
-                console.log("condition", item.status);
+                item.status.containerStatuses.forEach(status => {
+                    console.log("condition", status);
+                });
                 
                 const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
                 const respJSON = JSON.parse(resp.body)
