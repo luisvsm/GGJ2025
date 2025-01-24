@@ -71,7 +71,7 @@ export class KubeTime {
             
             let container = new V1Container();
             container.name = namespace + "-gameserver-" + randomUUID();
-            container.image = this.localClusterIP+":32000/ggj25/" + namespace +"-gameserver:" + clientVersion;
+            container.image = "10.0.0.3:5000/ggj25/" + namespace +"-gameserver:" + clientVersion;
 
             let gameServerPod = new V1Pod();
             gameServerPod.apiVersion = "v1";
