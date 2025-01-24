@@ -41,7 +41,7 @@ spec:
     targetPort: 3000
   - name: lobby-port
     protocol: TCP
-    port: 7780
+    port: 27046
     targetPort: 7776
   selector:
     helios.service: ggj25-luis-nodejs
