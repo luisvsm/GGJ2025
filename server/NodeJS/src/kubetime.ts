@@ -296,13 +296,13 @@ export class KubeTime {
                 podsAlive.push(item.metadata.name);
 
                 const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
-                
-                console.log("Server details:", resp.body, parseInt(resp.body.playersConnected), parseInt(resp.body.playersConnected) <= 0);
+                const respJSON = JSON.parse(resp.body)
+                console.log("Server details:", respJSON, parseInt(respJSON.playersConnected), parseInt(respJSON.playersConnected) <= 0);
                 if(
-                    (resp.body.gameHasStarted == true && parseInt(resp.body.playersConnected) <= 0) ||
-                    (resp.body.gameHasStarted == false && parseInt(resp.body.uptime) > 30) ||
-                    resp.body.requestedTermination == true ||
-                    parseInt(resp.body.uptime) > 60 * 60 * 8 // More than 8 hours of uptime 
+                    (respJSON.gameHasStarted == true && parseInt(respJSON.playersConnected) <= 0) ||
+                    (respJSON.gameHasStarted == false && parseInt(respJSON.uptime) > 30) ||
+                    respJSON.requestedTermination == true ||
+                    parseInt(respJSON.uptime) > 60 * 60 * 8 // More than 8 hours of uptime 
                 ){
                     discord.Post("Terminating pod: " + item.metadata.name);
                     console.log("Terminating " + item.metadata.name);

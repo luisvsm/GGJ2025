@@ -12,7 +12,8 @@ export class Discord {
         };
         if (discordWebhook != "ChangeToUseSecretManagerToStoreSecret"){
             needle.post("https://discord.com/api/webhooks/" + discordWebhook, payload, function(err, resp) {
-                console.log(err)
+                if(err)
+                    console.log("Error posting to Discord: ", err);
             });
         }
     };
