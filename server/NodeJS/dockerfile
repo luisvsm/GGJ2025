@@ -6,6 +6,5 @@ COPY dist /usr/src/app
 EXPOSE 3000/tcp
 EXPOSE 7776/tcp
 
-ENTRYPOINT ["tail"]
-CMD ["-f","/dev/null"]
-#CMD ["node" "index.mjs"]
+ENTRYPOINT ["node"]
+CMD ["index.mjs"]
