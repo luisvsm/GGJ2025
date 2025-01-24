@@ -14,6 +14,7 @@ export interface GameServerPodInfo{
 
 export class KubeTime {
     public k8sApi: CoreV1Api;
+    private podsBeingTerminated:{[id: string]:boolean} = {}
     private localClusterIP = "10.0.0.3"
     private startingWebServicePort = 50
     private maxServers = 10;
@@ -245,9 +246,9 @@ export class KubeTime {
                 if(item.status == null || item.status.conditions == null){
                     break;
                 }
-                //if(this.podsBeingTerminated[item.metadata.name]){
-                 //   break;
-                //}
+                if(this.podsBeingTerminated[item.metadata.name]){
+                    break;
+                }
 
                 let success = await this.WaitForPodToBeReady(item.metadata.name);
                 
@@ -272,6 +273,8 @@ export class KubeTime {
                 return
             }
 
+            let podsAlive:string[] = [];
+
             for (let i = 0; i < items.length; i++) {
                 let item = items[i];
                 
@@ -286,16 +289,11 @@ export class KubeTime {
                 if(item.metadata.name == undefined){
                     break;
                 }
-                //if(this.podsBeingTerminated[item.metadata.name] == true){
-                //    break;
-                //}
-                if(item == undefined || item.status == undefined || item.status.conditions == undefined){
+                if(this.podsBeingTerminated[item.metadata.name] == true){
                     break;
                 }
 
-                item.status.conditions.forEach(condition => {
-                    console.log("condition", condition);
-                });
+                podsAlive.push(item.metadata.name);
                 
                 const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
                 const respJSON = JSON.parse(resp.body)
@@ -308,9 +306,17 @@ export class KubeTime {
                     discord.Post("Terminating pod: " + item.metadata.name);
                     console.log("Terminating " + item.metadata.name);
                     console.log("Server details:", resp.body);
+                    this.podsBeingTerminated[item.metadata.name] = true;
                     await this.k8sApi.deleteNamespacedPod({namespace, name:item.metadata.name});
                 }
             }
+
+            for (const [key, value] of Object.entries(this.podsBeingTerminated)) {
+                if(podsAlive.includes(key) == false){
+                    delete this.podsBeingTerminated[key];
+                }
+            }
+
         } catch (err) {
             console.error("Error in LookForServersToTerminate", err);
         }
