@@ -15,7 +15,7 @@ export interface GameServerPodInfo{
 export class KubeTime {
     public k8sApi: CoreV1Api;
     private podsBeingTerminated:{[id: string]:boolean} = {}
-    private localClusterIP = "10.0.0.3"
+    private localClusterIP = "10.152.183.34"
     private startingWebServicePort = 50
     private maxServers = 10;
 
