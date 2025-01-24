@@ -1,4 +1,4 @@
-import { KubeConfig, CoreV1Api, V1Container, V1Pod, V1PodSpec, V1ObjectMeta, V1EnvVar } from '@kubernetes/client-node';
+import { KubeConfig, CoreV1Api, V1Container, V1Pod, V1PodSpec, V1ObjectMeta, V1EnvVar, V1ContainerPort } from '@kubernetes/client-node';
 
 import { randomUUID } from 'crypto';
 import needle from 'needle';
@@ -77,6 +77,24 @@ export class KubeTime {
             envVar.name = "server"
             envVar.value = "true"
             container.env.push(envVar)
+
+            container.ports = []
+            let gameServUDP = new V1ContainerPort()
+            gameServUDP.protocol = "UDP"
+            gameServUDP.containerPort = 7000
+            gameServUDP.hostPort = 7000
+            let gameServTCP = new V1ContainerPort()
+            gameServTCP.protocol = "TCP"
+            gameServTCP.containerPort = 7000
+            gameServTCP.hostPort = 7000
+            let webServTCP = new V1ContainerPort()
+            webServTCP.protocol = "TCP"
+            gameServTCP.containerPort = 8080
+            gameServTCP.hostPort = 8080
+
+            container.ports.push(gameServUDP)
+            container.ports.push(gameServTCP)
+            container.ports.push(webServTCP)
 
             let gameServerPod = new V1Pod();
             gameServerPod.apiVersion = "v1";
