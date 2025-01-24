@@ -1,8 +1,8 @@
 extends Node
 
-var LobbyServerHTTP = "http://127.0.0.1:3000/server/account/guest"
-var LobbyServerIP = "127.0.0.1"
-var LobbyServerPort = 7776
+var LobbyServerHTTP = "https://luis.ggj25.helios.connectedplay.io/server/account/guest"
+var LobbyServerIP = IP.resolve_hostname("luis.ggj25.helios.connectedplay.io")
+var LobbyServerPort = 27046
 var maxRetryDelay = 10
 
 signal ConnectingToLobbyServer()
@@ -45,7 +45,7 @@ func ConnectToLobbyServer() -> void:
 	if connection != null:
 		print("Already trying to connect to server")
 		return
-	
+	print("Connecting to lobby server")
 	ConnectingToLobbyServer.emit()
 	connection = StreamPeerTCP.new()
 	connected = false

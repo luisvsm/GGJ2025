@@ -53,7 +53,7 @@ func IsGameServer() -> bool:
 	if args.size() > 1 and args[1] == "server":
 		return true
 	else:
-		return true
+		return false
 
 # Number of players who were in the lobby, and were given the IP & Port of this server
 func NumberOfPlayersExpected() -> int:

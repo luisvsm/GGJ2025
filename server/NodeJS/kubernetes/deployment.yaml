@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
       - name: ggj25-luis-nodejs
+        env:
+        - name: KUBE_NAMESPACE
+          value: "ggj25-luis"
         image: 10.0.0.3:5000/ggj25/ggj25-luis-nodejs:${gitHash}
         ports:
         - containerPort: 3000
