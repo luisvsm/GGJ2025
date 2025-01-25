@@ -12,7 +12,7 @@ static func Process(input:String, bracketOpen:String = "{", bracketClose:String 
 static func TagToWord(tagToReplace:String) -> String:
 	var possibleWords:Array[Word] = []
 	tagToReplace = tagToReplace.to_lower() 
-	Wordlist.Wordlist.pick_random()
+	
 	for word in Wordlist.Wordlist:
 		for tag in word.tags:
 			if tag == tagToReplace:
