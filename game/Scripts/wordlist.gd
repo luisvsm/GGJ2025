@@ -7,7 +7,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"soft",
 		["texture", "adjective", "object descriptor"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.SkyBlue)]
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.Dijon)]
 	), 
 	Word.create(
 		"crispy",
@@ -82,12 +82,12 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"smooth",
 		["weather", "texture", "adjective", "object descriptor"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.SlateGrey)]
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.Bronze)]
 	),
 	Word.create(
 		"fluid",
 		["weather", "texture", "adjective", "object descriptor"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.OlympicBlue)]
+		[]
 	),
 	Word.create(
 		"shiny",
@@ -137,7 +137,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"bold",
 		["adjective", "object descriptor"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.CurrantRed)]
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.CandyRed)]
 	),
 	Word.create(
 		"unexpected",
@@ -222,7 +222,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"tapped",
 		["action", "verb"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
 	),
 	Word.create(
 		"listened",
@@ -477,12 +477,12 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"spotted pardalote",
 		["animal", "object"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Speckles)]
 	),
 	Word.create(
 		"magpie",
 		["animal", "object"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
 	),
 	Word.create(
 		"sulphur-crested cockatoo",
@@ -492,7 +492,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"eastern quoll",
 		["animal", "object"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
 	),
 	Word.create(
 		"Leadbeater's possum",
@@ -517,12 +517,12 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"Baw Baw frog",
 		["animal", "object"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Stripes)]
 	),
 	Word.create(
 		"Golden-rayed blue butterfly",
 		["animal", "object"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Stripes)]
 	),
 	Word.create(
 		"skulk",
@@ -620,24 +620,9 @@ static var Wordlist:Array[Word] = [
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.ForestGreen)]
 	),
 	Word.create(
-		"sky blue",
-		["colour"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.SkyBlue)]
-	),
-	Word.create(
-		"olympic blue",
-		["colour"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.OlympicBlue)]
-	),
-	Word.create(
 		"candy red",
 		["colour"],
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.CandyRed)]
-	),
-	Word.create(
-		"currant red",
-		["colour"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.CurrantRed)]
 	),
 	Word.create(
 		"pineapple yellow",
@@ -655,21 +640,6 @@ static var Wordlist:Array[Word] = [
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.CadmiumWhite)]
 	),
 	Word.create(
-		"grey",
-		["colour"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.Grey)]
-	),
-	Word.create(
-		"slate grey",
-		["colour"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.SlateGrey)]
-	),
-	Word.create(
-		"coal",
-		["colour"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.Coal)]
-	),
-	Word.create(
 		"tiger orange",
 		["colour"],
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.TigerOrange)]
@@ -682,12 +652,11 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"rainy",
 		["weather", "adjective"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.SkyBlue)]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Speckles)]
 	),
 	Word.create(
 		"cloudy",
 		["weather", "adjective"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.SlateGrey)]
 	),
 	Word.create(
 		"sunny",
@@ -697,7 +666,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"foggy",
 		["weather", "adjective"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.Grey)]
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
 	),
 	Word.create(
 		"windy",
@@ -737,7 +706,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"cold",
 		["weather", "colour", "adjective"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.OlympicBlue)]
+		[TreeEffect.create(TreeEffect.EffectType.leafShape,TreeEffect.LeafShape.Maple)]
 	),
 	Word.create(
 		"freezing",
@@ -757,7 +726,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"ocean",
 		["colour", "object", "environment"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.OlympicBlue)]
+		[]
 	),
 	Word.create(
 		"grassland",
@@ -882,7 +851,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"sky",
 		["object", "colour", "natural object"],
-		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.SkyBlue)]
+		[]
 	),
 	Word.create(
 		"carefully",
