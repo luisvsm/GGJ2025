@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cymxu6ytyaq58"]
+[gd_scene load_steps=15 format=3 uid="uid://2yperprxnrdp"]
 
-[ext_resource type="Texture2D" uid="uid://boedu5ssxepxn" path="res://art_assets/THAGRADIENT.png" id="1_cmsk4"]
-[ext_resource type="Script" path="res://Scripts/VFX_AssignLeafMesh.gd" id="3_eqm08"]
+[ext_resource type="Texture2D" uid="uid://boedu5ssxepxn" path="res://art_assets/THAGRADIENT.png" id="1_b170j"]
+[ext_resource type="Script" path="res://Scripts/VFX_AssignLeafMesh.gd" id="2_5r5fc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yke4e"]
-albedo_texture = ExtResource("1_cmsk4")
+albedo_texture = ExtResource("1_b170j")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -76,6 +76,6 @@ process_material = SubResource("ParticleProcessMaterial_xs7ep")
 draw_passes = 2
 draw_pass_2 = null
 draw_skin = SubResource("Skin_6r7hp")
-script = ExtResource("3_eqm08")
+script = ExtResource("2_5r5fc")
 mesh1 = SubResource("BoxMesh_6fxqd")
 mesh2 = SubResource("CylinderMesh_4swon")

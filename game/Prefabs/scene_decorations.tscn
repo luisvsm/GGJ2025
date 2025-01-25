@@ -1,4 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://cnljuy3jgomcb"]
+[gd_scene load_steps=52 format=3 uid="uid://cnljuy3jgomcb"]
+
+[ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_22xsx"]
+[ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_eopsk"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_4ei6m"]
 
@@ -138,6 +141,8 @@ albedo_color = Color(0.419608, 0.572549, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8y6t8"]
 albedo_color = Color(0.301296, 0.416112, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ili10"]
 
 [node name="SceneDecorations" type="Node3D"]
 transform = Transform3D(-0.999999, -0.00152553, -0.000447666, -0.00152574, 0.999999, 0.000470404, 0.00044695, 0.000471085, -1, 0, 0, 0)
@@ -577,3 +582,10 @@ transform = Transform3D(2.76185, -0.000546165, -2.13595, 4.273e-05, 42.4739, 0.0
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8y6t8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="FallingLeaves" parent="." instance=ExtResource("1_22xsx")]
+transform = Transform3D(1.14, -2.10889e-11, 5.82077e-11, -1.91847e-11, 1.14, 0, -5.82077e-11, -5.82077e-11, 1.14, -0.00112356, 0.736399, 0.000346405)
+mesh1 = ExtResource("2_eopsk")
+mesh2 = SubResource("CapsuleMesh_ili10")
