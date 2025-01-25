@@ -23,4 +23,3 @@ static func TagToWord(tagToReplace:String) -> String:
 		return possibleWords.pick_random().text
 	else:
 		return "<%s?>"%tagToReplace
-	
