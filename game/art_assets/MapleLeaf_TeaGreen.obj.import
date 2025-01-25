@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bpegkqayc44ta"
+path="res://.godot/imported/MapleLeaf_TeaGreen.obj-c6cd414a6dbfbf957aa0f2576315fdfc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MapleLeaf_TeaGreen.obj-c6cd414a6dbfbf957aa0f2576315fdfc.mesh"]
+
+source_file="res://art_assets/MapleLeaf_TeaGreen.obj"
+dest_files=["res://.godot/imported/MapleLeaf_TeaGreen.obj-c6cd414a6dbfbf957aa0f2576315fdfc.mesh", "res://.godot/imported/MapleLeaf_TeaGreen.obj-c6cd414a6dbfbf957aa0f2576315fdfc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

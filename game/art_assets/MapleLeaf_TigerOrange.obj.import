@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brii0kw4qnp3g"
+path="res://.godot/imported/MapleLeaf_TigerOrange.obj-f2e2a341722238b5dac2d75a911f918f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MapleLeaf_TigerOrange.obj-f2e2a341722238b5dac2d75a911f918f.mesh"]
+
+source_file="res://art_assets/MapleLeaf_TigerOrange.obj"
+dest_files=["res://.godot/imported/MapleLeaf_TigerOrange.obj-f2e2a341722238b5dac2d75a911f918f.mesh", "res://.godot/imported/MapleLeaf_TigerOrange.obj-f2e2a341722238b5dac2d75a911f918f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
