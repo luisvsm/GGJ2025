@@ -21,11 +21,11 @@ static func HidePlayerBrackets(input:String, bracketOpen:String = "[", bracketCl
 	var closingBracket = input.find(bracketClose)
 	if openingBracket >= 0 && closingBracket >= 0:
 		var stringToReplace = input.substr(openingBracket+1, closingBracket-openingBracket-1)
-		return "%s%s%s"%[
+		return HidePlayerBrackets("%s%s%s"%[
 			input.substr(0, openingBracket),
 			"____",
 			input.substr(closingBracket+1)
-		]
+		], bracketOpen, bracketClose)
 		
 	return input
 	
@@ -38,11 +38,34 @@ static func Process(input:String, bracketOpen:String = "{", bracketClose:String 
 			input.substr(0, openingBracket),
 			TagToWord(stringToReplace),
 			input.substr(closingBracket+1)
-			]
+			],
+			bracketOpen,
+			bracketClose
 		) 
 		
 	return input
-	
+static func GetNextTag(input:String, bracketOpen:String = "[", bracketClose:String = "]") -> String:
+	var openingBracket = input.find(bracketOpen)
+	var closingBracket = input.find(bracketClose)
+	if openingBracket >= 0 && closingBracket >= 0:
+		return input.substr(openingBracket+1, closingBracket-openingBracket-1)
+		
+	return ""
+
+static func AddWord(input:String, word:Word, bracketOpen:String = "[", bracketClose:String = "]")->String:
+	var openingBracket = input.find(bracketOpen)
+	var closingBracket = input.find(bracketClose)
+	if openingBracket >= 0 && closingBracket >= 0:
+		var stringToReplace = input.substr(openingBracket+1, closingBracket-openingBracket-1)
+		for tag in word.tags:
+			if tag == stringToReplace:
+				return "%s%s%s"%[
+					input.substr(0, openingBracket),
+					TagToWord(stringToReplace),
+					input.substr(closingBracket+1)
+				]
+		
+	return input
 static func TagToWord(tagToReplace:String) -> String:
 	var possibleWords:Array[Word] = []
 	tagToReplace = tagToReplace.to_lower() 

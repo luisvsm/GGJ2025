@@ -1,8 +1,11 @@
 class_name LeafPlatform extends Node3D
 
+@onready var leaf_text: Label3D = $LeafText
 @onready var leafNodeParent: Node3D = $LeafNodes
 @onready var branch_attachment_points: Node3D = $BranchAttachmentPoints
 var branch:Branch
+var templateString:String
+var treeEffects:Array[TreeEffect] = []
 
 @export var platformSize:float
 var rng = RandomNumberGenerator.new()
@@ -65,10 +68,18 @@ static var leafMeshByColourAndType:Dictionary = {
 	},
 }
 
-#func _ready() -> void:
-	#GrowLeaf([])
-	#GetAttachmentPoint()
-	
+func _ready() -> void:
+	templateString = StringTemplate.Process(StringTemplate.TemplateList.pick_random())
+	UpdateTemplateText()
+
+func AddWordToTemplate(word:Word) -> void:
+	treeEffects.append_array(word.treeEffects)
+	templateString = StringTemplate.AddWord(templateString, word)
+	UpdateTemplateText()
+
+func UpdateTemplateText() -> void:
+	leaf_text.text = StringTemplate.HidePlayerBrackets(templateString)
+
 func GrowLeaf(treeEffects:Array[TreeEffect]):
 	var leafShapes:Array = []
 	var leafColours:Array = []

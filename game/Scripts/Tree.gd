@@ -13,15 +13,18 @@ func _ready() -> void:
 		while newPlatform == null && retryCount > 0:
 			print("Trying to grow branch")
 			newPlatform = GrowBranch(attachmentPoint.global_position)
-			leafPlatforms.append(newPlatform)
-			retryCount -= 1
+			if newPlatform != null:
+				leafPlatforms.append(newPlatform)
+				retryCount -= 1
 	
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed && event.as_text_keycode() == "Space":
-			for i in range(1,2):
-				GrowNumberOfBranches(leafPlatforms.pick_random(), 2)
-			
+			var leaf = leafPlatforms.pick_random()
+			var nextTag = StringTemplate.GetNextTag(leaf.templateString)
+			var nextWord = TagToWord(nextTag)
+			if nextWord != null:
+				leaf.AddWordToTemplate(nextWord)
 
 func GrowNumberOfBranches(leafToStartAt:LeafPlatform, numberOfBranchesToGrow:int):
 	var attachmentPoint = leafToStartAt.GetAttachmentPoint()
@@ -45,6 +48,23 @@ func GetNewBranch() -> Branch:
 func GetNewLeafPlatform() -> LeafPlatform:
 	return LEAF_PLATFORM_SMALL.instantiate()
 
+func TagToWord(tagToFind:String) -> Word:
+	print("TagToWord")
+	var possibleWords:Array[Word] = []
+	tagToFind = tagToFind.to_lower() 
+	
+	for word in Wordlist.Wordlist:
+		for tag in word.tags:
+			if tag == tagToFind:
+				possibleWords.append(word)
+				
+	print("possibleWords size: %s"%possibleWords.size())
+	
+	if possibleWords.size() > 0:
+		return possibleWords.pick_random()
+	else:
+		return null
+		
 func GrowBranch(spawnPos:Vector3) -> LeafPlatform:
 	var branch = GetNewBranch()
 	var leafPlatform = GetNewLeafPlatform()
