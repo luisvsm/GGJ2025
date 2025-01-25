@@ -18,6 +18,7 @@ extends RigidBody3D
 
 #@export var testNode:Node
 
+var currentWorm: Node
 
 var jumpCoolDownTimer:float = 0
 var jumped: bool = false
@@ -99,6 +100,11 @@ func _process(delta: float) -> void:
 		
 	if pecking == true:
 		node_3d___head.rotation_degrees.z = peckAngleDown
+		if Input.is_action_just_pressed("debug_worm_get"):
+			print("WORM GET!!")
+			get_parent().remove_child(currentWorm)
+
+
 	if pecking == false:
 		node_3d___head.rotation_degrees.z = peckAngleUp
 	
