@@ -11,7 +11,7 @@ static var TemplateList:Array[String] = [
 	"The [object] was {adverb} hidden in the {colour} [environment].",
 	"Under the {object descriptor} [object], the {animal} {ending verb}.",
 	"Where the [collective noun] are, the [colour] wind blows.",
-	"{Object}s may appear [objective descriptor]."
+	"{Object}s may appear [object descriptor]."
 ]
 
 static func HidePlayerBrackets(input:String, bracketOpen:String = "[", bracketClose:String = "]")->String:
