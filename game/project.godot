@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 LobbyClientLogic="*res://lobby_client/LobbyClientLogic.gd"
 GameServerStatus="*res://game_server/GameServerStatus.gd"
 Multiplayer="*res://game_server/Multiplayer.gd"
+StringTemplate="*res://Scripts/StringTemplate.gd"
+Wordlist="*res://Scripts/wordlist.gd"
 
 [dotnet]
 
