@@ -26,7 +26,7 @@ var player_info = {"name": "Name"}
 var players_loaded = 0
 
 func _input(event):
-	if multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+	if players.size() == 0:
 		return
 	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		if event.pressed:
