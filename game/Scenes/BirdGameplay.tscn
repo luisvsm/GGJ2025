@@ -33,6 +33,7 @@ albedo_color = Color(0.143354, 0.540223, 0.422607, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7vnfs"]
 
 [node name="Node3D - BirdGameplay" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00975609, 0, 0.00597763)
 script = ExtResource("1_uu0nw")
 wormSpawnExtentMin = -4.0
 wormSpawnExtentMax = 4.0
