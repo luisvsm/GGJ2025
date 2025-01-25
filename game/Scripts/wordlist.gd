@@ -900,6 +900,11 @@ static var Wordlist:Array[Word] = [
 		[]
 	),
 	Word.create(
+		"strangely",
+		["adverb"],
+		[]
+	),
+	Word.create(
 		"shamefully",
 		["adverb"],
 		[]
