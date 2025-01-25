@@ -657,6 +657,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"cloudy",
 		["weather", "adjective"],
+		[]
 	),
 	Word.create(
 		"sunny",
