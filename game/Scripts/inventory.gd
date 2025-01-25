@@ -13,3 +13,9 @@ func AddWord() -> String:
 	var randomword = Wordlist.Wordlist.pick_random()
 	inventory.append(randomword)
 	return randomword.text
+
+func RemoveRandomWord() -> String:
+	var randomwword = inventory.pick_random()
+	#inventory.remove_at()
+	inventory.erase(randomwword)
+	return randomwword.text
