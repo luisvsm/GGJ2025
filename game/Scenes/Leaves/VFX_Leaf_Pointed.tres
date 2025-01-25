@@ -1,0 +1,13 @@
+[gd_resource type="RibbonTrailMesh" load_steps=3 format=3 uid="uid://cqjxq3jwl8dlk"]
+
+[sub_resource type="Curve" id="Curve_6b1s0"]
+_data = [Vector2(0.0299572, 0.0361724), 0.0, 0.0, 0, 0, Vector2(0.376605, 0.463058), 0.0, 0.0, 0, 0, Vector2(0.597718, 0.292971), 0.0, 0.0, 0, 0, Vector2(0.922967, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjmko"]
+albedo_color = Color(0.0980392, 0.72549, 1, 1)
+
+[resource]
+material = SubResource("StandardMaterial3D_cjmko")
+shape = 0
+curve = SubResource("Curve_6b1s0")
