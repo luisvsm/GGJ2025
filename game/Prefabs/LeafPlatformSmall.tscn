@@ -1,12 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdb138y3pt50n"]
+[gd_scene load_steps=16 format=3 uid="uid://cdb138y3pt50n"]
 
-[ext_resource type="Script" path="res://Scripts/Leaf.gd" id="1_1t2ct"]
+[ext_resource type="Script" path="res://Scripts/LeafPlatform.gd" id="1_1t2ct"]
+[ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_be676"]
 [ext_resource type="Texture2D" uid="uid://boedu5ssxepxn" path="res://art_assets/THAGRADIENT.png" id="2_xeyi0"]
-[ext_resource type="ArrayMesh" uid="uid://87x4cjk1l38b" path="res://art_assets/Leaf_Test.obj" id="3_8b1ng"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_xddb7"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_m04nf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrj7s"]
 size = Vector3(0.850622, 0.0991974, 0.369168)
@@ -46,26 +42,7 @@ albedo_texture = ExtResource("2_xeyi0")
 
 [node name="LeafPlatform" type="Node3D"]
 script = ExtResource("1_1t2ct")
-
-[node name="TestInfrastructure" type="Node3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="TestInfrastructure"]
-transform = Transform3D(1, 0, 0, 0, 0.933393, 0.358857, 0, -0.358857, 0.933393, 0, 0.144267, 0.600538)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TestInfrastructure"]
-transform = Transform3D(0.760497, -0.447265, 0.470743, 0, 0.724954, 0.688798, -0.649342, -0.523828, 0.551325, 0, 0.692025, 0.708634)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="TestInfrastructure"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.285138, -0.0537827)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TestInfrastructure/RigidBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_xddb7")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestInfrastructure/RigidBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_m04nf")
+platformSize = 0.3
 
 [node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120903, 0, 0.0326509)
@@ -87,65 +64,76 @@ font_size = 62
 [node name="LeafNode1" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0353553, -0.0353553, 0, 0.0353553, 0.0353553, -0.345542, 0, 0.0314735)
 material_override = SubResource("StandardMaterial3D_atmmx")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode2" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0353553, -0.0353553, 0, 0.0353553, 0.0353553, 0.159195, 0, -0.0809407)
 material_override = SubResource("StandardMaterial3D_ut03b")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode3" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0424278, -0.0264552, 0, 0.0264552, 0.0424278, 0, 0, 0.043961)
 material_override = SubResource("StandardMaterial3D_53xcn")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode4" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.0468525, -0.0140082, 0.0104216, 0.0174597, 0.0375906, -0.0279661, 0, 0.0298449, 0.0401159, 0.217022, -0.131363, -0.0830037)
 material_override = SubResource("StandardMaterial3D_xrqmd")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode5" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.0464113, -0.0131528, -0.0131528, 0, 0.0353553, -0.0353553, 0.0186008, 0.0328178, 0.0328178, -0.150611, 0, 0)
 material_override = SubResource("StandardMaterial3D_15sn4")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode6" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0470508, -0.016918, 0, 0.016918, 0.0470508, 0.273241, -0.0881674, 0.0314735)
 material_override = SubResource("StandardMaterial3D_5wus5")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode7" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0470508, -0.016918, 0, 0.016918, 0.0470508, 0.365536, -0.0217747, -0.0506358)
 material_override = SubResource("StandardMaterial3D_24ofv")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode8" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0364729, -0.0342013, 0, 0.0342013, 0.0364729, -0.747659, -0.0217747, -0.0506358)
 material_override = SubResource("StandardMaterial3D_lvqnv")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode9" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0480472, -0.0138372, 0, 0.0138372, 0.0480472, -0.522677, -0.0217747, -0.0506358)
 material_override = SubResource("StandardMaterial3D_yvxrm")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode10" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0407068, -0.0290337, 0, 0.0290337, 0.0407068, -0.522677, -0.149588, -0.0506358)
 material_override = SubResource("StandardMaterial3D_hpx2e")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
 
 [node name="LeafNode11" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.028024, -0.0414084, 0, 0.0414084, 0.028024, -0.210664, -0.200716, -0.0506358)
 material_override = SubResource("StandardMaterial3D_6i61h")
-mesh = ExtResource("3_8b1ng")
+mesh = ExtResource("2_be676")
 skeleton = NodePath("../..")
+
+[node name="BranchAttachmentPoints" type="Node3D" parent="."]
+
+[node name="Attachment" type="Node3D" parent="BranchAttachmentPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67058, 0, 0)
+
+[node name="Attachment2" type="Node3D" parent="BranchAttachmentPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.380519, 0, 0)
+
+[node name="Attachment3" type="Node3D" parent="BranchAttachmentPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126595, 0, 0)

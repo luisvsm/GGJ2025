@@ -14,9 +14,10 @@ friction = 0.5
 [node name="Node3D - BirdGameplay" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00975609, 0, 0.00597763)
 
-[node name="Node3D - PlayerManager" type="Node3D" parent="." node_paths=PackedStringArray("cameraNode")]
+[node name="Node3D - PlayerManager" type="Node3D" parent="." node_paths=PackedStringArray("cameraNode", "wormManager")]
 script = ExtResource("1_m2bgw")
 cameraNode = NodePath("../Camera3D")
+wormManager = NodePath("../Node3D - WormManager")
 
 [node name="Node3D - WormManager" type="Node3D" parent="."]
 script = ExtResource("1_uu0nw")
