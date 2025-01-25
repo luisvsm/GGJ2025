@@ -2,7 +2,7 @@ extends Node
 
 static var TemplateList:Array[String] = [
 	"Look for the [object descriptor] [object], especially when it’s cloudy.",
-	"Strangely, the [object] [verb].",
+	"{Adverb}, the [object] [verb].",
 	"Far below, the [adjective] {object} [verb].",
 	"Although it was {weather}, everyone but the [animal] [ending verb].",
 	"Somewhere in the {environment} the [object] turned [colour].",
