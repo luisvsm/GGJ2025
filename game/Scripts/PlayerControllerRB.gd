@@ -1,5 +1,6 @@
 extends RigidBody3D
-@onready var mesh_instance_3d___body: MeshInstance3D = $"MeshInstance3D - Body"
+#@onready var mesh_instance_3d___body: MeshInstance3D = $"MeshInstance3D - Body"
+@onready var node_3d___body: Node3D = $"Node3D - Body"
 
 @export var moveForce: float
 @export var jumpForce:float
@@ -33,10 +34,10 @@ func _process(delta: float) -> void:
 		leftFacing = true
 
 	if leftFacing == true:
-		mesh_instance_3d___body.rotation. y = 3.14
+		node_3d___body.rotation.y = 3.14
 	
 	if leftFacing == false:
-		mesh_instance_3d___body.rotation. y = 0
+		node_3d___body.rotation.y = 0
 
 		
 	if Input.get_action_strength("jump") > 0:
