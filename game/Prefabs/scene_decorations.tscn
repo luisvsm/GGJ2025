@@ -162,7 +162,8 @@ shadow_bias = 0.0
 shadow_normal_bias = 0.0
 
 [node name="FogVolume" type="FogVolume" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 7.34204, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.73886, 7.34204, -14.1663)
+visible = false
 size = Vector3(43, 19.32, 21.5)
 material = SubResource("FogMaterial_ew0eo")
 
@@ -535,19 +536,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_afs5d")
 transform = Transform3D(0.00280995, 0.999996, 0, -0.999996, 0.00280995, 0, 0, 0, 1, -1.35258, -0.403237, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GroundAppearance"]
-transform = Transform3D(24.0289, 0, 0, 0, 46.0769, 0, 0, 0, 5.80026, -4.25233, -6.3375, 28.8447)
+transform = Transform3D(42.9134, -1.24737e-08, 4.65661e-10, 1.45064e-08, 46.0304, 4.65661e-10, 0, 0, 5.79812, -17.4748, -6.32052, 28.8509)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4vrqn")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="GroundAppearance"]
-transform = Transform3D(24.0289, 0, 0, 0, -2.01409e-06, -5.80026, 0, 46.0769, -2.53537e-07, -4.18674, 17.2062, 8.87544)
+transform = Transform3D(42.9134, 1.86265e-09, 8.16726e-10, 1.82299e-08, -2.00979e-06, -5.80611, 3.72529e-09, 46.0599, -2.53785e-07, -17.374, 17.2231, 8.88164)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4vrqn")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="GroundAppearance"]
-transform = Transform3D(24.0289, 0, 4.96811e-11, 3.82397e-09, -2.01166e-06, -5.80026, 0, 46.0769, -2.53553e-07, -4.33826, -31.0365, 2.85769)
+transform = Transform3D(42.9134, 1.86265e-09, 8.16726e-10, 2.56805e-08, -2.00793e-06, -5.80611, 3.72529e-09, 46.0599, -2.53785e-07, -17.5937, -31.0195, 2.86393)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4vrqn")
