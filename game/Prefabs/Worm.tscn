@@ -26,6 +26,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_g4qs5")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38621, 0.412152)
+visible = false
 pixel_size = 0.001
 modulate = Color(1, 0.0509804, 0.545098, 1)
 text = "WORM GET!!!"
