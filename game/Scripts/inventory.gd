@@ -9,7 +9,7 @@ var inventory:Array[Word] = []
 #@export var word_effect
 #var scenepath:String = "res://Scenes/inventory.tscn"
 
-func randomiseWord() -> String:
+func AddWord() -> String:
 	var randomword = Wordlist.Wordlist.pick_random()
 	inventory.append(randomword)
 	return randomword.text
