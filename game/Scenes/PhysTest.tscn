@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwd5sae7ynt76"]
+[gd_scene load_steps=11 format=3 uid="uid://bwd5sae7ynt76"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControllerRB.gd" id="1_vmu64"]
 [ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_aa23h"]
@@ -6,12 +6,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_tqi5r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_livgw"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rdwd7"]
-radius = 0.0510866
-height = 0.203696
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_k0hwr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xl34"]
 friction = 0.1
@@ -27,6 +21,8 @@ albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax56k"]
 albedo_color = Color(0.143354, 0.540223, 0.422607, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7vnfs"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -74,17 +70,6 @@ mesh = SubResource("BoxMesh_tqi5r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
 shape = SubResource("BoxShape3D_livgw")
 
-[node name="RigidBody3D2 - Tail" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.734384, 2.34633, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2 - Tail"]
-shape = SubResource("CapsuleShape3D_rdwd7")
-disabled = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2 - Tail"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_k0hwr")
-
 [node name="RigidBody3D - Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 axis_lock_linear_z = true
@@ -96,6 +81,8 @@ script = ExtResource("1_vmu64")
 moveForce = 400.0
 jumpForce = 300.0
 jumpCoolDown = 0.5
+tailFlapCoolDown = 0.2
+tailFlapAngleUp = 35.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D - Player"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00378418, 0.274023, 0)
@@ -107,16 +94,6 @@ mesh = ExtResource("2_aa23h")
 surface_material_override/0 = SubResource("StandardMaterial3D_7ga6f")
 
 [node name="Node3D - Body" type="Node3D" parent="RigidBody3D - Player"]
-
-[node name="HingeJoint3D" type="HingeJoint3D" parent="RigidBody3D - Player/Node3D - Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443196, 0.331376, 0)
-node_a = NodePath("../..")
-node_b = NodePath("../../../RigidBody3D2 - Tail")
-params/bias = 0.06
-angular_limit/enable = true
-angular_limit/upper = 1.11876
-angular_limit/lower = -0.58294
-angular_limit/softness = 0.05
 
 [node name="MeshInstance3D - Body" type="MeshInstance3D" parent="RigidBody3D - Player/Node3D - Body"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0284672, 0)
@@ -132,8 +109,15 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ax56k")
 mesh = ExtResource("2_aa23h")
 
+[node name="Node3D - Tail" type="Node3D" parent="RigidBody3D - Player/Node3D - Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269916, 0.114349, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D - Player/Node3D - Body/Node3D - Tail"]
+transform = Transform3D(0.0306161, 0.095198, 0, -0.095198, 0.0306161, 0, 0, 0, 0.1, -0.117035, 0, 0)
+mesh = SubResource("CapsuleMesh_7vnfs")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.4047)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 4)
