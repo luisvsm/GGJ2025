@@ -14,9 +14,19 @@ extends RigidBody3D
 @export var tailFlapAngleDown:float
 @export var peckAngleUp:float
 @export var peckAngleDown:float
+@export var maxInventory:int
+
+@export var nextWormTimerRangeMin: float
+@export var nextWormTimerRangeMax: float
+var timePassedSinceLastWorm: float
+var currentNextWormTimer: float
+
 #@export var wormConnectionPoint:Vector3
 
 @export var playerInventory: Inventory
+@export var wormManager: WormManager
+
+var rng = RandomNumberGenerator.new()
 
 var currentWorm: Node
 
@@ -35,6 +45,10 @@ var deltaMoveVector: Vector3 = Vector3(0, 0, 0)
 func _ready() -> void:
 	continuous_cd = true
 	node_3d___tail.rotation.z = tailFlapAngleDown
+	#currentNextWormTimer = 
+	currentNextWormTimer = rng.randf_range(nextWormTimerRangeMin, nextWormTimerRangeMax)
+	print(currentNextWormTimer)
+	
 	#wormConnectionPoint = node_3d___worm_connection.position
 	#print (wormConnectionPoint)
 	#gravity_scale = 5
@@ -42,6 +56,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	timePassedSinceLastWorm += delta
+	if timePassedSinceLastWorm >= currentNextWormTimer:
+		print("NEW WORM TIME!!!!!!!!!!!!")
+		timePassedSinceLastWorm = 0
+		currentNextWormTimer = rng.randf_range(nextWormTimerRangeMin, nextWormTimerRangeMax)
+		wormManager._spawnWorm()
+
+	
 	
 	leftStickHAxis = Input.get_axis("move_left", "move_right")
 	var deltaMove = delta*leftStickHAxis*moveForce
@@ -103,8 +126,11 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("debug_worm_get"):
 			print("WORM GET!!")
 			currentWorm.queue_free()
-			print(playerInventory.AddWord())
-			pecking == false
+			if playerInventory.inventory.size() < maxInventory:
+				#playerInventory.AddWord()
+				print(playerInventory.AddWord())
+			pecking = false
+			canPeck = false
 			
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bbpirv8d8gq75"]
+[gd_scene load_steps=50 format=3 uid="uid://cnljuy3jgomcb"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_ew0eo"]
 albedo = Color(0.976664, 0.867328, 0.607121, 1)

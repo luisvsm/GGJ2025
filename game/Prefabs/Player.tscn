@@ -41,6 +41,9 @@ jumpCoolDown = 0.5
 tailFlapCoolDown = 0.2
 tailFlapAngleUp = 35.0
 peckAngleDown = -45.0
+maxInventory = 8
+nextWormTimerRangeMin = 0.2
+nextWormTimerRangeMax = 1.0
 playerInventory = NodePath("Node - Inventory")
 
 [node name="Node3D - CameraLookAt" type="Node3D" parent="."]
