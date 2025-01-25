@@ -2,6 +2,7 @@ extends RigidBody3D
 #@onready var mesh_instance_3d___body: MeshInstance3D = $"MeshInstance3D - Body"
 @onready var node_3d___body: Node3D = $"Node3D - Body"
 @onready var node_3d___tail: Node3D = $"Node3D - Body/Node3D - Tail"
+@onready var node_3d___head: Node3D = $"Node3D - Body/Node3D - Head"
 
 @export var moveForce: float
 @export var jumpForce:float
@@ -9,6 +10,8 @@ extends RigidBody3D
 @export var tailFlapCoolDown:float
 @export var tailFlapAngleUp:float
 @export var tailFlapAngleDown:float
+@export var peckAngleUp:float
+@export var peckAngleDown:float
 
 
 var jumpCoolDownTimer:float = 0
@@ -16,6 +19,7 @@ var jumped: bool = false
 var leftFacing = true
 var TailFlapCoolDownTimer:float = 0
 var tailFlapping = false
+var pecking = false
 
 var leftStickHAxis: float
 var deltaMoveVector: Vector3 = Vector3(0, 0, 0)
@@ -29,28 +33,41 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	leftStickHAxis = Input.get_axis("move_left", "move_right")
 	var deltaMove = delta*leftStickHAxis*moveForce
 	var deltaMoveVector = Vector3(deltaMove, 0, 0)
-	if abs(deltaMove) > 0:
-		apply_central_force(deltaMoveVector)
 	
-	if deltaMove > 0:
-		leftFacing = false
-	if deltaMove < 0:
-		leftFacing = true
+	if pecking == false:
+		if abs(deltaMove) > 0:
+			apply_central_force(deltaMoveVector)
+		
+		if deltaMove > 0:
+			leftFacing = false
+		if deltaMove < 0:
+			leftFacing = true
 
-	if leftFacing == true:
-		node_3d___body.rotation.y = rad_to_deg(180)
-	if leftFacing == false:
-		node_3d___body.rotation.y = 0
+		if leftFacing == true:
+			node_3d___body.rotation_degrees.y = 180
+		if leftFacing == false:
+			node_3d___body.rotation.y = 0
 
+#################################################################################
 		
 	if Input.get_action_strength("jump") > 0:
 		if jumped == false:
 			apply_central_force(Vector3(0, jumpForce, 0))
 			jumped = true
 			tailFlapping = true
+
+	if jumped == false:
+		if Input.get_action_strength("peck") > 0:
+			pecking = true
+		else:
+			pecking = false
+	
+
+#################################################################################
 
 	if jumped == true:
 		jumpCoolDownTimer += delta
@@ -66,10 +83,14 @@ func _process(delta: float) -> void:
 
 		
 	if tailFlapping == true:
-		node_3d___tail.rotation.z = rad_to_deg(tailFlapAngleUp)
+		node_3d___tail.rotation_degrees.z = tailFlapAngleUp
 	if tailFlapping == false:
-		node_3d___tail.rotation.z = rad_to_deg(tailFlapAngleDown)
+		node_3d___tail.rotation_degrees.z = tailFlapAngleDown
 		
+	if pecking == true:
+		node_3d___head.rotation_degrees.z = peckAngleDown
+	if pecking == false:
+		node_3d___head.rotation_degrees.z = peckAngleUp
 	
 	print (leftFacing)
 	#print (mesh_instance_3d___body.rotation.y)
