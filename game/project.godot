@@ -79,3 +79,5 @@ debug_worm_get={
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+environment/volumetric_fog/volume_size=512
+environment/volumetric_fog/volume_depth=219
