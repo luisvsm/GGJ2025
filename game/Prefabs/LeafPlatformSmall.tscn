@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdb138y3pt50n"]
+[gd_scene load_steps=18 format=3 uid="uid://cdb138y3pt50n"]
 
 [ext_resource type="Script" path="res://Scripts/Leaf.gd" id="1_1t2ct"]
-[ext_resource type="ArrayMesh" uid="uid://87x4cjk1l38b" path="res://art_assets/Meshes/Leaf_Test.obj" id="1_o8iaj"]
+[ext_resource type="Texture2D" uid="uid://boedu5ssxepxn" path="res://art_assets/THAGRADIENT.png" id="2_xeyi0"]
+[ext_resource type="ArrayMesh" uid="uid://87x4cjk1l38b" path="res://art_assets/Leaf_Test.obj" id="3_8b1ng"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xddb7"]
 
@@ -9,6 +10,39 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrj7s"]
 size = Vector3(0.850622, 0.0991974, 0.369168)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atmmx"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ut03b"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53xcn"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrqmd"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15sn4"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wus5"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24ofv"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvqnv"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvxrm"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpx2e"]
+albedo_texture = ExtResource("2_xeyi0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i61h"]
+albedo_texture = ExtResource("2_xeyi0")
 
 [node name="LeafPlatform" type="Node3D"]
 script = ExtResource("1_1t2ct")
@@ -52,55 +86,66 @@ font_size = 62
 
 [node name="LeafNode1" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0353553, -0.0353553, 0, 0.0353553, 0.0353553, -0.345542, 0, 0.0314735)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_atmmx")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode2" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0353553, -0.0353553, 0, 0.0353553, 0.0353553, 0.159195, 0, -0.0809407)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_ut03b")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode3" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0424278, -0.0264552, 0, 0.0264552, 0.0424278, 0, 0, 0.043961)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_53xcn")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode4" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.0468525, -0.0140082, 0.0104216, 0.0174597, 0.0375906, -0.0279661, 0, 0.0298449, 0.0401159, 0.217022, -0.131363, -0.0830037)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_xrqmd")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode5" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.0464113, -0.0131528, -0.0131528, 0, 0.0353553, -0.0353553, 0.0186008, 0.0328178, 0.0328178, -0.150611, 0, 0)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_15sn4")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode6" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0470508, -0.016918, 0, 0.016918, 0.0470508, 0.273241, -0.0881674, 0.0314735)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_5wus5")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode7" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0470508, -0.016918, 0, 0.016918, 0.0470508, 0.365536, -0.0217747, -0.0506358)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_24ofv")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode8" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0364729, -0.0342013, 0, 0.0342013, 0.0364729, -0.747659, -0.0217747, -0.0506358)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_lvqnv")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode9" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0480472, -0.0138372, 0, 0.0138372, 0.0480472, -0.522677, -0.0217747, -0.0506358)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_yvxrm")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode10" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.0407068, -0.0290337, 0, 0.0290337, 0.0407068, -0.522677, -0.149588, -0.0506358)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_hpx2e")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
 
 [node name="LeafNode11" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.05, 0, 0, 0, 0.028024, -0.0414084, 0, 0.0414084, 0.028024, -0.210664, -0.200716, -0.0506358)
-mesh = ExtResource("1_o8iaj")
+material_override = SubResource("StandardMaterial3D_6i61h")
+mesh = ExtResource("3_8b1ng")
 skeleton = NodePath("../..")
