@@ -102,7 +102,8 @@ func _process(delta: float) -> void:
 		node_3d___head.rotation_degrees.z = peckAngleDown
 		if Input.is_action_just_pressed("debug_worm_get"):
 			print("WORM GET!!")
-			get_parent().remove_child(currentWorm)
+			currentWorm.queue_free()
+			
 
 
 	if pecking == false:

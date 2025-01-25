@@ -15,7 +15,8 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		body.canPeck = true
 		body.currentWorm = self
-		#print("!!!!!!!!!")
+		print("!!!!!!!!!")
+		print(body.currentWorm)
 
 
 func _on_body_exited(body: Node3D) -> void:
