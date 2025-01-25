@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://hmo7eoe4tmen"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_omrxm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kp5p"]
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("SphereShape3D_omrxm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_4kp5p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.799171, 0.601104, 0, -0.601104, 0.799171, 0, 8, 0)
+light_color = Color(0.917647, 0.8, 0.486275, 1)
