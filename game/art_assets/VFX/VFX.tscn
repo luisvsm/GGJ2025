@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3bq7d4662wy8"]
+
+[ext_resource type="PackedScene" uid="uid://cymxu6ytyaq58" path="res://art_assets/VFX/fallingleaves_sky_blue.tscn" id="1_qnqpw"]
+[ext_resource type="PackedScene" uid="uid://cq5sk4onj7swr" path="res://art_assets/VFX/fallingleaves_tea_green.tscn" id="2_c4cqf"]
+
+[node name="Vfx" type="Node"]
+
+[node name="FallingLeaves_SkyBlue" parent="." instance=ExtResource("1_qnqpw")]
+visible = false
+amount = 3
+speed_scale = 0.5
+explosiveness = 0.43
+randomness = 0.15
+trail_lifetime = 0.01
+
+[node name="FallingLeaves_Meshtest" parent="." instance=ExtResource("1_qnqpw")]
+amount = 5
+lifetime = 0.73
+speed_scale = 0.45
+randomness = 0.15
+trail_lifetime = 0.01
+draw_passes = 1
+
+[node name="FallingLeaves_TeaGreen" parent="." instance=ExtResource("2_c4cqf")]

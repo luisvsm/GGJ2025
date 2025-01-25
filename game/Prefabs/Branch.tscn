@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwdrstdkra4e0"]
+
+[ext_resource type="Script" path="res://Scripts/Branch.gd" id="1_uvmlk"]
+[ext_resource type="ArrayMesh" uid="uid://cmmj3gu81dido" path="res://art_assets/TreeBranch_Test.obj" id="2_d4xxr"]
+
+[node name="Branch" type="Node3D"]
+script = ExtResource("1_uvmlk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, 0, 0.922871, 0)
+mesh = ExtResource("2_d4xxr")
+
+[node name="BranchEnd" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75685, -2.07928e-07, 0)
+
+[node name="AttachmentPoints" type="Node3D" parent="."]
+
+[node name="Attachment" type="Node3D" parent="AttachmentPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.944623, 0)

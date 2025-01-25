@@ -16,11 +16,11 @@ spec:
     port: 30250
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27050
     protocol: UDP
     targetPort: 7000
-  - name: game-port
+  - name: game-port-tcp
     port: 27050
     protocol: TCP
     targetPort: 7000
@@ -36,15 +36,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "2"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30251
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27051
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27051
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -58,15 +62,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "3"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30252
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27052
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27052
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -80,15 +88,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "4"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30253
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27053
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27053
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -102,15 +114,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "5"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30254
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27054
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27054
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -124,15 +140,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "6"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30255
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27055
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27055
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -146,15 +166,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "7"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30256
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27056
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27056
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -168,15 +192,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "8"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30257
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27057
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27057
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -190,15 +218,19 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "9"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30258
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27058
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27058
+    protocol: TCP
     targetPort: 7000
 ---
 apiVersion: v1
@@ -212,13 +244,17 @@ metadata:
 spec:
   selector:
     ggj25-luis.service: "10"
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: http-port
     port: 30259
     protocol: TCP
     targetPort: 8080
-  - name: game-port
+  - name: game-port-udp
     port: 27059
     protocol: UDP
+    targetPort: 7000
+  - name: game-port-tcp
+    port: 27059
+    protocol: TCP
     targetPort: 7000

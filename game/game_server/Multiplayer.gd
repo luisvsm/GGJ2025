@@ -9,7 +9,7 @@ signal player_connected(peer_id, player_info)
 signal player_disconnected(peer_id)
 signal server_disconnected
 
-const PORT = 27050
+const PORT = 7000
 const DEFAULT_SERVER_IP = "127.0.0.1" # IPv4 localhost
 const MAX_CONNECTIONS = 20
 
@@ -26,7 +26,8 @@ var player_info = {"name": "Name"}
 var players_loaded = 0
 
 func _input(event):
-	# Mouse in viewport coordinates.
+	if players.size() == 0:
+		return
 	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		if event.pressed:
 			make_particle.rpc(
@@ -51,15 +52,11 @@ func _ready():
 	if GameServerStatus.IsGameServer():
 		create_game()
 		GameServerStatus.Start()
-	else:
-		join_game(IP.resolve_hostname("luis.ggj25.helios.connectedplay.io"))
 
-func join_game(address = ""):
+func join_game(address, port:int):
 	print("join_game")
-	if address.is_empty():
-		address = DEFAULT_SERVER_IP
 	var peer = ENetMultiplayerPeer.new()
-	var error = peer.create_client(address, PORT)
+	var error = peer.create_client(address, port)
 	if error:
 		return error
 	multiplayer.multiplayer_peer = peer
