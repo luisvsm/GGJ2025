@@ -1,7 +1,11 @@
-class_name Leaf extends Node3D
+class_name LeafPlatform extends Node3D
 
 @onready var leafNodeParent: Node3D = $LeafNodes
-	
+@onready var branch_attachment_points: Node3D = $BranchAttachmentPoints
+var branch:Branch
+
+@export var platformSize:float
+var rng = RandomNumberGenerator.new()
 static var leafMeshByColourAndType:Dictionary = {
 	TreeEffect.LeafColours.TeaGreen:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
@@ -61,10 +65,11 @@ static var leafMeshByColourAndType:Dictionary = {
 	},
 }
 
-func _ready() -> void:
-	GrowBranch([])
+#func _ready() -> void:
+	#GrowLeaf([])
+	#GetAttachmentPoint()
 	
-func GrowBranch(treeEffects:Array[TreeEffect]):
+func GrowLeaf(treeEffects:Array[TreeEffect]):
 	var leafShapes:Array = []
 	var leafColours:Array = []
 	var numberOfBranches = 1
@@ -88,5 +93,26 @@ func GrowBranch(treeEffects:Array[TreeEffect]):
 	print("leafNodeParent.get_children()!")
 	for leaf in leafNodeParent.get_children():
 		leaf.mesh = leafMeshByColourAndType[leafColours.pick_random()][leafShapes.pick_random()]
+
+func CountAttachmentPoints() -> int:
+	return branch_attachment_points.get_children().size()
+
+func RemoveAttachmentPoint(attach:Node3D):
+	if attach.get_parent_node_3d() == branch_attachment_points:
+		branch_attachment_points.remove_child(attach)
 		
+	if attach.get_parent_node_3d() == branch.attachment_points:
+		branch.attachment_points.remove_child(attach)
 		
+
+func GetAttachmentPoint() -> Node3D:
+	var attachmentPoint:Node3D = null
+	
+	if rng.randf() > 0.5 && branch.attachment_points.get_children().size() > 0:
+		print("Branch attachment")
+		attachmentPoint = branch.attachment_points.get_children().pick_random()
+	elif branch_attachment_points.get_children().size() > 0:
+		print("leaf attachment")
+		attachmentPoint = branch_attachment_points.get_children().pick_random()
+	
+	return attachmentPoint

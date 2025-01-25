@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccjxn0pecnidn"]
+
+[ext_resource type="Script" path="res://Scripts/Tree.gd" id="1_nupdu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jl77i"]
+
+[node name="Tree" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50519, 0, 0)
+script = ExtResource("1_nupdu")
+
+[node name="TreeTrunk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.350941, 0, 0, 0, 1, 0, 0.587116, 0)
+mesh = SubResource("CylinderMesh_jl77i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.66414, 5.99193)
+
+[node name="AttachmentPoints" type="Node3D" parent="."]
+
+[node name="Attachment" type="Node3D" parent="AttachmentPoints"]
+transform = Transform3D(1, 0, 0, 0, 0.350941, 0, 0, 0, 1, -0.518195, 0.530227, 0)
+
+[node name="Attachment2" type="Node3D" parent="AttachmentPoints"]
+transform = Transform3D(1, 0, 0, 0, 0.350941, 0, 0, 0, 1, 0.486812, 0.473338, 0)
