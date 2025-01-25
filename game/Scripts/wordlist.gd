@@ -440,6 +440,56 @@ static var Wordlist:Array[Word] = [
 		[]
 	),
 	Word.create(
+		"tiger snake",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"brush-tailed rock wallaby",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"platypus",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"koala",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"wombat",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"superb lyrebird",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"crimson rosella",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"spotted pardalote",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"magpie",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
+		"sulphur-crested cockatoo",
+		["animal", "object"],
+		[]
+	),
+	Word.create(
 		"eastern quoll",
 		["animal", "object"],
 		[]
