@@ -1,6 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bebqw2whnoi6n"]
-
-[ext_resource type="Script" path="res://Scripts/WormManager.gd" id="1_hlqxg"]
+[gd_scene load_steps=47 format=3 uid="uid://bbpirv8d8gq75"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_ew0eo"]
 albedo = Color(0.976664, 0.867328, 0.607121, 1)
@@ -136,10 +134,7 @@ albedo_color = Color(0.419608, 0.572549, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8y6t8"]
 albedo_color = Color(0.301296, 0.416112, 0, 1)
 
-[node name="Node3D - BirdGameplay" type="Node3D"]
-script = ExtResource("1_hlqxg")
-wormSpawnExtentMin = -4.0
-wormSpawnExtentMax = 4.0
+[node name="SceneDecorations" type="Node3D"]
 
 [node name="Lighting" type="Node" parent="."]
 
@@ -162,413 +157,411 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 7.34204, 22)
 size = Vector3(43, 19.32, 21.5)
 material = SubResource("FogMaterial_ew0eo")
 
-[node name="Stage_V2" type="Node3D" parent="."]
+[node name="Rocks" type="StaticBody3D" parent="."]
 
-[node name="Rocks" type="StaticBody3D" parent="Stage_V2"]
-
-[node name="RockMass_Left" type="CollisionShape3D" parent="Stage_V2/Rocks"]
+[node name="RockMass_Left" type="CollisionShape3D" parent="Rocks"]
 shape = SubResource("HeightMapShape3D_4ei6m")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(-0.1093, -0.472442, -0.308619, 0.968423, -0.0156166, -0.247348, 0.224077, -0.162955, 0.918462, 3.89864, -0.456364, -0.00952148)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nq8uu")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.882948, -0.243888, 0.000379601, 0.497268, 0.433047, -0.000219638, -0.000231621, 0.000192414, 0.975477, -2.33005, -3.4497, 23.8132)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4fqcp")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.882948, -0.243888, 0.000379601, 0.497268, 0.433047, -0.000219638, -0.000231621, 0.000192414, 0.975477, 0.732047, -3.8073, 23.8132)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4fqcp")
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.882948, -0.243888, 0.000379601, 0.497268, 0.433047, -0.000219638, -0.000231621, 0.000192414, 0.975477, -8.97098, -3.4497, 24.4999)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4fqcp")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.882948, -0.243888, 0.000379601, 0.497268, 0.433047, -0.000219638, -0.000231621, 0.000192414, 0.975477, -13.5871, -3.34063, 24.3187)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4fqcp")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.882948, -0.243888, 0.000379601, 0.497268, 0.433047, -0.000219638, -0.000231621, 0.000192414, 0.975477, -0.0128565, -2.9594, 9.60653)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_kw1bi")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.364211, -0.100597, 0.000156434, 0.20512, 0.17862, -9.05174e-05, -9.55424e-05, 7.93658e-05, 0.402, -11.8217, -2.53466, 6.40887)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_kw1bi")
 
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.364211, -0.100597, 0.000156434, 0.20512, 0.17862, -9.05174e-05, -9.55424e-05, 7.93658e-05, 0.402, -12.1345, -2.46195, 5.75039)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_kw1bi")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.305575, -0.109759, 0.000119696, 0.172097, 0.194889, -6.92561e-05, -8.01605e-05, 8.65943e-05, 0.307587, -2.8487, -2.57372, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.305575, -0.109759, 0.000119696, 0.172097, 0.194889, -6.92561e-05, -8.01605e-05, 8.65943e-05, 0.307587, -0.853392, -4.14879, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.305575, -0.109759, 0.000119696, 0.172097, 0.194889, -6.92561e-05, -8.01605e-05, 8.65943e-05, 0.307587, -8.0632, -3.15955, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.350704, -0.000124007, 7.03739e-05, 0.00019443, 0.223671, -0.000119042, -8.01605e-05, 8.65943e-05, 0.307587, -11.9517, -3.8895, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.350704, -0.000124007, 7.03739e-05, 0.00019443, 0.223671, -0.000119042, -8.01605e-05, 8.65943e-05, 0.307587, -16.7838, -1.84378, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.305575, -0.109759, 0.000119696, 0.172097, 0.194889, -6.92561e-05, -8.01605e-05, 8.65943e-05, 0.307587, -5.93591, -1.58376, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.201214, -0.0432007, 0.000119714, 0.113322, 0.0767072, -6.92669e-05, -5.2784e-05, 3.40831e-05, 0.307635, 0.745496, -1.58376, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.195162, -0.0393406, 0.000119716, 0.109913, 0.0698532, -6.92675e-05, -5.11962e-05, 3.10377e-05, 0.307638, 3.32695, -3.88555, -1.26534)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtco4")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.297362, -0.0422726, 0.000379689, 0.167471, 0.0750593, -0.000219688, -7.8006e-05, 3.33509e-05, 0.975702, -1.8241, -3.72575, 18.6683)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ORMMaterial3D_se0iy")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.882948, -0.243888, 0.000379601, 0.497268, 0.433047, -0.000219638, -0.000231621, 0.000192414, 0.975477, -10.7527, -3.92534, 15.4155)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_yewvi")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.62526, -0.16977, 0.00037962, 0.35214, 0.301443, -0.000219649, -0.000164022, 0.000133939, 0.975527, -10.092, -3.92534, 15.4089)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ORMMaterial3D_b6ekm")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(-0.208774, 0.744188, 0.764021, -0.866845, 0.514586, -0.613748, -0.941504, -0.638801, 0.395662, 1.6491, -0.411176, 0.288081)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_yq7bo")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Stage_V2/Rocks/RockMass_Left"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(0.949191, 0.193349, 0, -0.453558, 0.386051, -0.159879, -0.0995137, 0.0847022, 0.728689, -0.66759, 0.11802, 0.243243)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_aen7r")
 
-[node name="Environment" type="StaticBody3D" parent="Stage_V2"]
+[node name="Environment" type="StaticBody3D" parent="."]
 
-[node name="Rock_Right8" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right8" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.468232, -0.156275, 0, 0.420416, 0.174049, 0, 0, 0, 0.435628, -14.593, -0.349689, 0.00674248)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_fg0sg")
 
-[node name="Rock_Right7" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right7" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 3.10603, -12.6, -0.617722, 0)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ouf0b")
 
-[node name="Rock_Right6" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right6" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1.61267, 0.291803, 0.124125, -0.539337, 0.860314, -0.193088, -0.124196, 0.0530129, 2.45027, -13.37, -0.999794, 0)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_sif7x")
 
-[node name="Rock_Right5" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right5" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1.61267, 0.291803, 0.124125, -0.539337, 0.860314, -0.193088, -0.124196, 0.0530129, 2.45027, -15.8463, -0.979307, 0.7233)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_vihs2")
 
-[node name="Rock_Right4" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right4" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1.61267, 0.291803, 0.124125, -0.539337, 0.860314, -0.193088, -0.124196, 0.0530129, 2.45027, -1.06219, -0.773993, 0.264015)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0gr86")
 
-[node name="Rock_Right2" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right2" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.910263, 0.218401, 0, -0.445303, 0.446443, 0, 0, 0, 0.975477, -16.7682, -0.456179, 0.994765)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_d6uob")
 
-[node name="Rock_Right3" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right3" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.699754, 0.148768, 0, -0.334368, 0.297038, -0.225273, -0.0733626, 0.0651722, 1.02674, -15.0935, -0.264919, 0.609578)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bxowv")
 
-[node name="Rock_Right" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock_Right" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.949191, 0.193349, 0, -0.453558, 0.386051, -0.159879, -0.0995137, 0.0847022, 0.728689, -12.2835, 0.11802, 0.243243)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_wh2u4")
 
-[node name="Grass_Hill" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Grass_Hill" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.00711808, 1.4386, 9.43574, -5.64462, 0.0090077, 0, -0.0141743, -2.8647, 4.73847, 2.76088, -4.82593, 15.9794)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ur3pe")
 
-[node name="Mountain10" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain10" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.0138345, 0.891218, -3.66483, -10.0451, 0.00510946, -1.86265e-09, 0.0246035, 1.58495, 2.06073, -17.0823, -0.0337425, 27.2436)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_54rot")
 
-[node name="Mountain9" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain9" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.0139315, 0.897463, -3.65667, -10.0451, 0.00510946, -9.31323e-10, 0.0245487, 1.58143, 2.07517, -14.5608, -1.74864, 24.1231)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ypp5v")
 
-[node name="Mountain8" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain8" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.00222492, -0.143329, 4.19139, -10.0451, 0.00510946, 1.86265e-09, -0.0281385, -1.81268, -0.331415, 3.72401, -4.88281, 25.5708)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_thk6y")
 
-[node name="Mountain7" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain7" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.0205465, 1.67781, 1.62625, -7.92916, 0.00511249, 1.86265e-09, -0.00861796, -0.703734, 3.87722, 7.41104, -1.80513, 26.7355)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ict6m")
 
-[node name="Mountain6" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain6" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.031856, -1.57255, 2.10313, -13.0925, 0.00510313, 2.32831e-09, -0.0184025, -0.908427, -3.64066, 4.30065, -1.80513, 26.7355)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_cj7q1")
 
-[node name="Mountain5" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain5" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.848235, -0.740058, -7.46568, -2.59005, -1.16573, 3.16079, 1.91675, -1.90272, 0.967244, 2.33841, -2.69721, 26.7355)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_r1wli")
 
-[node name="Mountain4" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain4" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.91348, 1.38962, 9.91563, 1.53436, 2.1655, -4.84066, 3.20435, -0.640777, 5.14459, -11.228, -3.90476, 25.7571)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_r1wli")
 
-[node name="Mountain3" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain3" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.0115297, -2.47106, 4.12075, -2.25718, 1.25227, 6.27683, 4.16647, 0.685251, 3.38906, 1.6351, -2.33812, 26.7355)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_60gei")
 
-[node name="Mountain2" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain2" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.00452338, -0.135833, 12.9913, -20.4222, 0.00484224, 7.45058e-09, -0.057207, -1.71788, -1.02722, -7.09796, 0.550591, 26.8118)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_us305")
 
-[node name="Mountain" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Mountain" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.00419907, -0.127741, 10.3653, -18.958, 0.00455377, 3.72529e-09, -0.0531056, -1.61554, -0.819586, -0.834979, -1.52303, 26.7674)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_541qo")
 
-[node name="Rock6" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock6" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.00204313, -0.514605, 10.8828, -9.52281, 0.0189385, 2.48028e-09, -0.0266806, -6.72009, -0.83337, 7.30189, -5.95195, 18.7684)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_mdu1k")
 
-[node name="Rock5" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock5" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.00204289, -0.493405, 16.7375, -9.52171, 0.0181583, 3.81464e-09, -0.0266776, -6.44324, -1.28171, -21.0425, -5.3032, 18.7583)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_nvnev")
 
-[node name="Rock4" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock4" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.00116336, -0.138728, 4.18808, -5.42229, 0.00510547, 4.65661e-09, -0.015192, -1.81161, -0.320711, -13.1942, -4.50182, 14.1557)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_umytc")
 
-[node name="Rock3" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock3" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.00369783, 0.672983, 0, -1.31597, 0.00189106, 0, 0, 0, 3.08677, -0.170418, -0.616317, 0.0323625)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="Rock2" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock2" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.00280995, 0.999996, 0, -0.999996, 0.00280995, 0, 0, 0, 3.087, 1.05255, -0.590179, 0.0323625)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="Rock7" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock7" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.0062816, 0.964363, 0.775531, -2.30954, 0.00279961, 0, -0.00163038, -0.250299, 2.988, 1.67237, -0.67587, 2.0185)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="Rock8" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock8" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.0062816, 0.964363, 0.775531, -2.30954, 0.00279961, 0, -0.00163038, -0.250299, 2.988, -13.5292, -1.04226, 1.76798)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="Rock9" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock9" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.213836, -1.15797, -4.4542, 0.0946945, 1.75934, -2.96685, 2.1204, -0.195348, -0.316697, -14.223, -0.673966, 2.14483)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="Rock10" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock10" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.0125529, 2.3695, -3.57813, 6.24271, 0.00966944, -0.000146062, -0.0126065, 2.42888, 3.49065, 4.38834, -3.36286, 7.77717)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="Rock11" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock11" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(3.29595, -2.33686, 2.4842, 1.59782, 2.33112, 3.39966, 5.05524, 0.786802, -2.69421, 4.38834, -2.17005, 2.12218)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="Rock" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="Rock" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.00363283, 0.551755, 2.73385, -3.16431, 0.00379474, 0, -0.0081156, -1.2326, 1.22377, 0.167168, -1.83589, 2.37168)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(6.18343, 1.02194, 0.34574, -2.13711, 4.65412, 0.3488, -1.59849, -2.2692, 0.871092, -12.0064, 0, 25.641)
 mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_vjpm3")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(6.18343, 1.02194, 0.34574, -2.13711, 4.65412, 0.3488, -1.59849, -2.2692, 0.871092, 3.04407, -1.76843, 24.641)
 mesh = SubResource("PrismMesh_31j0g")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(6.18343, 1.02194, 0.34574, -2.13711, 4.65412, 0.3488, -1.59849, -2.2692, 0.871092, -1.54594, -4.78591, 25.641)
 mesh = SubResource("PrismMesh_31j0g")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(7.71927, -2.58759, 0, 2.00698, 9.95241, 0, 0, 0, 2.57353, -10.016, 8.09658, 26.5757)
 mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_yjkw7")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(7.71927, -2.58759, 0, 2.00698, 9.95241, 0, 0, 0, 2.57353, -9.09375, 7.669, 26.5757)
 mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_yjkw7")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(8.22056, -0.4161, 0, 0.333333, 10.2617, 0, 0, 0, 2.57353, -6.48598, 11.8414, 26.5778)
 mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_yjkw7")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(7.96936, -0.416632, 0, 0.323147, 10.2748, 0, 0, 0, 2.57353, -16.393, 2.17988, 28.04)
 mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_yjkw7")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(7.96936, -0.416632, 0, 0.304348, 9.67708, 0.864986, -0.108613, -3.45347, 2.42381, -0.419624, -3.42193, 25.5416)
 mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_yjkw7")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Stage_V2/Environment"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(7.57776, -2.53826, 0.49112, 1.8025, 9.93507, 0.320472, -1.7157, -0.773126, 2.50582, 2.71614, 5.16135, 27.0659)
 mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_afs5d")
 
-[node name="GroundAppearance" type="StaticBody3D" parent="Stage_V2"]
+[node name="GroundAppearance" type="StaticBody3D" parent="."]
 transform = Transform3D(0.00280995, 0.999996, 0, -0.999996, 0.00280995, 0, 0, 0, 1, -1.35258, -0.403237, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Stage_V2/GroundAppearance"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(24.0289, -0.00601751, 0.0160767, -0.00503829, 46.0711, 5.72133, -0.00171838, -0.730368, 0.9535, -4.25289, -6.33697, 27.6631)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4vrqn")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Stage_V2/GroundAppearance"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(24.0289, 0, 5.58794e-09, 0, -2.01409e-06, -5.80026, 0, 46.0769, -2.53537e-07, -4.18674, 17.2062, 8.87544)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4vrqn")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Stage_V2/GroundAppearance"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(24.0289, 0, 1.11759e-08, 0, -2.01409e-06, -5.80026, 0, 46.0769, -2.53537e-07, -4.34111, -33.2523, 2.8567)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4vrqn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Stage_V2/GroundAppearance"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundAppearance"]
 transform = Transform3D(1.1399, 3.72529e-08, 0, -6.98492e-10, 27.3464, 0, 0, 0, 3.02299, 0.44913, -5.24138, -0.161779)
 
-[node name="Grass_Platform" type="MeshInstance3D" parent="Stage_V2/GroundAppearance/CollisionShape3D"]
+[node name="Grass_Platform" type="MeshInstance3D" parent="GroundAppearance/CollisionShape3D"]
 transform = Transform3D(1.0014, 2.23517e-08, 0, 7.27596e-12, 1.5, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8egfh")
 
-[node name="Grass_Platform2" type="MeshInstance3D" parent="Stage_V2/GroundAppearance"]
+[node name="Grass_Platform2" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(3.59477, 4.47035e-08, 0, -4.65661e-09, 40.7719, 0, 0, 0, 3.02299, 2.45452, -5.24702, 0.135832)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qw4pt")
 
-[node name="Grass2" type="MeshInstance3D" parent="Stage_V2/GroundAppearance"]
+[node name="Grass2" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(3.43621, -0.194404, -0.553975, 0.399176, 35.4334, -0.28521, 0.737367, 0.127948, 4.53984, 5.02126, -5.25423, 14.4702)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_rp66h")
 
-[node name="Grass" type="MeshInstance3D" parent="Stage_V2/GroundAppearance"]
+[node name="Grass" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(2.96751, -0.176757, 1.14852, 0.343111, 39.5134, -0.737125, -0.510589, 0.220609, 11.6704, 3.39017, -6.39701, 5.76062)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_061kh")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Stage_V2/GroundAppearance"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(2.76185, 2.84016e-05, -1.22565, 4.273e-05, 42.4739, 0.00344404, 0.384381, -0.000717382, 15.4466, 4.1609, -5.26869, 24.8953)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
