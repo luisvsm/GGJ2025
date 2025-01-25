@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bbpirv8d8gq75"]
+[gd_scene load_steps=48 format=3 uid="uid://bbpirv8d8gq75"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_ew0eo"]
 albedo = Color(0.976664, 0.867328, 0.607121, 1)
@@ -34,7 +34,13 @@ albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aen7r"]
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_j176o"]
+size = Vector3(1, 1.33899, 8.13812)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fg0sg"]
+albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wh2u4"]
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouf0b"]
@@ -53,9 +59,6 @@ albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxowv"]
-albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wh2u4"]
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_r56tv"]
@@ -288,6 +291,14 @@ mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_aen7r")
 
+[node name="RightBoundary" type="CollisionShape3D" parent="Rocks"]
+transform = Transform3D(1.615, 0, 0, 0, 12.765, 0, 0, 0, 4.755, -11.6481, 7.63429, 15.7888)
+shape = SubResource("BoxShape3D_j176o")
+
+[node name="LeftBoundary" type="CollisionShape3D" parent="Rocks"]
+transform = Transform3D(1.615, 0, 0, 0, 12.765, 0, 0, 0, 4.755, 0.450732, 7.63429, 15.7888)
+shape = SubResource("BoxShape3D_j176o")
+
 [node name="Environment" type="StaticBody3D" parent="."]
 
 [node name="Rock_Right8" type="MeshInstance3D" parent="Environment"]
@@ -296,8 +307,14 @@ mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_fg0sg")
 
+[node name="Rock_Right" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.949191, 0.193349, -5.76225e-09, -0.453558, 0.386051, -0.159879, -0.0995137, 0.0847022, 0.728689, -11.9826, -0.326227, 0.243243)
+mesh = SubResource("CapsuleMesh_mfmyg")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_wh2u4")
+
 [node name="Rock_Right7" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 3.10603, -12.6, -0.617722, 0)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 2.05654, -12.6, -0.617722, 0.385409)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ouf0b")
@@ -331,12 +348,6 @@ transform = Transform3D(0.699754, 0.148768, 0, -0.334368, 0.297038, -0.225273, -
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_bxowv")
-
-[node name="Rock_Right" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.949191, 0.193349, 0, -0.453558, 0.386051, -0.159879, -0.0995137, 0.0847022, 0.728689, -12.2835, 0.11802, 0.243243)
-mesh = SubResource("CapsuleMesh_mfmyg")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_wh2u4")
 
 [node name="Grass_Hill" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.00711808, 1.4386, 9.43574, -5.64462, 0.0090077, 0, -0.0141743, -2.8647, 4.73847, 2.76088, -4.82593, 15.9794)
@@ -447,7 +458,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
 
 [node name="Rock9" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-0.213836, -1.15797, -4.4542, 0.0946945, 1.75934, -2.96685, 2.1204, -0.195348, -0.316697, -14.223, -0.673966, 2.14483)
+transform = Transform3D(-0.213836, -1.15797, -4.4542, 0.0946945, 1.75934, -2.96685, 2.1204, -0.195348, -0.316697, -14.2081, -0.673966, 2.14483)
 mesh = SubResource("CapsuleMesh_r56tv")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ho30t")
