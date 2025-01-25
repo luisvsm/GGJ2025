@@ -14,7 +14,7 @@ albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kw1bi"]
-albedo_color = Color(0.683077, 0.683077, 0.683077, 1)
+albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtco4"]
 albedo_color = Color(0.292425, 0.159115, 0.0843603, 1)
@@ -25,8 +25,8 @@ albedo_color = Color(0.533333, 0.529412, 0.533333, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yewvi"]
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_b6ekm"]
-albedo_color = Color(0.568973, 0.568973, 0.568973, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8b7j"]
+albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yq7bo"]
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
@@ -284,7 +284,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yewvi")
 transform = Transform3D(0.62526, -0.16977, 0.000379615, 0.35214, 0.301443, -0.000219657, -0.000164022, 0.000133939, 0.975527, -10.092, -3.92534, 15.4089)
 mesh = SubResource("CapsuleMesh_mfmyg")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ORMMaterial3D_b6ekm")
+surface_material_override/0 = SubResource("StandardMaterial3D_x8b7j")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Rocks/RockMass_Left"]
 transform = Transform3D(-0.208774, 0.744188, 0.764021, -0.866845, 0.514586, -0.613748, -0.941504, -0.638801, 0.395662, 1.6491, -0.411176, 0.288081)
