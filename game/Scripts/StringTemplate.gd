@@ -1,7 +1,17 @@
 extends Node
 
 static var TemplateList:Array[String] = [
-	"Look for the [object descriptor] [object], especially when it’s cloudy."
+	"Look for the [object descriptor] [object], especially when it’s cloudy.",
+	"Strangely, the [object] [verb].",
+	"Far below, the [adjective] {object} [verb].",
+	"Although it was {weather}, everyone but the [animal] [ending verb].",
+	"Somewhere in the {environment} the [object] turned [colour].",
+	"They hadn’t [verb] near the [colour] {environment} for some time.",
+	"The [adjective] wind and [colour] sand [adverb] combined.",
+	"The [object] was {adverb} hidden in the {colour} [environment].",
+	"Under the {object descriptor} [object], the {animal} {ending verb}.",
+	"Where the [collective noun] are, the [colour] wind blows.",
+	"{Object}s may appear [objective descriptor]."
 ]
 
 static func HidePlayerBrackets(input:String, bracketOpen:String = "[", bracketClose:String = "]")->String:
