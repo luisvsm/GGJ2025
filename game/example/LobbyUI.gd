@@ -83,6 +83,16 @@ func _OnMessageFromLobbyServer(type:LobbyClientLogic.MessageType, message:Dictio
 					if user.userID == updatedUserReady["userID"]:
 						user.ready = updatedUserReady["ready"]
 			UpdateLobbyPlayers()
+		LobbyClientLogic.MessageType.StartGame:
+			lobby_status.text = "Joining server"
+			var ip = IP.resolve_hostname("luis.ggj25.helios.connectedplay.io")
+			var port = int(message["port"])
+			print("Joining %s:%s"%[ip,port])
+			
+			Multiplayer.join_game(
+				ip,
+				port
+			)
 		LobbyClientLogic.MessageType.ServerStatus:
 			lobby_status.text = message["message"]
 			if message["failed"] == true:

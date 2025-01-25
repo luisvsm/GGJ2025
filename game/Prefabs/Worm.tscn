@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://f6oigkwrnx5m"]
+
+[ext_resource type="Script" path="res://Scripts/worm.gd" id="1_pfn4j"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d0sm1"]
+height = 1.18822
+radius = 0.588332
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_56h4t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4qs5"]
+albedo_color = Color(1, 0.133333, 0.392157, 1)
+
+[node name="Area3D - Worm" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_pfn4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.257838, 0)
+shape = SubResource("CylinderShape3D_d0sm1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.267053, 0, 0, 0, 0.1, 0, -0.425341, 0.291922)
+mesh = SubResource("CapsuleMesh_56h4t")
+surface_material_override/0 = SubResource("StandardMaterial3D_g4qs5")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38621, 0.412152)
+visible = false
+pixel_size = 0.001
+modulate = Color(1, 0.0509804, 0.545098, 1)
+text = "WORM GET!!!"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-import { KubeConfig, CoreV1Api, V1Container, V1Pod, V1PodSpec, V1ObjectMeta } from '@kubernetes/client-node';
+import { KubeConfig, CoreV1Api, V1Container, V1Pod, V1PodSpec, V1ObjectMeta, V1EnvVar, V1ContainerPort } from '@kubernetes/client-node';
 
 import { randomUUID } from 'crypto';
 import needle from 'needle';
@@ -15,7 +15,7 @@ export interface GameServerPodInfo{
 export class KubeTime {
     public k8sApi: CoreV1Api;
     private podsBeingTerminated:{[id: string]:boolean} = {}
-    private localClusterIP = "10.152.183.34"
+    private localClusterIP = "10.0.0.3"
     private startingWebServicePort = 50
     private maxServers = 10;
 
@@ -72,6 +72,26 @@ export class KubeTime {
             let container = new V1Container();
             container.name = namespace + "-gameserver-" + randomUUID();
             container.image = "10.0.0.3:5000/ggj25/" + namespace +"-gameserver:" + clientVersion;
+            container.env = []
+            let envVar = new V1EnvVar()
+            envVar.name = "server"
+            envVar.value = "true"
+            container.env.push(envVar)
+
+            container.ports = []
+            let gameServUDP = new V1ContainerPort()
+            gameServUDP.protocol = "UDP"
+            gameServUDP.containerPort = 7000
+            let gameServTCP = new V1ContainerPort()
+            gameServTCP.protocol = "TCP"
+            gameServTCP.containerPort = 7000
+            let webServTCP = new V1ContainerPort()
+            webServTCP.protocol = "TCP"
+            webServTCP.containerPort = 8080
+
+            container.ports.push(gameServUDP)
+            container.ports.push(gameServTCP)
+            container.ports.push(webServTCP)
 
             let gameServerPod = new V1Pod();
             gameServerPod.apiVersion = "v1";
@@ -89,7 +109,7 @@ export class KubeTime {
             console.log("Created pod: " + container.name);
             return {
                 name:container.name,
-                port: Number("301" + ("00" + nextServerNumber.toString()).slice(-2))
+                port: Number("270" + (this.startingWebServicePort + nextServerNumber-1))
             }
             
         } catch (err) {
@@ -150,7 +170,7 @@ export class KubeTime {
     public async WaitForPodToBeReady(podName:string, gameMode:number | null = null):Promise<boolean>{
         const timeoutDurationInSeconds = 20;
 
-        let timeout = Date.now() + (timeoutDurationInSeconds * 10000);
+        let timeout = Date.now() + (timeoutDurationInSeconds * 1000);
         let ready = false;
 
         console.log("Waiting for pod: " + podName);
@@ -163,6 +183,7 @@ export class KubeTime {
                 serviceNumber = await this.GetPodPort(podName);
             }else{
                 try {
+                    console.log("Req: http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + serviceNumber-1) + "/info")
                     const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + serviceNumber-1) + "/info", {parse_response:false});
                     JSON.parse(resp.body);
                     console.log("Pod "+podName+" ready after " + (timeoutDurationInSeconds - ((timeout - Date.now())/1000)).toString() + " seconds.");
@@ -234,7 +255,7 @@ export class KubeTime {
                 if(gameModeToFind.toString() == gameMode){
                     return {
                         name: item.metadata.name,
-                        port: Number("301" + ("00" + serviceNumber.toString()).slice(-2))
+                        port: Number("270" + (this.startingWebServicePort + parseInt(serviceNumber)-1))
                     }
                 }
             }
@@ -273,12 +294,18 @@ export class KubeTime {
                 }
 
                 podsAlive.push(item.metadata.name);
-
-                const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
                 
-                if(resp.body.shouldTerminate === true){
+                const resp = await needle('get', "http://" + this.localClusterIP + ":302" + (this.startingWebServicePort + parseInt(serviceNumber)-1) + "/info");
+                const respJSON = JSON.parse(resp.body)
+                if(
+                    (respJSON.gameHasStarted == true && parseInt(respJSON.playersConnected) <= 0) ||
+                    (respJSON.gameHasStarted == false && parseInt(respJSON.uptime) > 30) ||
+                    respJSON.requestedTermination == true ||
+                    parseInt(respJSON.uptime) > 60 * 60 * 8 // More than 8 hours of uptime 
+                ){
                     discord.Post("Terminating pod: " + item.metadata.name);
                     console.log("Terminating " + item.metadata.name);
+                    console.log("Server details:", resp.body);
                     this.podsBeingTerminated[item.metadata.name] = true;
                     await this.k8sApi.deleteNamespacedPod({namespace, name:item.metadata.name});
                 }
