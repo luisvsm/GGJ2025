@@ -22,6 +22,7 @@ GameServerStatus="*res://game_server/GameServerStatus.gd"
 Multiplayer="*res://game_server/Multiplayer.gd"
 StringTemplate="*res://Scripts/StringTemplate.gd"
 Wordlist="*res://Scripts/wordlist.gd"
+Inventory="*res://Scripts/inventory.gd"
 
 [dotnet]
 
