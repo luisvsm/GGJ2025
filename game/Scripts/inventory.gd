@@ -1,11 +1,15 @@
 extends Node
 
+#Inventory Array (didn't make resizable)
+var inventory:Array[Word] = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+#Possibly use later to easily work out which types will be in which slots?
+#Eg Maybe max hold 2 nouns, 2 adjs, 2, verbs
+#@export var word_type
+#@export var word_effect
+#var scenepath:String = "res://Scenes/inventory.tscn"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func AddWord() -> String:
+	var randomword = Wordlist.Wordlist.pick_random()
+	inventory.append(randomword)
+	return randomword.text

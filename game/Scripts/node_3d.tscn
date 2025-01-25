@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://boxnbk17v857s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdbj2"]
+size = Vector2(124, 55)
+
+[sub_resource type="GDScript" id="GDScript_j3dur"]
+script/source = "extends Node
+
+var 
+"
+
+[node name="Inventory_Word" type="Node2D" groups=["Word"]]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(276, 278.5)
+shape = SubResource("RectangleShape2D_tdbj2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Area2D/CollisionShape2D" groups=["Word"]]
+offset_left = -26.0
+offset_top = -14.0
+offset_right = 37.0
+offset_bottom = 25.0
+text = "WORM"
+script = SubResource("GDScript_j3dur")

@@ -22,10 +22,17 @@ GameServerStatus="*res://game_server/GameServerStatus.gd"
 Multiplayer="*res://game_server/Multiplayer.gd"
 StringTemplate="*res://Scripts/StringTemplate.gd"
 Wordlist="*res://Scripts/wordlist.gd"
+Inventory="*res://Scripts/inventory.gd"
 
 [dotnet]
 
 project/assembly_name="New Game Project"
+
+[file_customization]
+
+folder_colors={
+"res://art_assets/": "yellow"
+}
 
 [input]
 
