@@ -1,8 +1,10 @@
+class_name Player
 extends RigidBody3D
 #@onready var mesh_instance_3d___body: MeshInstance3D = $"MeshInstance3D - Body"
 @onready var node_3d___body: Node3D = $"Node3D - Body"
 @onready var node_3d___tail: Node3D = $"Node3D - Body/Node3D - Tail"
 @onready var node_3d___head: Node3D = $"Node3D - Body/Node3D - Head"
+@onready var node_3d___worm_connection: Node3D = $"Node3D - Body/Node3D - Head/Node3D - WormConnection"
 
 @export var moveForce: float
 @export var jumpForce:float
@@ -12,7 +14,7 @@ extends RigidBody3D
 @export var tailFlapAngleDown:float
 @export var peckAngleUp:float
 @export var peckAngleDown:float
-
+#@export var wormConnectionPoint:Vector3
 
 var jumpCoolDownTimer:float = 0
 var jumped: bool = false
@@ -20,6 +22,7 @@ var leftFacing = true
 var TailFlapCoolDownTimer:float = 0
 var tailFlapping = false
 var pecking = false
+var canPeck = false
 
 var leftStickHAxis: float
 var deltaMoveVector: Vector3 = Vector3(0, 0, 0)
@@ -28,6 +31,8 @@ var deltaMoveVector: Vector3 = Vector3(0, 0, 0)
 func _ready() -> void:
 	continuous_cd = true
 	node_3d___tail.rotation.z = tailFlapAngleDown
+	#wormConnectionPoint = node_3d___worm_connection.position
+	#print (wormConnectionPoint)
 	#gravity_scale = 5
 
 
@@ -60,11 +65,12 @@ func _process(delta: float) -> void:
 			jumped = true
 			tailFlapping = true
 
-	if jumped == false:
-		if Input.get_action_strength("peck") > 0:
-			pecking = true
-		else:
-			pecking = false
+	if Input.get_action_strength("peck") > 0:
+		if jumped == false:
+			if canPeck == true:
+				pecking = true
+	else:
+		pecking = false
 	
 
 #################################################################################
@@ -92,6 +98,10 @@ func _process(delta: float) -> void:
 	if pecking == false:
 		node_3d___head.rotation_degrees.z = peckAngleUp
 	
-	print (leftFacing)
+	#print (leftFacing)
 	#print (mesh_instance_3d___body.rotation.y)
 	
+
+
+#func _on_area_3d__worm_body_entered(body: Node3D) -> void:
+#		print("&&&&&&&&&&&&")
