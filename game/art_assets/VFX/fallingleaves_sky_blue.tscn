@@ -29,13 +29,19 @@ point_count = 4
 curve = SubResource("Curve_b65rc")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xs7ep"]
-particle_flag_rotate_y = true
+lifetime_randomness = 0.5
 particle_flag_disable_z = true
-angle_min = -44.9
-angle_max = 1.07288e-05
+particle_flag_damping_as_friction = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 57.8
+angle_max = 102.7
 angle_curve = SubResource("CurveTexture_vui5h")
-orbit_velocity_min = 0.925
-orbit_velocity_max = 1.131
+velocity_pivot = Vector3(0, -3.92, 0)
+direction = Vector3(1.94, 1.05, 0)
+spread = 46.22
+orbit_velocity_min = -0.322
+orbit_velocity_max = 0.24
 orbit_velocity_curve = SubResource("CurveTexture_svv3c")
 scale_min = 0.25
 scale_max = 0.45
@@ -44,12 +50,13 @@ alpha_curve = SubResource("CurveTexture_5aq7e")
 hue_variation_curve = SubResource("CurveTexture_v2iv4")
 anim_speed_min = 1.95
 anim_speed_max = 1.95
+turbulence_enabled = true
 
 [sub_resource type="Skin" id="Skin_6r7hp"]
 
 [node name="FallingLeaves_SkyBlue" type="GPUParticles3D"]
 transform = Transform3D(1.14, 0, 0, 0, 1.14, 0, 0, 0, 1.14, 0, 0, 0)
-amount = 2
+amount = 20
 amount_ratio = 0.5
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_xs7ep")
