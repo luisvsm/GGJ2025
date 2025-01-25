@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5airj41ybyff"]
+[gd_scene load_steps=15 format=3 uid="uid://b5airj41ybyff"]
 
 [ext_resource type="Script" path="res://Scripts/WormManager.gd" id="1_uu0nw"]
 [ext_resource type="Script" path="res://Scripts/PlayerControllerRB.gd" id="1_vxo4f"]
-[ext_resource type="Script" path="res://Scripts/CameraMovement.gd" id="2_15rht"]
 [ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_31n82"]
 [ext_resource type="PackedScene" uid="uid://f6oigkwrnx5m" path="res://Scenes/Worm.tscn" id="4_kpwjx"]
 
@@ -37,11 +36,8 @@ script = ExtResource("1_uu0nw")
 wormSpawnExtentMin = -4.0
 wormSpawnExtentMax = 4.0
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("cameraTargetNode")]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.4047)
-script = ExtResource("2_15rht")
-cameraTargetNode = NodePath("../RigidBody3D - Player/Node3D - CameraLookAt")
-cameraMoveSpeed = 5.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 4)
@@ -142,26 +138,6 @@ mesh = SubResource("BoxMesh_tqi5r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D - Temp Ground/StaticBody3D9"]
 shape = SubResource("BoxShape3D_livgw")
 
-[node name="StaticBody3D10" type="StaticBody3D" parent="Node3D - Temp Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 0)
-physics_material_override = SubResource("PhysicsMaterial_hmjb8")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D - Temp Ground/StaticBody3D10"]
-mesh = SubResource("BoxMesh_tqi5r")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D - Temp Ground/StaticBody3D10"]
-shape = SubResource("BoxShape3D_livgw")
-
-[node name="StaticBody3D11" type="StaticBody3D" parent="Node3D - Temp Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
-physics_material_override = SubResource("PhysicsMaterial_hmjb8")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D - Temp Ground/StaticBody3D11"]
-mesh = SubResource("BoxMesh_tqi5r")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D - Temp Ground/StaticBody3D11"]
-shape = SubResource("BoxShape3D_livgw")
-
 [node name="RigidBody3D - Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 axis_lock_linear_z = true
@@ -176,9 +152,6 @@ jumpCoolDown = 0.5
 tailFlapCoolDown = 0.2
 tailFlapAngleUp = 35.0
 peckAngleDown = -45.0
-
-[node name="Node3D - CameraLookAt" type="Node3D" parent="RigidBody3D - Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D - Player"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00378418, 0.274023, 0)

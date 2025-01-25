@@ -4,7 +4,7 @@ extends RigidBody3D
 @onready var node_3d___body: Node3D = $"Node3D - Body"
 @onready var node_3d___tail: Node3D = $"Node3D - Body/Node3D - Tail"
 @onready var node_3d___head: Node3D = $"Node3D - Body/Node3D - Head"
-@onready var node_3d___worm_connection: Node3D = $"Node3D - Body/Node3D - Head/Node3D - WormConnection"
+#@onready var node_3d___worm_connection: Node3D = $"Node3D - Body/Node3D - Head/Node3D - WormConnection"
 
 @export var moveForce: float
 @export var jumpForce:float
@@ -15,6 +15,9 @@ extends RigidBody3D
 @export var peckAngleUp:float
 @export var peckAngleDown:float
 #@export var wormConnectionPoint:Vector3
+
+#@export var testNode:Node
+
 
 var jumpCoolDownTimer:float = 0
 var jumped: bool = false
@@ -61,9 +64,10 @@ func _process(delta: float) -> void:
 		
 	if Input.get_action_strength("jump") > 0:
 		if jumped == false:
-			apply_central_force(Vector3(0, jumpForce, 0))
-			jumped = true
-			tailFlapping = true
+			if pecking == false:
+				apply_central_force(Vector3(0, jumpForce, 0))
+				jumped = true
+				tailFlapping = true
 
 	if Input.get_action_strength("peck") > 0:
 		if jumped == false:
