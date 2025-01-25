@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3c344fu8jao8"
+path="res://.godot/imported/MapleLeaf_ForestGreen.obj-5ea0b189364073745de725074df289d0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MapleLeaf_ForestGreen.obj-5ea0b189364073745de725074df289d0.mesh"]
+
+source_file="res://art_assets/MapleLeaf_ForestGreen.obj"
+dest_files=["res://.godot/imported/MapleLeaf_ForestGreen.obj-5ea0b189364073745de725074df289d0.mesh", "res://.godot/imported/MapleLeaf_ForestGreen.obj-5ea0b189364073745de725074df289d0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
