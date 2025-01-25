@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv6bcfift2ret"]
+
+[ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="1_dwxtm"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_dwxtm")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundPlayers" type="Node" parent="."]
+
+[node name="SoundPLayer1" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="SoundPLayer2" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="SoundPLayer3" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="SoundPLayer4" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="SoundPLayer5" type="AudioStreamPlayer" parent="SoundPlayers"]
