@@ -6,6 +6,7 @@ extends VBoxContainer
 @onready var label_3: Label = $Label3
 @onready var label_4: Label = $Label4
 @onready var label_5: Label = $Label5
+@onready var check_box: CheckBox = $HBoxContainer/CheckBox
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +18,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func _on_check_box_pressed() -> void:
+	ProcessText()
+
 func _on_button_pressed() -> void:
 	ProcessText()
 	
@@ -24,8 +28,15 @@ func _on_text_edit_text_changed() -> void:
 	ProcessText()
 	
 func ProcessText() -> void:
-	label.text = StringTemplate.Process(text_edit.text)
-	label_2.text = StringTemplate.Process(text_edit.text)
-	label_3.text = StringTemplate.Process(text_edit.text)
-	label_4.text = StringTemplate.Process(text_edit.text)
-	label_5.text = StringTemplate.Process(text_edit.text)
+	if check_box.button_pressed:
+		label.text = StringTemplate.Process(StringTemplate.Process(text_edit.text),"[","]")
+		label_2.text = StringTemplate.Process(StringTemplate.Process(text_edit.text),"[","]")
+		label_3.text = StringTemplate.Process(StringTemplate.Process(text_edit.text),"[","]")
+		label_4.text = StringTemplate.Process(StringTemplate.Process(text_edit.text),"[","]")
+		label_5.text = StringTemplate.Process(StringTemplate.Process(text_edit.text),"[","]")
+	else:
+		label.text = StringTemplate.Process(text_edit.text)
+		label_2.text = StringTemplate.Process(text_edit.text)
+		label_3.text = StringTemplate.Process(text_edit.text)
+		label_4.text = StringTemplate.Process(text_edit.text)
+		label_5.text = StringTemplate.Process(text_edit.text)
