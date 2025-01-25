@@ -16,7 +16,7 @@ extends RigidBody3D
 @export var peckAngleDown:float
 #@export var wormConnectionPoint:Vector3
 
-#@export var testNode:Node
+@export var playerInventory: Inventory
 
 var currentWorm: Node
 
@@ -103,6 +103,8 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("debug_worm_get"):
 			print("WORM GET!!")
 			currentWorm.queue_free()
+			print(playerInventory.AddWord())
+			pecking == false
 			
 
 
