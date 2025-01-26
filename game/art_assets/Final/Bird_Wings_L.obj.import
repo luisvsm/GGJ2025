@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://o2m3nuh3f2iy"
+path="res://.godot/imported/Bird_Wings_L.obj-7cfa93f473bf0b74caf3eb6fc3a7e6f5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bird_Wings_L.obj-7cfa93f473bf0b74caf3eb6fc3a7e6f5.mesh"]
+
+source_file="res://art_assets/Final/Bird_Wings_L.obj"
+dest_files=["res://.godot/imported/Bird_Wings_L.obj-7cfa93f473bf0b74caf3eb6fc3a7e6f5.mesh", "res://.godot/imported/Bird_Wings_L.obj-7cfa93f473bf0b74caf3eb6fc3a7e6f5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
