@@ -62,11 +62,12 @@ static func AddWord(input:String, word:Word, bracketOpen:String = "[", bracketCl
 			if tag == stringToReplace:
 				return "%s%s%s"%[
 					input.substr(0, openingBracket),
-					TagToWord(stringToReplace),
+					word.text,
 					input.substr(closingBracket+1)
 				]
 		
 	return input
+	
 static func TagToWord(tagToReplace:String) -> String:
 	var possibleWords:Array[Word] = []
 	tagToReplace = tagToReplace.to_lower() 

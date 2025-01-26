@@ -18,21 +18,14 @@ func _ready() -> void:
 				leafPlatforms.append(newPlatform)
 				retryCount -= 1
 	
-func _input(event):
-	if event is InputEventKey:
-		if event.pressed && event.as_text_keycode() == "Space":
-			var leaf = leafPlatforms.pick_random()
-			var nextTag = StringTemplate.GetNextTag(leaf.templateString)
-			var nextWord = TagToWord(nextTag)
-			if nextWord != null:
-				leaf.AddWordToTemplate(nextWord)
 
 func GetClosestLeafPlatform(globalPosition:Vector3, maxDistance:float) -> LeafPlatform:
 	var closestPlatform:LeafPlatform = null
 	var cloststDistance:float
 	
 	for platform in leafPlatforms:
-		if closestPlatform == null || cloststDistance > closestPlatform.global_position.distance_to(platform.global_position):
+		var dist = platform.global_position.distance_to(globalPosition)
+		if dist < maxDistance && (closestPlatform == null || cloststDistance > dist) :
 			closestPlatform = platform
 			cloststDistance = closestPlatform.global_position.distance_to(platform.global_position)
 	

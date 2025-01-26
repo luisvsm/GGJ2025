@@ -37,7 +37,7 @@ var radialMenuPrefab:PackedScene
 var rng = RandomNumberGenerator.new()
 
 var currentWorm: Node
-
+var closetLeafPlatform:LeafPlatform
 var jumpCoolDownTimer:float = 0
 var jumped: bool = false
 var leftFacing = true
@@ -117,14 +117,14 @@ func _process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("debug_place_word"):
-		#var treeNode
-		#treeNode = radialMenuInstance.get_node("Node3D - Radial NW")
-		#treeInstance.leafPlatforms[0].AddWordToTemplate(playerInventory.inventory[0])
+		var treeNode
+		closetLeafPlatform = treeInstance.GetClosestLeafPlatform(global_position, 1)
 	
 		if (radialMenuInstance != null):
 			radialMenuVisible = false
 			radialMenuInstance.queue_free()
-		else:
+			closetLeafPlatform = null
+		elif closetLeafPlatform != null:
 			radialMenuVisible = true
 			radialMenuInstance = radialMenuPrefab.instantiate()
 			add_child(radialMenuInstance)
@@ -133,36 +133,52 @@ func _process(delta: float) -> void:
 	if radialMenuVisible == true:
 		if Input.is_action_just_pressed("debug_selsect_1"):
 			if playerInventory.inventory.size() >= 1:
+				AddBranchToLeafPlatform(playerInventory.inventory[0])
 				testTextLebel.text = playerInventory.inventory[0].text
 				print (playerInventory.inventory[0].text)
+				playerInventory.inventory.remove_at(0)
 		if Input.is_action_just_pressed("debug_selsect_2"):
 			if playerInventory.inventory.size() >= 2:
+				AddBranchToLeafPlatform(playerInventory.inventory[1])
 				testTextLebel.text = playerInventory.inventory[1].text
 				print (playerInventory.inventory[1].text)
+				playerInventory.inventory.remove_at(1)
 		if Input.is_action_just_pressed("debug_selsect_3"):
 			if playerInventory.inventory.size() >= 3:
+				AddBranchToLeafPlatform(playerInventory.inventory[2])
 				testTextLebel.text = playerInventory.inventory[2].text
 				print (playerInventory.inventory[2].text)
+				playerInventory.inventory.remove_at(2)
 		if Input.is_action_just_pressed("debug_selsect_4"):
 			if playerInventory.inventory.size() >= 4:
+				AddBranchToLeafPlatform(playerInventory.inventory[3])
 				testTextLebel.text = playerInventory.inventory[3].text
 				print (playerInventory.inventory[3].text)
+				playerInventory.inventory.remove_at(3)
 		if Input.is_action_just_pressed("debug_selsect_5"):
 			if playerInventory.inventory.size() >= 5:
+				AddBranchToLeafPlatform(playerInventory.inventory[4])
 				testTextLebel.text = playerInventory.inventory[4].text
 				print (playerInventory.inventory[4].text)
+				playerInventory.inventory.remove_at(4)
 		if Input.is_action_just_pressed("debug_selsect_6"):
 			if playerInventory.inventory.size() >= 6:
+				AddBranchToLeafPlatform(playerInventory.inventory[5],)
 				testTextLebel.text = playerInventory.inventory[5].text
 				print (playerInventory.inventory[5].text)
 		if Input.is_action_just_pressed("debug_selsect_7"):
 			if playerInventory.inventory.size() >= 7:
+				playerInventory.inventory.remove_at(5)
+				AddBranchToLeafPlatform(playerInventory.inventory[6])
 				testTextLebel.text = playerInventory.inventory[6].text
 				print (playerInventory.inventory[6].text)
+				playerInventory.inventory.remove_at(6)
 		if Input.is_action_just_pressed("debug_selsect_8"):
 			if playerInventory.inventory.size() >= 8:
+				AddBranchToLeafPlatform(playerInventory.inventory[7])
 				testTextLebel.text = playerInventory.inventory[7].text
 				print (playerInventory.inventory[7].text)
+				playerInventory.inventory.remove_at(7)
 		
 		
 		
@@ -209,6 +225,17 @@ func _process(delta: float) -> void:
 	#print (leftFacing)
 	#print (mesh_instance_3d___body.rotation.y)
 	
+
+func AddBranchToLeafPlatform(word:Word)->void:
+	var sentanceNeedsMoreWords = closetLeafPlatform.AddWordToTemplate(word)
+	print("sentanceNeedsMoreWords: %s"%sentanceNeedsMoreWords)
+	if sentanceNeedsMoreWords == false:
+		treeInstance.GrowNumberOfBranch(closetLeafPlatform)
+	
+	closetLeafPlatform = null
+	radialMenuVisible = false
+	radialMenuInstance.queue_free()
+	closetLeafPlatform = null
 
 func fillRadialMenuFromInventory():
 	#var tempNode = newPlayerInstance.get_node("Node3D - CameraLookAt").get_parent()
