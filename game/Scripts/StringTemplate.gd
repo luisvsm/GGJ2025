@@ -28,6 +28,7 @@ static func HidePlayerBrackets(input:String, bracketOpen:String = "[", bracketCl
 			input.substr(closingBracket+1)
 		], bracketOpen, bracketClose)
 		
+	input[0] = input[0].to_upper()
 	return input
 	
 static func Process(input:String, bracketOpen:String = "{", bracketClose:String = "}")->String:
