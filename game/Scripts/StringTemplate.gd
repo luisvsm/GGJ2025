@@ -1,20 +1,20 @@
 extends Node
 
 static var TemplateList:Array[String] = [
-	"Look for the [object descriptor] [object], especially when it’s cloudy.",
+	"Look for the [object descriptor] [object], \n especially when it’s cloudy.",
 	"{Adverb}, the [object] [verb].",
-	"Far below, the [adjective] {object} [verb].",
-	"Although it was {weather}, everyone but the [animal] [ending verb].",
-	"Somewhere in the {environment} the [object] turned [colour].",
-	"They hadn’t [verb] near the [colour] {environment} for some time.",
-	"The [adjective] wind and [colour] sand [adverb] combined.",
-	"The [object] was {adverb} hidden in the {colour} [environment].",
-	"Under the {object descriptor} [object], the {animal} {ending verb}.",
-	"Where the [collective noun] are, the [colour] wind blows.",
+	"Far below, the [adjective] \n {object} [verb].",
+	"Although it was {weather}, \n everyone but the [animal] [ending verb].",
+	"Somewhere in the {environment} \n the [object] turned [colour].",
+	"They hadn’t [verb] near the \n [colour] {environment} for some time.",
+	"The [adjective] wind and \n [colour] sand [adverb] combined.",
+	"The [object] was {adverb} \n hidden in the {colour} [environment].",
+	"Under the {object descriptor} [object], \n the {animal} {ending verb}.",
+	"Where the [collective noun] are, \n the [colour] wind blows.",
 	"The {object}s may appear [object descriptor].",
 	"A [animal] {verb} the [collective noun]",
 	"[verb] is how the {object} felt.",
-	"Why was the [object] {colour}? It's {weather}."
+	"Why was the [object] {colour}? \n It's {weather}."
 ]
 
 static func HidePlayerBrackets(input:String, bracketOpen:String = "[", bracketClose:String = "]")->String:
