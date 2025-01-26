@@ -1,6 +1,6 @@
 [gd_scene load_steps=52 format=3 uid="uid://cnljuy3jgomcb"]
 
-[ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_22xsx"]
+[ext_resource type="PackedScene" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_22xsx"]
 [ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_eopsk"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_4ei6m"]
