@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmm6mh7thsyu4"]
+[gd_scene load_steps=19 format=3 uid="uid://bmm6mh7thsyu4"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControllerRB.gd" id="1_cwjx1"]
 [ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_4grkb"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://84wik3dyjjvi" path="res://Prefabs/Radial Menu.tscn" id="5_dsch3"]
 [ext_resource type="ArrayMesh" uid="uid://bnwftyfwn27wm" path="res://art_assets/Final/Bird_Head.obj" id="5_r6s5s"]
 [ext_resource type="ArrayMesh" uid="uid://het5bgjvlcq8" path="res://art_assets/Final/Bird_Tail.obj" id="6_sutup"]
-[ext_resource type="ArrayMesh" uid="uid://gp26h8mrv8u5" path="res://art_assets/Final/Bird_Wings.obj" id="7_ky0cn"]
+[ext_resource type="ArrayMesh" uid="uid://o2m3nuh3f2iy" path="res://art_assets/Final/Bird_Wings_L.obj" id="7_q1v8j"]
+[ext_resource type="ArrayMesh" uid="uid://bc1kskc8o3gl5" path="res://art_assets/Final/Bird_Wings_R.obj" id="8_of7un"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xl34"]
 friction = 0.1
@@ -46,7 +47,7 @@ jumpForce = 300.0
 jumpCoolDown = 0.5
 tailFlapCoolDown = 0.2
 tailFlapAngleUp = 35.0
-wingFlapAngleUp = 35.0
+wingFlapAngleUp = 70.0
 peckAngleDown = -45.0
 maxInventory = 8
 nextWormTimerRangeMin = 1.0
@@ -123,18 +124,32 @@ material_override = SubResource("StandardMaterial3D_rh0x3")
 mesh = ExtResource("6_sutup")
 
 [node name="Node3D - WingL" type="Node3D" parent="Node3D - Body"]
-transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, -0.002, 0.244, 0)
+transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, -0.002, 0.258133, 0.0430904)
 
 [node name="MeshInstance3D - capsule" type="MeshInstance3D" parent="Node3D - Body/Node3D - WingL"]
 transform = Transform3D(0.0306161, 0.095198, 0, -0.095198, 0.0306161, 0, 0, 0, 0.1, -0.117035, 0, 0)
 
 [node name="Node3D" type="Node3D" parent="Node3D - Body/Node3D - WingL"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+transform = Transform3D(0.05, -4.44089e-16, 4.44089e-16, -4.44089e-16, 0.05, -3.48555e-16, 4.44089e-16, -3.48555e-16, 0.05, -0.0335344, -0.0337465, 3.0268e-09)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D - Body/Node3D - WingL/Node3D"]
-transform = Transform3D(-4.37114e-08, 8.74228e-08, 1, 3.55271e-15, 1, -8.74228e-08, -1, 1.64203e-15, -4.37114e-08, 0, 0, 0)
+[node name="MeshInstance3D - Wing L" type="MeshInstance3D" parent="Node3D - Body/Node3D - WingL/Node3D"]
+transform = Transform3D(-4.37114e-08, 8.74228e-08, 1, 3.55271e-15, 1, -8.74228e-08, -1, 1.64203e-15, -4.37114e-08, -1.19341e-07, -2.73019, 1.19209e-07)
 material_override = SubResource("StandardMaterial3D_rh0x3")
-mesh = ExtResource("7_ky0cn")
+mesh = ExtResource("7_q1v8j")
+
+[node name="Node3D - WingR" type="Node3D" parent="Node3D - Body"]
+transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, -0.002, 0.258, -0.043)
+
+[node name="MeshInstance3D - capsule" type="MeshInstance3D" parent="Node3D - Body/Node3D - WingR"]
+transform = Transform3D(0.0306161, 0.095198, 0, -0.095198, 0.0306161, 0, 0, 0, 0.1, -0.117035, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D - Body/Node3D - WingR"]
+transform = Transform3D(0.05, -6.66134e-16, 6.66134e-16, -6.66134e-16, 0.05, -5.706e-16, 6.66134e-16, -5.706e-16, 0.05, 0.0343522, -0.0337465, 0)
+
+[node name="MeshInstance3D - Wing L" type="MeshInstance3D" parent="Node3D - Body/Node3D - WingR/Node3D"]
+transform = Transform3D(-4.37114e-08, 8.74228e-08, 1, 3.55271e-15, 1, -8.74228e-08, -1, 1.64203e-15, -4.37114e-08, -1.19341e-07, -2.73019, 1.19209e-07)
+material_override = SubResource("StandardMaterial3D_rh0x3")
+mesh = ExtResource("8_of7un")
 
 [node name="Node - Inventory" type="Node" parent="."]
 script = ExtResource("4_ynj5i")
