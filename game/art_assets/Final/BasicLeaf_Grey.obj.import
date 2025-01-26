@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cd3v8vwypyxow"
+path="res://.godot/imported/BasicLeaf_Grey.obj-6e5ff8844ea89157f4dd1448b94c250b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BasicLeaf_Grey.obj-6e5ff8844ea89157f4dd1448b94c250b.mesh"]
+
+source_file="res://art_assets/Final/BasicLeaf_Grey.obj"
+dest_files=["res://.godot/imported/BasicLeaf_Grey.obj-6e5ff8844ea89157f4dd1448b94c250b.mesh", "res://.godot/imported/BasicLeaf_Grey.obj-6e5ff8844ea89157f4dd1448b94c250b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
