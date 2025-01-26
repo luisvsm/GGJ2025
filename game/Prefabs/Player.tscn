@@ -28,7 +28,7 @@ albedo_texture = ExtResource("3_hkv3c")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7vnfs"]
 
-[node name="RigidBody3D - Player" type="RigidBody3D" node_paths=PackedStringArray("playerInventory")]
+[node name="RigidBody3D - Player" type="RigidBody3D" node_paths=PackedStringArray("testTextLebel", "playerInventory")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -45,6 +45,7 @@ peckAngleDown = -45.0
 maxInventory = 8
 nextWormTimerRangeMin = 1.0
 nextWormTimerRangeMax = 2.0
+testTextLebel = NodePath("Label3D - Temp Text")
 playerInventory = NodePath("Node - Inventory")
 
 [node name="Node3D - CameraLookAt" type="Node3D" parent="."]
@@ -99,3 +100,7 @@ script = ExtResource("4_ynj5i")
 
 [node name="Node3D - Radial Menu Parent" parent="." instance=ExtResource("5_dsch3")]
 visible = false
+
+[node name="Label3D - Temp Text" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+pixel_size = 0.025

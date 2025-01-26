@@ -9,10 +9,10 @@ var music:Dictionary
 
 func _ready() -> void:
 	sounds = {
-		"test":preload("res://Audio/test.mp3")
+		#"test":preload("res://Audio/test.mp3")
 	}
 	music = {
-		"test":preload("res://Audio/test.mp3")
+		#"test":preload("res://Audio/test.mp3")
 	}
 	
 func PlaySound(soundID:String):

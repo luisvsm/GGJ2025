@@ -5,15 +5,19 @@ extends Node3D
 @export var wormManager:Node3D
 
 var playerPrefab = load("res://Prefabs//Player.tscn")
+var sceneryPrefab = load("res://Prefabs//scene_decorations.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var newPlayerInstance = playerPrefab.instantiate()
 	add_child(newPlayerInstance)
+	var newSceneDecorationsInstance = sceneryPrefab.instantiate()
+	add_child(newSceneDecorationsInstance)
+
 	var cameraLookAt = newPlayerInstance.get_node("Node3D - CameraLookAt")
 	cameraNode.cameraTargetNode = cameraLookAt
-	print(cameraNode.cameraTargetNode)
+	#print(cameraNode.cameraTargetNode)
 	var tempNode = newPlayerInstance.get_node("Node3D - CameraLookAt").get_parent()
 	tempNode.wormManager = wormManager
 	
