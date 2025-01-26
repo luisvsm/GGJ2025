@@ -40,6 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52609, 3.67815, 0.835429)
 omni_range = 50.0
 
 [node name="Node3D - Temp Ground" type="Node3D" parent="."]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D - Temp Ground"]
 physics_material_override = SubResource("PhysicsMaterial_hmjb8")
@@ -149,3 +150,6 @@ mesh = SubResource("BoxMesh_tqi5r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D - Temp Ground/StaticBody3D11"]
 shape = SubResource("BoxShape3D_livgw")
+
+[node name="Node3D" type="Node3D" parent="."]
+visible = false

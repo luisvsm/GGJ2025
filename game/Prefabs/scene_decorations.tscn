@@ -1,8 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://cnljuy3jgomcb"]
+[gd_scene load_steps=53 format=3 uid="uid://cnljuy3jgomcb"]
 
 [ext_resource type="PackedScene" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_22xsx"]
 [ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_eopsk"]
-[ext_resource type="PackedScene" path="res://Prefabs/RULER.tscn" id="3_0ouov"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ili10"]
 
@@ -147,7 +146,7 @@ albedo_color = Color(0.380392, 0.521569, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rpa6"]
 
 [node name="SceneDecorations" type="Node3D"]
-transform = Transform3D(-0.999999, -0.00152553, -0.000447666, -0.00152574, 0.999999, 0.000470404, 0.00044695, 0.000471085, -1, 0, 0, 0)
+transform = Transform3D(0.999999, 0.00174533, 0, -0.00174533, 0.999999, 0, 0, 0, 1, 0, -6.08646, 0)
 
 [node name="Lighting" type="Node" parent="."]
 
@@ -165,17 +164,10 @@ shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
-
 [node name="FallingLeaves" parent="." instance=ExtResource("1_22xsx")]
 transform = Transform3D(1.14, -2.10889e-11, 5.82077e-11, -1.91847e-11, 1.14, 0, -5.82077e-11, -5.82077e-11, 1.14, -0.00112356, 0.736399, 0.000346405)
 mesh1 = ExtResource("2_eopsk")
 mesh2 = SubResource("CapsuleMesh_ili10")
-
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="Node3D - Temp Ground" parent="Node3D" instance=ExtResource("3_0ouov")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="LevelEnvironment" type="Node3D" parent="."]
 transform = Transform3D(0.525, -5.57563e-11, 2.03727e-10, 6.17106e-11, 0.524999, 0, -2.03727e-10, -2.91038e-11, 0.525, 1.57625, 0.799672, 0.250926)
