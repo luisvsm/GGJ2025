@@ -5,6 +5,7 @@ extends RigidBody3D
 @onready var node_3d___tail: Node3D = $"Node3D - Body/Node3D - Tail"
 @onready var node_3d___head: Node3D = $"Node3D - Body/Node3D - Head"
 #@onready var node_3d___worm_connection: Node3D = $"Node3D - Body/Node3D - Head/Node3D - WormConnection"
+#@onready var node_3d___radial_menu_parent: Node3D = $"Node3D - Radial Menu Parent"
 
 @export var moveForce: float
 @export var jumpForce:float
@@ -25,6 +26,9 @@ var currentNextWormTimer: float
 
 @export var playerInventory: Inventory
 @export var wormManager: WormManager
+#@export var radialMenuPrefab: Node3D
+var radialMenuInstance:Node3D
+var radialMenuPrefab:PackedScene
 
 var rng = RandomNumberGenerator.new()
 
@@ -44,11 +48,12 @@ var deltaMoveVector: Vector3 = Vector3(0, 0, 0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	continuous_cd = true
-	node_3d___tail.rotation.z = tailFlapAngleDown
-	#currentNextWormTimer = 
-	currentNextWormTimer = rng.randf_range(nextWormTimerRangeMin, nextWormTimerRangeMax)
-	print(currentNextWormTimer)
+	radialMenuPrefab = load("res://Prefabs//Radial Menu.tscn")
 	
+	node_3d___tail.rotation.z = tailFlapAngleDown
+	currentNextWormTimer = rng.randf_range(nextWormTimerRangeMin, nextWormTimerRangeMax)
+	print(currentNextWormTimer)	
+	#node_3d___radial_menu_parent.set_process(false)
 	#wormConnectionPoint = node_3d___worm_connection.position
 	#print (wormConnectionPoint)
 	#gravity_scale = 5
@@ -64,6 +69,7 @@ func _process(delta: float) -> void:
 		currentNextWormTimer = rng.randf_range(nextWormTimerRangeMin, nextWormTimerRangeMax)
 		wormManager._spawnWorm()
 
+#################################################################################
 	
 	
 	leftStickHAxis = Input.get_axis("move_left", "move_right")
@@ -100,6 +106,19 @@ func _process(delta: float) -> void:
 	else:
 		pecking = false
 	
+	
+	
+	if Input.is_action_just_pressed("debug_place_word"):
+		if (radialMenuInstance != null):
+			radialMenuInstance.queue_free()
+		else:
+			radialMenuInstance = radialMenuPrefab.instantiate()
+			add_child(radialMenuInstance)
+			fillRadialMenuFromInventory()
+		
+		if playerInventory.inventory.size() > 0:
+			print(playerInventory.RemoveRandomWord())
+
 
 #################################################################################
 
@@ -141,6 +160,59 @@ func _process(delta: float) -> void:
 	#print (mesh_instance_3d___body.rotation.y)
 	
 
+func fillRadialMenuFromInventory():
+	#var tempNode = newPlayerInstance.get_node("Node3D - CameraLookAt").get_parent()
+	#tempNode.wormManager = wormManager
+	var tempNode
 
-#func _on_area_3d__worm_body_entered(body: Node3D) -> void:
-#		print("&&&&&&&&&&&&")
+	tempNode = radialMenuInstance.get_node("Node3D - Radial NW").get_node("Label3D NW")
+	if playerInventory.inventory.size() < 8:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[7].text
+	
+	tempNode = radialMenuInstance.get_node("Node3D - Radial W").get_node("Label3D W")
+	if playerInventory.inventory.size() < 7:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[6].text
+	
+	tempNode = radialMenuInstance.get_node("Node3D - Radial SW").get_node("Label3D SW")
+	if playerInventory.inventory.size() < 6:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[5].text
+	
+	tempNode = radialMenuInstance.get_node("Node3D - Radial S").get_node("Label3D S")
+	if playerInventory.inventory.size() < 5:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[4].text
+	
+	tempNode = radialMenuInstance.get_node("Node3D - Radial SE").get_node("Label3D SE")
+	if playerInventory.inventory.size() < 4:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[3].text
+	
+	tempNode = radialMenuInstance.get_node("Node3D - Radial E").get_node("Label3D E")
+	if playerInventory.inventory.size() < 3:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[2].text
+	
+	tempNode = radialMenuInstance.get_node("Node3D - Radial NE").get_node("Label3D NE")
+	if playerInventory.inventory.size() < 2:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[1].text
+	
+	tempNode = radialMenuInstance.get_node("Node3D - Radial N").get_node("Label3D N")
+	if playerInventory.inventory.size() < 1:
+		tempNode.text = ""
+	else:
+		tempNode.text = playerInventory.inventory[0].text
+
+	
+	for n in playerInventory.inventory.size():
+		print (playerInventory.inventory[n].text)

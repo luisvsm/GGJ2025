@@ -1,79 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3bq7d4662wy8"]
+[gd_scene load_steps=6 format=3 uid="uid://b3bq7d4662wy8"]
 
-[ext_resource type="RibbonTrailMesh" uid="uid://cqjxq3jwl8dlk" path="res://Scenes/Leaves/VFX_Leaf_Pointed.tres" id="1_ndx7u"]
+[ext_resource type="Script" path="res://Scripts/VFX_AssignLeafMesh.gd" id="1_dsqx5"]
+[ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_0v34m"]
+[ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="3_a7jsi"]
 
-[sub_resource type="CurveTexture" id="CurveTexture_5aq7e"]
+[sub_resource type="PrismMesh" id="PrismMesh_gwa14"]
 
-[sub_resource type="Curve" id="Curve_umr6w"]
-min_value = -360.0
-max_value = 360.0
-_data = [Vector2(0, -223.421), 0.0, 0.0, 0, 0, Vector2(0.512706, 152.898), 0.0, 0.0, 0, 0, Vector2(0.926756, -109.768), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_vui5h"]
-curve = SubResource("Curve_umr6w")
-
-[sub_resource type="Curve" id="Curve_edial"]
-min_value = -1.0
-_data = [Vector2(0, -0.753913), 0.0, 0.0, 0, 0, Vector2(0.382661, 0.621155), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0, Vector2(1, -0.627631), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_v2iv4"]
-curve = SubResource("Curve_edial")
-
-[sub_resource type="Curve" id="Curve_b65rc"]
-_data = [Vector2(0, 0.301943), 0.0, 0.0, 0, 0, Vector2(0.328849, 0.445764), -22.1532, -22.1532, 0, 0, Vector2(0.769806, 0.407178), -11.7337, -11.7337, 0, 0, Vector2(0.93423, 0.231786), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_svv3c"]
-curve = SubResource("Curve_b65rc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xs7ep"]
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-angle_min = -44.9
-angle_max = 1.07288e-05
-angle_curve = SubResource("CurveTexture_vui5h")
-orbit_velocity_min = 0.925
-orbit_velocity_max = 1.131
-orbit_velocity_curve = SubResource("CurveTexture_svv3c")
-scale_min = 0.25
-scale_max = 0.45
-color = Color(0.674826, 0.746631, 0.460675, 1)
-alpha_curve = SubResource("CurveTexture_5aq7e")
-hue_variation_curve = SubResource("CurveTexture_v2iv4")
-anim_speed_min = 1.95
-anim_speed_max = 1.95
-
-[sub_resource type="Skin" id="Skin_6r7hp"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8udj3"]
-specular_mode = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.150432, 0.304378, 0.218399, 0.956863)
-emission_enabled = true
-emission = Color(0.082181, 0.33313, 0, 1)
-emission_energy_multiplier = 7.52
-
-[sub_resource type="PrismMesh" id="PrismMesh_87hea"]
-material = SubResource("StandardMaterial3D_8udj3")
+[sub_resource type="SphereMesh" id="SphereMesh_0haju"]
 
 [node name="Vfx" type="Node"]
+script = ExtResource("1_dsqx5")
+mesh1 = ExtResource("2_0v34m")
+mesh2 = ExtResource("2_0v34m")
 
-[node name="FallingLeaves_SkyBlue" type="GPUParticles3D" parent="."]
-transform = Transform3D(1.14, 0, 0, 0, 1.14, 0, 0, 0, 1.14, 0, 0, 0)
-amount = 2
-amount_ratio = 0.5
-collision_base_size = 0.0
-process_material = SubResource("ParticleProcessMaterial_xs7ep")
-draw_passes = 2
-draw_pass_1 = ExtResource("1_ndx7u")
-draw_pass_2 = null
-draw_skin = SubResource("Skin_6r7hp")
-
-[node name="FallingLeaves_TeaGreen" type="GPUParticles3D" parent="."]
-visible = false
-amount = 2
-collision_base_size = 0.0
-process_material = SubResource("ParticleProcessMaterial_xs7ep")
-draw_pass_1 = SubResource("PrismMesh_87hea")
+[node name="FallingLeaves" parent="." instance=ExtResource("3_a7jsi")]
+draw_pass_1 = SubResource("PrismMesh_gwa14")
+draw_pass_2 = SubResource("SphereMesh_0haju")
