@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5airj41ybyff"]
+[gd_scene load_steps=8 format=3 uid="uid://b5airj41ybyff"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerManager.gd" id="1_m2bgw"]
 [ext_resource type="Script" path="res://Scripts/WormManager.gd" id="1_uu0nw"]
@@ -10,6 +10,8 @@ friction = 0.5
 [sub_resource type="BoxMesh" id="BoxMesh_tqi5r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_livgw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ywohk"]
 
 [node name="Node3D - BirdGameplay" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00975609, 0, 0.00597763)
@@ -152,4 +154,25 @@ mesh = SubResource("BoxMesh_tqi5r")
 shape = SubResource("BoxShape3D_livgw")
 
 [node name="Node3D" type="Node3D" parent="."]
-visible = false
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -9.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_ywohk")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Node3D"]
+
+[node name="Lighting" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(-0.714018, -0.412929, -0.565392, 0.510108, -0.859959, -0.0161374, -0.479551, -0.299933, 0.824664, 13.9543, 7.75656, -2.29314)
+light_color = Color(0.932462, 0.87129, 0.755288, 1)
+light_volumetric_fog_energy = 1000.0
+light_angular_distance = 19.2
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(-0.82675, 0.395957, -0.399629, 0.0429482, 0.752714, 0.656945, 0.560929, 0.525966, -0.639312, 17.7061, 15.3227, -22.2907)
+light_energy = 0.52
+light_volumetric_fog_energy = 3.453
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0

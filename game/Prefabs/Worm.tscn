@@ -1,12 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://f6oigkwrnx5m"]
 
 [ext_resource type="Script" path="res://Scripts/worm.gd" id="1_pfn4j"]
+[ext_resource type="ArrayMesh" uid="uid://bhrxctf5jli38" path="res://art_assets/Final/Worm.obj" id="2_wxyji"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d0sm1"]
 height = 1.18822
 radius = 0.588332
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_56h4t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4qs5"]
 albedo_color = Color(1, 0.133333, 0.392157, 1)
@@ -20,8 +19,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.257838, 0)
 shape = SubResource("CylinderShape3D_d0sm1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.267053, 0, 0, 0, 0.1, 0, -0.425341, 0.291922)
-mesh = SubResource("CapsuleMesh_56h4t")
+transform = Transform3D(0.04, 0, 0, 0, 0.15, 0, 0, 0, 0.04, 0, -0.620965, 0.291922)
+mesh = ExtResource("2_wxyji")
 surface_material_override/0 = SubResource("StandardMaterial3D_g4qs5")
 
 [node name="Label3D" type="Label3D" parent="."]
