@@ -28,6 +28,7 @@ static func HidePlayerBrackets(input:String, bracketOpen:String = "[", bracketCl
 			input.substr(closingBracket+1)
 		], bracketOpen, bracketClose)
 		
+	input[0] = input[0].to_upper()
 	return input
 	
 static func Process(input:String, bracketOpen:String = "{", bracketClose:String = "}")->String:
@@ -62,11 +63,12 @@ static func AddWord(input:String, word:Word, bracketOpen:String = "[", bracketCl
 			if tag == stringToReplace:
 				return "%s%s%s"%[
 					input.substr(0, openingBracket),
-					TagToWord(stringToReplace),
+					word.text,
 					input.substr(closingBracket+1)
 				]
 		
 	return input
+	
 static func TagToWord(tagToReplace:String) -> String:
 	var possibleWords:Array[Word] = []
 	tagToReplace = tagToReplace.to_lower() 
