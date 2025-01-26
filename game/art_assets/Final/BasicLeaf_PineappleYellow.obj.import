@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cye7qbstws40p"
+path="res://.godot/imported/BasicLeaf_PineappleYellow.obj-562b6a9bc8e108cd1747bee1545ce45d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BasicLeaf_PineappleYellow.obj-562b6a9bc8e108cd1747bee1545ce45d.mesh"]
+
+source_file="res://art_assets/Final/BasicLeaf_PineappleYellow.obj"
+dest_files=["res://.godot/imported/BasicLeaf_PineappleYellow.obj-562b6a9bc8e108cd1747bee1545ce45d.mesh", "res://.godot/imported/BasicLeaf_PineappleYellow.obj-562b6a9bc8e108cd1747bee1545ce45d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
