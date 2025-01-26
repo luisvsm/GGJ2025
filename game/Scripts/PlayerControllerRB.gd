@@ -23,6 +23,7 @@ var timePassedSinceLastWorm: float
 var currentNextWormTimer: float
 
 #@export var wormConnectionPoint:Vector3
+@export var testTextLebel: Label3D
 
 @export var playerInventory: Inventory
 @export var wormManager: WormManager
@@ -45,6 +46,9 @@ var canPeck = false
 var leftStickHAxis: float
 var deltaMoveVector: Vector3 = Vector3(0, 0, 0)
 
+var radialMenuVisible: bool = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	continuous_cd = true
@@ -64,7 +68,7 @@ func _process(delta: float) -> void:
 	
 	timePassedSinceLastWorm += delta
 	if timePassedSinceLastWorm >= currentNextWormTimer:
-		print("NEW WORM TIME!!!!!!!!!!!!")
+		#print("NEW WORM TIME!!!!!!!!!!!!")
 		timePassedSinceLastWorm = 0
 		currentNextWormTimer = rng.randf_range(nextWormTimerRangeMin, nextWormTimerRangeMax)
 		wormManager._spawnWorm()
@@ -110,14 +114,52 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug_place_word"):
 		if (radialMenuInstance != null):
+			radialMenuVisible = false
 			radialMenuInstance.queue_free()
 		else:
+			radialMenuVisible = true
 			radialMenuInstance = radialMenuPrefab.instantiate()
 			add_child(radialMenuInstance)
 			fillRadialMenuFromInventory()
+	
+	if radialMenuVisible == true:
+		if Input.is_action_just_pressed("debug_selsect_1"):
+			if playerInventory.inventory.size() >= 1:
+				testTextLebel.text = playerInventory.inventory[0].text
+				print (playerInventory.inventory[0].text)
+		if Input.is_action_just_pressed("debug_selsect_2"):
+			if playerInventory.inventory.size() >= 2:
+				testTextLebel.text = playerInventory.inventory[1].text
+				print (playerInventory.inventory[1].text)
+		if Input.is_action_just_pressed("debug_selsect_3"):
+			if playerInventory.inventory.size() >= 3:
+				testTextLebel.text = playerInventory.inventory[2].text
+				print (playerInventory.inventory[2].text)
+		if Input.is_action_just_pressed("debug_selsect_4"):
+			if playerInventory.inventory.size() >= 4:
+				testTextLebel.text = playerInventory.inventory[3].text
+				print (playerInventory.inventory[3].text)
+		if Input.is_action_just_pressed("debug_selsect_5"):
+			if playerInventory.inventory.size() >= 5:
+				testTextLebel.text = playerInventory.inventory[4].text
+				print (playerInventory.inventory[4].text)
+		if Input.is_action_just_pressed("debug_selsect_6"):
+			if playerInventory.inventory.size() >= 6:
+				testTextLebel.text = playerInventory.inventory[5].text
+				print (playerInventory.inventory[5].text)
+		if Input.is_action_just_pressed("debug_selsect_7"):
+			if playerInventory.inventory.size() >= 7:
+				testTextLebel.text = playerInventory.inventory[6].text
+				print (playerInventory.inventory[6].text)
+		if Input.is_action_just_pressed("debug_selsect_8"):
+			if playerInventory.inventory.size() >= 8:
+				testTextLebel.text = playerInventory.inventory[7].text
+				print (playerInventory.inventory[7].text)
 		
-		if playerInventory.inventory.size() > 0:
-			print(playerInventory.RemoveRandomWord())
+		
+		
+		#if playerInventory.inventory.size() > 0:
+		#	print(playerInventory.RemoveRandomWord())
 
 
 #################################################################################
@@ -143,7 +185,7 @@ func _process(delta: float) -> void:
 	if pecking == true:
 		node_3d___head.rotation_degrees.z = peckAngleDown
 		if Input.is_action_just_pressed("debug_worm_get"):
-			print("WORM GET!!")
+			#print("WORM GET!!")
 			currentWorm.queue_free()
 			if playerInventory.inventory.size() < maxInventory:
 				#playerInventory.AddWord()
