@@ -472,7 +472,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"crimson rosella",
 		["animal", "object"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.CandyRed)]
 	),
 	Word.create(
 		"spotted pardalote",
@@ -487,7 +487,7 @@ static var Wordlist:Array[Word] = [
 	Word.create(
 		"sulphur-crested cockatoo",
 		["animal", "object"],
-		[]
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.PineappleYellowBlending)]
 	),
 	Word.create(
 		"eastern quoll",

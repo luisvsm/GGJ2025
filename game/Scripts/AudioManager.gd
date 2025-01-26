@@ -34,10 +34,10 @@ func _ready() -> void:
 		"worm3":preload("res://Audio/WormSpawns03.wav"),
 	}
 	music = {
-		#"test":preload("res://Audio/test.mp3")
+		"theme":preload("res://Audio/Theme.mp3")
 	}
 	ambient = {
-		#"test":preload("res://Audio/test.mp3")
+		"ambient":preload("res://Audio/Ambient-Forest.wav")
 	}
 	
 func PlaySound(soundID:String):

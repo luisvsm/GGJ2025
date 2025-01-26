@@ -14,31 +14,31 @@ var rng = RandomNumberGenerator.new()
 static var leafMeshByColourAndType:Dictionary = {
 	TreeEffect.LeafColours.TeaGreen:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_TeaGreen.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_TeaGreen.obj")
 	},
 	TreeEffect.LeafColours.CandyRed:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_CandyRed.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_CandyRed.obj")
 	},
 	TreeEffect.LeafColours.PineappleYellowBlending:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_PinappleYellow.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_PineappleYellow.obj")
 	},
 	TreeEffect.LeafColours.CadmiumWhite:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_CadmiumWhite.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_CadmiumWhite.obj")
 	},
 	TreeEffect.LeafColours.Grey:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_Grey.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_Grey.obj")
 	},
 	TreeEffect.LeafColours.TigerOrange:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_TigerPrange.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_TigerOrange.obj")
 	},
 	TreeEffect.LeafColours.Bronze:{
 		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_Bronze.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_Bronze.obj")
 	},
 }
 
