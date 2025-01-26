@@ -17,3 +17,5 @@ func SetMeshes(mesh1Input:Mesh, mesh2Input:Mesh) -> void:
 func UpdateMeshVariables():
 	draw_pass_1 = mesh1
 	draw_pass_2 = mesh2
+	print(mesh1)
+	print(mesh2)
