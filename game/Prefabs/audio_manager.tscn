@@ -5,6 +5,8 @@
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_dwxtm")
 
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="SoundPlayers" type="Node" parent="."]
