@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_e2i51"]
 [ext_resource type="PackedScene" uid="uid://bmm6mh7thsyu4" path="res://Prefabs/Player.tscn" id="1_p6366"]
-[ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_5xemg"]
 [ext_resource type="Material" uid="uid://4eotk2h6duvx" path="res://art_assets/GrassMaterial.tres" id="2_bk7lu"]
+[ext_resource type="ArrayMesh" uid="uid://cea1rrkve2f54" path="res://art_assets/Final/MapleLeaf_Bronze.obj" id="4_0ycek"]
+[ext_resource type="ArrayMesh" uid="uid://oas0sdfnh5eb" path="res://art_assets/Final/MapleLeaf_PinappleYellow.obj" id="5_qc1i8"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_4ei6m"]
 
@@ -141,8 +142,6 @@ albedo_color = Color(0.419608, 0.572549, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8y6t8"]
 albedo_color = Color(0.301296, 0.416112, 0, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ili10"]
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5730a"]
 particle_flag_rotate_y = true
 gravity = Vector3(0, 0.5, 0)
@@ -162,6 +161,8 @@ transform = Transform3D(-0.999999, -0.00152553, -0.000447666, -0.00152574, 0.999
 
 [node name="RigidBody3D - Player" parent="." instance=ExtResource("1_p6366")]
 transform = Transform3D(1, -4.5091e-11, 8.73115e-11, 3.0586e-10, 1, 0, -1.16415e-10, 0, 1, -6.83027, -0.192463, -0.00408562)
+tailFlapAngleDown = null
+peckAngleUp = null
 
 [node name="Lighting" type="Node" parent="."]
 
@@ -607,8 +608,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74227e-08, 0, -1, 0.0090
 [node name="FallingLeavesVFX" parent="." instance=ExtResource("1_e2i51")]
 transform = Transform3D(1.14, -2.10321e-11, 1.74623e-10, -1.91278e-11, 1.14, 0, -1.74623e-10, -1.74623e-10, 1.14, -4.33643, 0.729785, -0.00159438)
 visible = false
-mesh1 = ExtResource("2_5xemg")
-mesh2 = SubResource("CapsuleMesh_ili10")
+mesh1 = ExtResource("4_0ycek")
+mesh2 = ExtResource("5_qc1i8")
 
 [node name="TextVFX" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.999999, 1.87612e-10, 2.61934e-10, 8.87979e-10, 0.999999, 0, -4.65661e-10, 0, 1, -6.39656, 0.165218, -0.00278111)

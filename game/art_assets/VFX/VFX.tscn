@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3bq7d4662wy8"]
+[gd_scene load_steps=8 format=3 uid="uid://b3bq7d4662wy8"]
 
 [ext_resource type="Script" path="res://Scripts/VFX_AssignLeafMesh.gd" id="1_dsqx5"]
 [ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_0v34m"]
 [ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="3_a7jsi"]
+[ext_resource type="ArrayMesh" uid="uid://c0jvrxr5iafmx" path="res://art_assets/Final/MapleLeaf_DijonYellow.obj" id="4_wjvvi"]
+[ext_resource type="ArrayMesh" uid="uid://cea1rrkve2f54" path="res://art_assets/Final/MapleLeaf_Bronze.obj" id="5_iyb8i"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_gwa14"]
+[sub_resource type="PrismMesh" id="PrismMesh_p1r2w"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_0haju"]
+[sub_resource type="PrismMesh" id="PrismMesh_nmfqh"]
 
 [node name="Vfx" type="Node"]
 script = ExtResource("1_dsqx5")
@@ -14,5 +16,8 @@ mesh1 = ExtResource("2_0v34m")
 mesh2 = ExtResource("2_0v34m")
 
 [node name="FallingLeaves" parent="." instance=ExtResource("3_a7jsi")]
-draw_pass_1 = SubResource("PrismMesh_gwa14")
-draw_pass_2 = SubResource("SphereMesh_0haju")
+lifetime = 4.0
+draw_pass_1 = SubResource("PrismMesh_p1r2w")
+draw_pass_2 = SubResource("PrismMesh_nmfqh")
+mesh1 = ExtResource("4_wjvvi")
+mesh2 = ExtResource("5_iyb8i")
