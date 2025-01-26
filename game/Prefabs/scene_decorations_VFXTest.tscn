@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_e2i51"]
 [ext_resource type="PackedScene" uid="uid://bmm6mh7thsyu4" path="res://Prefabs/Player.tscn" id="1_p6366"]
 [ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_5xemg"]
+[ext_resource type="Material" uid="uid://4eotk2h6duvx" path="res://art_assets/GrassMaterial.tres" id="2_bk7lu"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_4ei6m"]
 
@@ -120,16 +121,13 @@ albedo_color = Color(0.533333, 0.529412, 0.533333, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afs5d"]
 albedo_color = Color(0.533333, 0.529412, 0.533333, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4rst6"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_xlopc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vrqn"]
 albedo_color = Color(0.768627, 1, 0.937255, 0.643137)
 metallic = 0.7
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8dtak"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8egfh"]
-albedo_color = Color(0.419608, 0.572549, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qw4pt"]
 albedo_color = Color(0.435294, 0.282353, 0.176471, 1)
@@ -182,6 +180,7 @@ shadow_bias = 0.0
 shadow_normal_bias = 0.0
 
 [node name="Rocks" type="StaticBody3D" parent="."]
+transform = Transform3D(1, -4.50342e-11, 2.91038e-11, 7.30438e-11, 1, 0, -5.82077e-11, 0, 1, 0, 0, 0)
 
 [node name="RockMass_Left" type="CollisionShape3D" parent="Rocks"]
 shape = SubResource("HeightMapShape3D_4ei6m")
@@ -321,6 +320,7 @@ transform = Transform3D(1.615, 0, 0, 0, 12.765, 0, 0, 0, 4.755, 0.450732, 7.6342
 shape = SubResource("BoxShape3D_j176o")
 
 [node name="Environment" type="StaticBody3D" parent="."]
+transform = Transform3D(1, -4.50342e-11, 2.91038e-11, 7.30438e-11, 1, 0, -5.82077e-11, 0, 1, 0, 0, 0)
 
 [node name="Rock_Right8" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.468232, -0.156275, 0, 0.420416, 0.174049, 0, 0, 0, 0.435628, -14.593, -0.349689, 0.00674248)
@@ -547,7 +547,17 @@ mesh = SubResource("PrismMesh_31j0g")
 surface_material_override/0 = SubResource("StandardMaterial3D_afs5d")
 
 [node name="GroundAppearance" type="StaticBody3D" parent="."]
-transform = Transform3D(0.00280995, 0.999996, 0, -0.999996, 0.00280995, 0, 0, 0, 1, -1.35258, -0.403237, 0)
+transform = Transform3D(0.00280995, 0.999996, 2.91038e-11, -0.999996, 0.00280995, 0, 0, -5.82077e-11, 1, -1.35258, -0.403237, 5.82077e-11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundAppearance"]
+transform = Transform3D(25.87, -2.1264e-09, 1.86265e-09, 4.2618e-08, 25.87, 1.86265e-09, 3.72529e-09, 2.79397e-09, 25.87, 12.96, -14.02, 0.083)
+shape = SubResource("BoxShape3D_4rst6")
+
+[node name="Grass Level Platform" type="MeshInstance3D" parent="GroundAppearance/CollisionShape3D"]
+transform = Transform3D(0.0441243, 1.09756e-09, -1.09139e-11, -7.43547e-11, 1.58561, 3.63798e-12, -1.81899e-12, 1.16415e-10, 0.116853, -0.482235, 0.339319, -0.00946509)
+mesh = SubResource("BoxMesh_xlopc")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_bk7lu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(42.9134, -1.24737e-08, 4.65661e-10, 1.45064e-08, 46.0304, 4.65661e-10, 0, 0, 5.79812, -17.4748, -6.32052, 28.8509)
@@ -567,24 +577,14 @@ mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4vrqn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundAppearance"]
-transform = Transform3D(1.1399, 1.67569e-08, 0, -6.98492e-10, 27.3464, 0, 0, 0, 3.02299, 0.44913, -5.24138, -0.161779)
-shape = SubResource("BoxShape3D_8dtak")
-
-[node name="Grass_Platform" type="MeshInstance3D" parent="GroundAppearance/CollisionShape3D"]
-transform = Transform3D(1.0014, -1.08987e-11, 0, 7.27596e-12, 1.5, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_xlopc")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_8egfh")
-
-[node name="Grass_Platform2" type="MeshInstance3D" parent="GroundAppearance"]
+[node name="Dirt Platform" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(3.59477, 5.28153e-08, 0, -4.65661e-09, 40.7719, 0, 0, 0, 3.02299, 2.45452, -5.24702, 0.135832)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qw4pt")
 
 [node name="Grass2" type="MeshInstance3D" parent="GroundAppearance"]
-transform = Transform3D(3.43621, -3.94492, -0.959046, 0.399176, 35.2074, -0.0214419, 0.737367, -0.675862, 4.48087, 5.02126, -5.25423, 14.4702)
+transform = Transform3D(3.45879, -0.492339, -0.956359, 0.0621689, 35.4243, 0.0723926, 0.737205, -0.677387, 4.48091, 5.02126, -5.25423, 14.4702)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_rp66h")
@@ -595,7 +595,7 @@ mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_061kh")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="GroundAppearance"]
+[node name="Grass_Level2" type="MeshInstance3D" parent="GroundAppearance"]
 transform = Transform3D(2.76185, -0.000546165, -2.13595, 4.273e-05, 42.4739, 0.000260642, 0.384381, -0.000797348, 15.3472, 4.1609, -5.26869, 24.8953)
 mesh = SubResource("BoxMesh_xlopc")
 skeleton = NodePath("")
