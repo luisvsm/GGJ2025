@@ -6,6 +6,7 @@ extends RigidBody3D
 @onready var node_3d___head: Node3D = $"Node3D - Body/Node3D - Head"
 #@onready var node_3d___worm_connection: Node3D = $"Node3D - Body/Node3D - Head/Node3D - WormConnection"
 #@onready var node_3d___radial_menu_parent: Node3D = $"Node3D - Radial Menu Parent"
+@onready var node_3d___wing_l: Node3D = $"Node3D - Body/Node3D - WingL"
 
 @export var moveForce: float
 @export var jumpForce:float
@@ -13,6 +14,8 @@ extends RigidBody3D
 @export var tailFlapCoolDown:float
 @export var tailFlapAngleUp:float
 @export var tailFlapAngleDown:float
+@export var wingFlapAngleUp:float
+@export var wingFlapAngleDown:float
 @export var peckAngleUp:float
 @export var peckAngleDown:float
 @export var maxInventory:int
@@ -58,6 +61,7 @@ func _ready() -> void:
 	radialMenuPrefab = load("res://Prefabs//Radial Menu.tscn")
 	
 	node_3d___tail.rotation.z = tailFlapAngleDown
+	node_3d___wing_l.rotation.z = wingFlapAngleDown
 	currentNextWormTimer = rng.randf_range(nextWormTimerRangeMin, nextWormTimerRangeMax)
 	print(currentNextWormTimer)	
 	#node_3d___radial_menu_parent.set_process(false)
@@ -203,8 +207,10 @@ func _process(delta: float) -> void:
 		
 	if tailFlapping == true:
 		node_3d___tail.rotation_degrees.z = tailFlapAngleUp
+		node_3d___wing_l.rotation_degrees.z = wingFlapAngleUp
 	if tailFlapping == false:
 		node_3d___tail.rotation_degrees.z = tailFlapAngleDown
+		node_3d___wing_l.rotation_degrees.z = wingFlapAngleDown
 		
 	if pecking == true:
 		node_3d___head.rotation_degrees.z = peckAngleDown

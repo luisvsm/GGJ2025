@@ -5,11 +5,11 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_jl77i"]
 
 [node name="Tree" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
 script = ExtResource("1_nupdu")
 
 [node name="TreeTrunk" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.350941, 0, 0, 0, 1, 0, 0.587116, 0)
+transform = Transform3D(1, 0, 0, 0, 0.350941, 0, 0, 0, 1, 0, 0.587, -0.2)
 mesh = SubResource("CylinderMesh_jl77i")
 
 [node name="AttachmentPoints" type="Node3D" parent="."]
