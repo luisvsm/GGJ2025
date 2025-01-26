@@ -6,6 +6,11 @@ point_count = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjmko"]
 albedo_color = Color(0.0980392, 0.72549, 1, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [resource]
 material = SubResource("StandardMaterial3D_cjmko")

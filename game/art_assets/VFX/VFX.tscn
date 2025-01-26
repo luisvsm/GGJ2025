@@ -1,24 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3bq7d4662wy8"]
+[gd_scene load_steps=6 format=3 uid="uid://b3bq7d4662wy8"]
 
-[ext_resource type="PackedScene" uid="uid://cymxu6ytyaq58" path="res://art_assets/VFX/fallingleaves_sky_blue.tscn" id="1_qnqpw"]
-[ext_resource type="PackedScene" uid="uid://cq5sk4onj7swr" path="res://art_assets/VFX/fallingleaves_tea_green.tscn" id="2_c4cqf"]
+[ext_resource type="Script" path="res://Scripts/VFX_AssignLeafMesh.gd" id="1_dsqx5"]
+[ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_0v34m"]
+[ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="3_a7jsi"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_gwa14"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0haju"]
 
 [node name="Vfx" type="Node"]
+script = ExtResource("1_dsqx5")
+mesh1 = ExtResource("2_0v34m")
+mesh2 = ExtResource("2_0v34m")
 
-[node name="FallingLeaves_SkyBlue" parent="." instance=ExtResource("1_qnqpw")]
-visible = false
-amount = 3
-speed_scale = 0.5
-explosiveness = 0.43
-randomness = 0.15
-trail_lifetime = 0.01
-
-[node name="FallingLeaves_Meshtest" parent="." instance=ExtResource("1_qnqpw")]
-amount = 5
-lifetime = 0.73
-speed_scale = 0.45
-randomness = 0.15
-trail_lifetime = 0.01
-draw_passes = 1
-
-[node name="FallingLeaves_TeaGreen" parent="." instance=ExtResource("2_c4cqf")]
+[node name="FallingLeaves" parent="." instance=ExtResource("3_a7jsi")]
+draw_pass_1 = SubResource("PrismMesh_gwa14")
+draw_pass_2 = SubResource("SphereMesh_0haju")
