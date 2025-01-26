@@ -230,6 +230,7 @@ func AddBranchToLeafPlatform(word:Word)->void:
 	var sentanceNeedsMoreWords = closetLeafPlatform.AddWordToTemplate(word)
 	print("sentanceNeedsMoreWords: %s"%sentanceNeedsMoreWords)
 	if sentanceNeedsMoreWords == false:
+		closetLeafPlatform.branchIsComplete = true
 		treeInstance.GrowNumberOfBranch(closetLeafPlatform)
 	
 	closetLeafPlatform = null
