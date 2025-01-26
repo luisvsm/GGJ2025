@@ -1,5 +1,6 @@
 class_name LeafPlatform extends Node3D
 
+const FALLING_LEAVES = preload("res://art_assets/VFX/FallingLeaves.tscn")
 @onready var leaf_text: Label3D = $LeafText
 @onready var leafNodeParent: Node3D = $LeafNodes
 @onready var branch_attachment_points: Node3D = $BranchAttachmentPoints
@@ -12,60 +13,32 @@ var branchIsComplete = false
 var rng = RandomNumberGenerator.new()
 static var leafMeshByColourAndType:Dictionary = {
 	TreeEffect.LeafColours.TeaGreen:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
-	},
-	TreeEffect.LeafColours.ForestGreen:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
-	},
-	TreeEffect.LeafColours.SkyBlue:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
-	},
-	TreeEffect.LeafColours.OlympicBlue:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_TeaGreen.obj"),
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_TeaGreen.obj")
 	},
 	TreeEffect.LeafColours.CandyRed:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
-	},
-	TreeEffect.LeafColours.CurrantRed:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_CandyRed.obj"),
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_CandyRed.obj")
 	},
 	TreeEffect.LeafColours.PineappleYellowBlending:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
-	},
-	TreeEffect.LeafColours.Dijon:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_PinappleYellow.obj"),
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_PineappleYellow.obj")
 	},
 	TreeEffect.LeafColours.CadmiumWhite:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_CadmiumWhite.obj"),
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_CadmiumWhite.obj")
 	},
 	TreeEffect.LeafColours.Grey:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
-	},
-	TreeEffect.LeafColours.SlateGrey:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
-	},
-	TreeEffect.LeafColours.Coal:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_Grey.obj"),
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_Grey.obj")
 	},
 	TreeEffect.LeafColours.TigerOrange:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_TigerPrange.obj"),
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_TigerOrange.obj")
 	},
 	TreeEffect.LeafColours.Bronze:{
-		TreeEffect.LeafShape.Maple:preload("res://art_assets/Leaf_Test_WithColour.obj"),
-		TreeEffect.LeafShape.Fig:preload("res://art_assets/Leaf_Test_WithColour.obj")
+		TreeEffect.LeafShape.Maple:preload("res://art_assets/Final/MapleLeaf_Bronze.obj"),
+		TreeEffect.LeafShape.Fig:preload("res://art_assets/Final/BasicLeaf_Bronze.obj")
 	},
 }
 
@@ -82,8 +55,32 @@ func AddWordToTemplate(word:Word) -> bool:
 	UpdateTemplateText()
 	var openingBracket = templateString.find("[")
 	var closingBracket = templateString.find("]")
-	
-	return openingBracket >= 0 && closingBracket >= 0
+	var sentanceIsNotComplete = openingBracket >= 0 && closingBracket >= 0
+	if sentanceIsNotComplete == false:
+		var leafShapes:Array = []
+		var leafColours:Array = []
+		
+		for effect in treeEffects:
+			if effect.type == TreeEffect.EffectType.leafColour:
+				leafColours.append(effect.value)
+			elif effect.type == TreeEffect.EffectType.leafShape:
+				leafShapes.append(effect.value)
+				
+		var newLeafParticles = FALLING_LEAVES.instantiate()
+		if leafColours.size() == 0:
+			leafColours.append(TreeEffect.LeafColours.ForestGreen)
+			
+		if leafShapes.size() == 0:
+			leafShapes.append(TreeEffect.LeafShape.Fig)
+			
+		newLeafParticles.SetMeshes(
+			leafMeshByColourAndType[leafColours.pick_random()][leafShapes.pick_random()],
+			leafMeshByColourAndType[leafColours.pick_random()][leafShapes.pick_random()]
+		)
+			
+		add_child(newLeafParticles)
+		
+	return sentanceIsNotComplete
 
 func UpdateTemplateText() -> void:
 	leaf_text.text = StringTemplate.HidePlayerBrackets(templateString)
@@ -109,6 +106,7 @@ func GrowLeaf(treeEffects:Array[TreeEffect]):
 	if leafShapes.size() == 0:
 		leafShapes.append(TreeEffect.LeafShape.Fig)
 		
+	
 	print("leafNodeParent.get_children()!")
 	for leaf in leafNodeParent.get_children():
 		leaf.mesh = leafMeshByColourAndType[leafColours.pick_random()][leafShapes.pick_random()]

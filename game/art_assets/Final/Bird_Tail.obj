@@ -1,5 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
+mtllib Bird_Tail.mtl
 g default
 v -1.677142 2.495747 0.000000
 v -1.600373 2.473526 -0.475332
@@ -399,6 +400,7 @@ vn 0.499956 -0.865724 -0.023787
 vn 0.453598 -0.890835 -0.025711
 s 1
 g Bird_Tail
+usemtl lambert10SG
 f 44/1/1 45/2/2 7/3/3 8/4/4
 f 43/5/5 44/1/1 8/4/4 10/6/6
 f 50/12/7 51/7/8 2/8/9 16/13/10

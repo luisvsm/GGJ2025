@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cfk76ssasvk04"
+path="res://.godot/imported/BasicLeaf_Bronze.obj-b7cd80bc1f4ad430b77e0a66e82bfe19.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BasicLeaf_Bronze.obj-b7cd80bc1f4ad430b77e0a66e82bfe19.mesh"]
+
+source_file="res://art_assets/Final/BasicLeaf_Bronze.obj"
+dest_files=["res://.godot/imported/BasicLeaf_Bronze.obj-b7cd80bc1f4ad430b77e0a66e82bfe19.mesh", "res://.godot/imported/BasicLeaf_Bronze.obj-b7cd80bc1f4ad430b77e0a66e82bfe19.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

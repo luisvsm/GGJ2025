@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://djnlqcbevkk8w" path="res://art_assets/Final/MapleLeaf_TeaGreen.obj" id="5_ca1q0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrj7s"]
-size = Vector3(0.850622, 0.0991974, 0.369168)
+size = Vector3(2.06665, 0.0246964, 3.77485)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atmmx"]
 albedo_texture = ExtResource("2_xeyi0")
@@ -14,17 +14,17 @@ albedo_texture = ExtResource("2_xeyi0")
 [node name="LeafPlatform" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0969942, 0, 0)
 script = ExtResource("1_1t2ct")
-platformSize = 0.5
+platformSize = 1.0
 
 [node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120903, 0, 0.0326509)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0366976, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0357554, 0.190227, -0.0203588)
 shape = SubResource("BoxShape3D_wrj7s")
 
 [node name="LeafText" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.130876, -0.0909299, 0.306935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.130876, 0.0852101, 0.556807)
 pixel_size = 0.002
 text = "Look for the ____ ____, when 
 it’s cloudy.
@@ -33,7 +33,7 @@ font_size = 80
 outline_size = 20
 
 [node name="LeafNodes" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0458052)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.0458052)
 
 [node name="LeafNode35" type="MeshInstance3D" parent="LeafNodes"]
 transform = Transform3D(0.0443312, 0.00616662, 0.0222871, -0.0104729, -0.0376099, 0.031238, 0.020617, -0.0323646, -0.0320542, 0.2284, 0.180944, -0.0106592)
