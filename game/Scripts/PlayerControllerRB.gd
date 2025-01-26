@@ -31,6 +31,9 @@ var currentNextWormTimer: float
 var radialMenuInstance:Node3D
 var radialMenuPrefab:PackedScene
 
+@export var treeInstance: gameTree
+
+
 var rng = RandomNumberGenerator.new()
 
 var currentWorm: Node
@@ -61,6 +64,7 @@ func _ready() -> void:
 	#wormConnectionPoint = node_3d___worm_connection.position
 	#print (wormConnectionPoint)
 	#gravity_scale = 5
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -113,6 +117,10 @@ func _process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("debug_place_word"):
+		#var treeNode
+		#treeNode = radialMenuInstance.get_node("Node3D - Radial NW")
+		#treeInstance.leafPlatforms[0].AddWordToTemplate(playerInventory.inventory[0])
+	
 		if (radialMenuInstance != null):
 			radialMenuVisible = false
 			radialMenuInstance.queue_free()

@@ -2,9 +2,11 @@ extends Node
 
 var sounds:Dictionary
 var music:Dictionary
+var ambient:Dictionary
 
 @onready var sound_players: Node = $SoundPlayers
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var ambient_player: AudioStreamPlayer = $AmbientPlayer
 
 
 func _ready() -> void:
@@ -34,6 +36,9 @@ func _ready() -> void:
 	music = {
 		#"test":preload("res://Audio/test.mp3")
 	}
+	ambient = {
+		#"test":preload("res://Audio/test.mp3")
+	}
 	
 func PlaySound(soundID:String):
 	if sounds[soundID]:
@@ -52,3 +57,10 @@ func PlayMusic(musicID:String):
 		music_player.play()
 	else:
 		print("Missing sound: %s"%musicID)
+		
+func PlayAmbient(ambientID:String):
+	if ambient[ambientID]:
+		ambient_player.stream = ambient[ambientID]
+		ambient_player.play()
+	else:
+		print("Missing ambient: %s"%ambientID)

@@ -72,10 +72,14 @@ func _ready() -> void:
 	templateString = StringTemplate.Process(StringTemplate.TemplateList.pick_random())
 	UpdateTemplateText()
 
-func AddWordToTemplate(word:Word) -> void:
+func AddWordToTemplate(word:Word) -> bool:
 	treeEffects.append_array(word.treeEffects)
 	templateString = StringTemplate.AddWord(templateString, word)
 	UpdateTemplateText()
+	var openingBracket = templateString.find("[")
+	var closingBracket = templateString.find("]")
+	
+	return openingBracket >= 0 && closingBracket >= 0
 
 func UpdateTemplateText() -> void:
 	leaf_text.text = StringTemplate.HidePlayerBrackets(templateString)

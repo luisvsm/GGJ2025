@@ -1,4 +1,5 @@
-extends Node
+
+class_name gameTree extends Node3D
 const BRANCH = preload("res://Prefabs/Branch.tscn")
 const LEAF_PLATFORM_SMALL = preload("res://Prefabs/LeafPlatformSmall.tscn")
 @onready var attachment_points: Node3D = $AttachmentPoints
@@ -26,10 +27,27 @@ func _input(event):
 			if nextWord != null:
 				leaf.AddWordToTemplate(nextWord)
 
-func GrowNumberOfBranches(leafToStartAt:LeafPlatform, numberOfBranchesToGrow:int):
+func GetClosestLeafPlatform(globalPosition:Vector3, maxDistance:float) -> LeafPlatform:
+	var closestPlatform:LeafPlatform = null
+	var cloststDistance:float
+	
+	for platform in leafPlatforms:
+		if closestPlatform == null || cloststDistance > closestPlatform.global_position.distance_to(platform.global_position):
+			closestPlatform = platform
+			cloststDistance = closestPlatform.global_position.distance_to(platform.global_position)
+	
+	return closestPlatform
+
+func GrowNumberOfBranch(leafToStartAt:LeafPlatform):
 	var attachmentPoint = leafToStartAt.GetAttachmentPoint()
 	var retryCount = 10
 	
+	var numberOfBranchesToGrow = 1
+	
+	for effect in leafToStartAt.treeEffects:
+		if effect.type == TreeEffect.EffectType.numberOfBranches:
+			numberOfBranchesToGrow += int(effect.value)
+			
 	while attachmentPoint != null && numberOfBranchesToGrow > 0 && retryCount > 0:
 		var newLeafPlatform = GrowBranch(attachmentPoint.global_position)
 		if newLeafPlatform != null:
