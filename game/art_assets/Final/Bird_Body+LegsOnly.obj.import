@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://br8tms4q2bhxm"
+path="res://.godot/imported/Bird_Body+LegsOnly.obj-fe07f2a6df0c346d3ff21ff3e140d594.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bird_Body+LegsOnly.obj-fe07f2a6df0c346d3ff21ff3e140d594.mesh"]
+
+source_file="res://art_assets/Final/Bird_Body+LegsOnly.obj"
+dest_files=["res://.godot/imported/Bird_Body+LegsOnly.obj-fe07f2a6df0c346d3ff21ff3e140d594.mesh", "res://.godot/imported/Bird_Body+LegsOnly.obj-fe07f2a6df0c346d3ff21ff3e140d594.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
