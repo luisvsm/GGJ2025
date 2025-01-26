@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cea1rrkve2f54"
+path="res://.godot/imported/MapleLeaf_Bronze.obj-3652bf7e8d06bd8bb079a40ed9c36c55.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MapleLeaf_Bronze.obj-3652bf7e8d06bd8bb079a40ed9c36c55.mesh"]
+
+source_file="res://art_assets/Final/MapleLeaf_Bronze.obj"
+dest_files=["res://.godot/imported/MapleLeaf_Bronze.obj-3652bf7e8d06bd8bb079a40ed9c36c55.mesh", "res://.godot/imported/MapleLeaf_Bronze.obj-3652bf7e8d06bd8bb079a40ed9c36c55.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
