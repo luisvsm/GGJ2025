@@ -25,7 +25,7 @@ func GetClosestLeafPlatform(globalPosition:Vector3, maxDistance:float) -> LeafPl
 	
 	for platform in leafPlatforms:
 		var dist = platform.global_position.distance_to(globalPosition)
-		if dist < maxDistance && (closestPlatform == null || cloststDistance > dist) :
+		if dist < maxDistance && platform.branchIsComplete == false && (closestPlatform == null || cloststDistance > dist) :
 			closestPlatform = platform
 			cloststDistance = closestPlatform.global_position.distance_to(platform.global_position)
 	

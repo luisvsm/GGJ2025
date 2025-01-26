@@ -6,6 +6,7 @@ class_name LeafPlatform extends Node3D
 var branch:Branch
 var templateString:String
 var treeEffects:Array[TreeEffect] = []
+var branchIsComplete = false
 
 @export var platformSize:float
 var rng = RandomNumberGenerator.new()

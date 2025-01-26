@@ -12,9 +12,6 @@ script = ExtResource("1_nupdu")
 transform = Transform3D(1, 0, 0, 0, 0.350941, 0, 0, 0, 1, 0, 0.587116, 0)
 mesh = SubResource("CylinderMesh_jl77i")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.416617, 1.54591, 2.41905)
-
 [node name="AttachmentPoints" type="Node3D" parent="."]
 
 [node name="Attachment" type="Node3D" parent="AttachmentPoints"]
