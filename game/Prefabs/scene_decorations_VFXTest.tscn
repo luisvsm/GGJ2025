@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d1ti110jiqck"]
+[gd_scene load_steps=60 format=3 uid="uid://d1ti110jiqck"]
 
 [ext_resource type="PackedScene" uid="uid://2yperprxnrdp" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_e2i51"]
 [ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_5xemg"]
@@ -143,6 +143,56 @@ albedo_color = Color(0.419608, 0.572549, 0, 1)
 albedo_color = Color(0.301296, 0.416112, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ili10"]
+
+[sub_resource type="Curve" id="Curve_u8b0c"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.0094697, -209.455), 0.0, 0.0, 0, 0, Vector2(0.524621, 346.909), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2o43r"]
+curve = SubResource("Curve_u8b0c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r33ms"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_curve = SubResource("CurveTexture_2o43r")
+inherit_velocity_ratio = 0.306
+spread = 22.986
+flatness = 0.191
+gravity = Vector3(8.43, -0.14, 0)
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_126dk"]
+metallic_specular = 0.82
+emission = Color(0.819608, 0.705882, 0.196078, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_l6emk"]
+material = SubResource("StandardMaterial3D_126dk")
+shape = 0
+size = 2.025
+sections = 2
+section_length = 0.02
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5730a"]
+particle_flag_rotate_y = true
+gravity = Vector3(6.045, 0.87, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mboa"]
+
+[sub_resource type="TextMesh" id="TextMesh_hxf10"]
+material = SubResource("StandardMaterial3D_6mboa")
+text = "TWEET"
+font_size = 77
+uppercase = true
 
 [node name="SceneDecorations" type="Node3D"]
 transform = Transform3D(-0.999999, -0.00152553, -0.000447666, -0.00152574, 0.999999, 0.000470404, 0.00044695, 0.000471085, -1, 0, 0, 0)
@@ -586,7 +636,31 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8y6t8")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74227e-08, 0, -1, 0.00904503, 0.00953353, -20.2373)
 
-[node name="FallingLeaves" parent="." instance=ExtResource("1_e2i51")]
+[node name="FallingLeavesVFX" parent="." instance=ExtResource("1_e2i51")]
 transform = Transform3D(1.14, -2.10321e-11, 1.74623e-10, -1.91278e-11, 1.14, 0, -1.74623e-10, -1.74623e-10, 1.14, -4.33643, 0.729785, -0.00159438)
+visible = false
 mesh1 = ExtResource("2_5xemg")
 mesh2 = SubResource("CapsuleMesh_ili10")
+
+[node name="SpeakVFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.023162, -8.11884e-12, -9.98625e-10, -1.37979e-11, 0.0204018, -2.27374e-12, 2.04091e-09, -6.36646e-12, -0.0114113, -6.79237, 1.28679, -0.00242965)
+visibility_range_begin = 0.5
+visibility_range_begin_margin = 2.0
+visibility_range_end = 7.0
+visibility_range_end_margin = 2.0
+amount = 4
+lifetime = 3.0
+speed_scale = 3.18
+explosiveness = 0.32
+randomness = 0.75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_r33ms")
+draw_pass_1 = SubResource("RibbonTrailMesh_l6emk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, -4.50626e-11, 5.82077e-11, 1.89459e-10, 1, 0, -8.73115e-11, 0, 1, -5.68433, 3.29661, -0.000987632)
+amount = 1
+lifetime = 2.0
+speed_scale = 1.65
+process_material = SubResource("ParticleProcessMaterial_5730a")
+draw_pass_1 = SubResource("TextMesh_hxf10")
