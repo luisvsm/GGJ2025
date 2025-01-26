@@ -1,4 +1,5 @@
-extends Node
+
+class_name gameTree extends Node3D
 const BRANCH = preload("res://Prefabs/Branch.tscn")
 const LEAF_PLATFORM_SMALL = preload("res://Prefabs/LeafPlatformSmall.tscn")
 @onready var attachment_points: Node3D = $AttachmentPoints
