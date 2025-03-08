@@ -54,6 +54,17 @@ static func GetNextTag(input:String, bracketOpen:String = "[", bracketClose:Stri
 		
 	return ""
 
+static func DoesThisWordFitTheSentance(input:String, word:Word, bracketOpen:String = "[", bracketClose:String = "]")->bool:
+	var openingBracket = input.find(bracketOpen)
+	var closingBracket = input.find(bracketClose)
+	if openingBracket >= 0 && closingBracket >= 0:
+		var stringToReplace = input.substr(openingBracket+1, closingBracket-openingBracket-1)
+		for tag in word.tags:
+			if tag == stringToReplace:
+				return true
+		
+	return false
+	
 static func AddWord(input:String, word:Word, bracketOpen:String = "[", bracketClose:String = "]")->String:
 	var openingBracket = input.find(bracketOpen)
 	var closingBracket = input.find(bracketClose)

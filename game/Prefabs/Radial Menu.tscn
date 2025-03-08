@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://84wik3dyjjvi"]
+[gd_scene load_steps=3 format=3 uid="uid://bmi4j0r4akgxc"]
+
+[ext_resource type="Script" path="res://Scripts/radial_menu.gd" id="1_dbsyh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_rsmye"]
 
 [node name="Node3D - Radial Menu Parent" type="Node3D"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.4, 1)
+script = ExtResource("1_dbsyh")
+closeToBranchColour = Color(0.790961, 0.951215, 0.935887, 1)
+farAwayFromBranchColour = Color(0.512706, 0.518153, 0.562525, 1)
+wordCanBeUsedColour = Color(0.245301, 0.599787, 0.300473, 1)
 
 [node name="Node3D - Radial N" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

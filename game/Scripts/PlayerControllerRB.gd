@@ -32,7 +32,7 @@ var currentNextWormTimer: float
 @export var playerInventory: Inventory
 @export var wormManager: WormManager
 #@export var radialMenuPrefab: Node3D
-var radialMenuInstance:Node3D
+var radialMenuInstance:RadialMenu
 var radialMenuPrefab:PackedScene
 
 @export var treeInstance: gameTree
@@ -130,13 +130,13 @@ func _process(delta: float) -> void:
 			radialMenuVisible = false
 			radialMenuInstance.queue_free()
 			closetLeafPlatform = null
-		elif closetLeafPlatform != null:
+		else:
 			radialMenuVisible = true
 			radialMenuInstance = radialMenuPrefab.instantiate()
 			add_child(radialMenuInstance)
-			fillRadialMenuFromInventory()
+			fillRadialMenuFromInventory(closetLeafPlatform)
 	
-	if radialMenuVisible == true:
+	if closetLeafPlatform != null && radialMenuVisible == true:
 		if Input.is_action_just_pressed("debug_selsect_1"):
 			if playerInventory.inventory.size() >= 1:
 				AddBranchToLeafPlatform(playerInventory.inventory[0])
@@ -252,10 +252,17 @@ func AddBranchToLeafPlatform(word:Word)->void:
 	radialMenuInstance.queue_free()
 	closetLeafPlatform = null
 
-func fillRadialMenuFromInventory():
+func fillRadialMenuFromInventory(platform:LeafPlatform):
 	#var tempNode = newPlayerInstance.get_node("Node3D - CameraLookAt").get_parent()
 	#tempNode.wormManager = wormManager
 	var tempNode
+	
+	if platform == null:
+		radialMenuInstance.setLabelsDisabled()
+	else:
+		radialMenuInstance.setLabelsEnabled()
+		radialMenuInstance.highlightWordsThatCanBeUsed(playerInventory.inventory, platform.templateString)
+		
 
 	tempNode = radialMenuInstance.get_node("Node3D - Radial NW").get_node("Label3D NW")
 	if playerInventory.inventory.size() < 8:

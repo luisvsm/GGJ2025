@@ -48,6 +48,10 @@ func _ready() -> void:
 
 func AddWordToTemplate(word:Word) -> bool:
 	print("AddWordToTemplate: %s"%word.text)
+	if StringTemplate.DoesThisWordFitTheSentance(templateString, word) == false:
+		print("Word does not fit the sentance")
+		return true
+		
 	print("before templateString: %s"%templateString)
 	treeEffects.append_array(word.treeEffects)
 	templateString = StringTemplate.AddWord(templateString, word)

@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://br8tms4q2bhxm" path="res://art_assets/Final/Bird_Body+LegsOnly.obj" id="4_bk08d"]
 [ext_resource type="Texture2D" uid="uid://bxx6undlaxdct" path="res://art_assets/Willy_lambert5SG_Metallic.png" id="4_d2b7k"]
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="4_ynj5i"]
-[ext_resource type="PackedScene" path="res://Prefabs/Radial Menu.tscn" id="5_dsch3"]
+[ext_resource type="PackedScene" uid="uid://bmi4j0r4akgxc" path="res://Prefabs/Radial Menu.tscn" id="5_dsch3"]
 [ext_resource type="ArrayMesh" uid="uid://bnwftyfwn27wm" path="res://art_assets/Final/Bird_Head.obj" id="5_r6s5s"]
 [ext_resource type="Texture2D" uid="uid://cak4dd28rd4t6" path="res://art_assets/Willy_lambert5SG_Normal.png" id="5_rso2k"]
 [ext_resource type="Texture2D" uid="uid://cwcm8ngrmtu0i" path="res://art_assets/Willy_lambert5SG_Roughness.png" id="6_idxut"]
