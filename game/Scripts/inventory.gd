@@ -10,6 +10,7 @@ var inventory:Array[Word] = []
 #var scenepath:String = "res://Scenes/inventory.tscn"
 
 func AddWord() -> String:
+	AudioManager.PlaySound("pullworm")
 	var randomword = Wordlist.Wordlist.pick_random()
 	inventory.append(randomword)
 	return randomword.text

@@ -22,6 +22,8 @@ func _process(delta: float) -> void:
 func _spawnWorm() -> void:
 	if get_children().size() >= maxWorms:
 		return
+		
+	AudioManager.PlaySound("worm-spawn")
 	var newWormInstance = wormPrefab.instantiate()
 	var wormXpos = rng.randf_range(wormSpawnExtentMin, wormSpawnExtentMax)
 	add_child(newWormInstance)

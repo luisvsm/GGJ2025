@@ -110,6 +110,7 @@ func _process(delta: float) -> void:
 		if jumped == false:
 			if pecking == false:
 				apply_central_force(Vector3(0, jumpForce, 0))
+				AudioManager.PlaySound("flap")
 				jumped = true
 				tailFlapping = true
 
@@ -223,6 +224,7 @@ func _process(delta: float) -> void:
 			if playerInventory.inventory.size() < maxInventory:
 				#playerInventory.AddWord()
 				print(playerInventory.AddWord())
+				
 			pecking = false
 			canPeck = false
 			
@@ -239,8 +241,11 @@ func AddBranchToLeafPlatform(word:Word)->void:
 	var sentanceNeedsMoreWords = closetLeafPlatform.AddWordToTemplate(word)
 	print("sentanceNeedsMoreWords: %s"%sentanceNeedsMoreWords)
 	if sentanceNeedsMoreWords == false:
+		AudioManager.PlaySound("success-sentence")
 		closetLeafPlatform.branchIsComplete = true
 		treeInstance.GrowNumberOfBranch(closetLeafPlatform)
+	else:
+		AudioManager.PlaySound("success-word")
 	
 	closetLeafPlatform = null
 	radialMenuVisible = false

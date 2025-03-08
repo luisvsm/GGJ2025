@@ -41,6 +41,9 @@ func GrowNumberOfBranch(leafToStartAt:LeafPlatform):
 		if effect.type == TreeEffect.EffectType.numberOfBranches:
 			numberOfBranchesToGrow += int(effect.value)
 			
+	if numberOfBranchesToGrow > 0:
+		AudioManager.PlaySound("newbranch")
+		
 	while attachmentPoint != null && numberOfBranchesToGrow > 0 && retryCount > 0:
 		var newLeafPlatform = GrowBranch(attachmentPoint.global_position)
 		if newLeafPlatform != null:

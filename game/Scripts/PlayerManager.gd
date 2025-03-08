@@ -10,6 +10,8 @@ var treePrefab = load("res://Prefabs//Tree.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioManager.PlayMusic("theme")
+	AudioManager.PlayAmbient("ambient")
 	var newPlayerInstance:Player = playerPrefab.instantiate()
 	add_child(newPlayerInstance)
 	#var newSceneDecorationsInstance = sceneryPrefab.instantiate()
