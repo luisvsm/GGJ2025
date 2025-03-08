@@ -73,9 +73,25 @@ func AddWordToTemplate(word:Word) -> bool:
 		if leafShapes.size() == 0:
 			leafShapes.append(TreeEffect.LeafShape.Fig)
 			
+		var leafColourOne = leafColours.pick_random()
+		var leafShapeOne = leafShapes.pick_random()
+		var leafColourTwo = leafColours.pick_random()
+		var leafShapeTwo = leafShapes.pick_random()
+		
+		if leafMeshByColourAndType.get(leafColourOne) == null:
+			leafColourOne = TreeEffect.LeafColours.TeaGreen
+		if leafMeshByColourAndType[leafColourOne].get(leafShapeOne) == null:
+			leafShapeOne = TreeEffect.LeafShape.Fig
+			
+			
+		if leafMeshByColourAndType.get(leafColourTwo) == null:
+			leafColourTwo = TreeEffect.LeafColours.TeaGreen
+		if leafMeshByColourAndType[leafColourTwo].get(leafShapeTwo) == null:
+			leafShapeTwo = TreeEffect.LeafShape.Fig
+		
 		newLeafParticles.SetMeshes(
-			leafMeshByColourAndType[leafColours.pick_random()][leafShapes.pick_random()],
-			leafMeshByColourAndType[leafColours.pick_random()][leafShapes.pick_random()]
+			leafMeshByColourAndType[leafColourOne][leafShapeOne],
+			leafMeshByColourAndType[leafColourTwo][leafShapeTwo]
 		)
 			
 		add_child(newLeafParticles)
