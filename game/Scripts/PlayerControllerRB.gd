@@ -172,9 +172,9 @@ func _process(delta: float) -> void:
 				AddBranchToLeafPlatform(playerInventory.inventory[5],)
 				testTextLebel.text = playerInventory.inventory[5].text
 				print (playerInventory.inventory[5].text)
+				playerInventory.inventory.remove_at(5)
 		if Input.is_action_just_pressed("debug_selsect_7"):
 			if playerInventory.inventory.size() >= 7:
-				playerInventory.inventory.remove_at(5)
 				AddBranchToLeafPlatform(playerInventory.inventory[6])
 				testTextLebel.text = playerInventory.inventory[6].text
 				print (playerInventory.inventory[6].text)
