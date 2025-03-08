@@ -71,6 +71,7 @@ maxInventory = 8
 nextWormTimerRangeMin = 1.0
 nextWormTimerRangeMax = 2.0
 testTextLebel = NodePath("Label3D - Temp Text")
+testTextDuration = 4.0
 playerInventory = NodePath("Node - Inventory")
 
 [node name="Node3D - CameraLookAt" type="Node3D" parent="."]
@@ -177,4 +178,5 @@ visible = false
 
 [node name="Label3D - Temp Text" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-pixel_size = 0.025
+pixel_size = 0.004
+font_size = 50

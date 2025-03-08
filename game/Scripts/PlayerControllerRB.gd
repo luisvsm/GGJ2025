@@ -28,6 +28,7 @@ var currentNextWormTimer: float
 
 #@export var wormConnectionPoint:Vector3
 @export var testTextLebel: Label3D
+@export var testTextDuration: float
 
 @export var playerInventory: Inventory
 @export var wormManager: WormManager
@@ -49,6 +50,7 @@ var TailFlapCoolDownTimer:float = 0
 var tailFlapping = false
 var pecking = false
 var canPeck = false
+var textResetTime:int
 
 var leftStickHAxis: float
 var deltaMoveVector: Vector3 = Vector3(0, 0, 0)
@@ -75,6 +77,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if textResetTime > 0 && Time.get_ticks_msec() > textResetTime:
+		testTextLebel.text = ""
+		textResetTime = 0
+		
 	if radialMenuVisible:
 		closetLeafPlatform = treeInstance.GetClosestLeafPlatform(global_position, 1)
 		fillRadialMenuFromInventory(closetLeafPlatform)
@@ -143,50 +149,34 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("debug_selsect_1"):
 			if playerInventory.inventory.size() >= 1:
 				AddBranchToLeafPlatform(playerInventory.inventory[0])
-				testTextLebel.text = playerInventory.inventory[0].text
-				print (playerInventory.inventory[0].text)
 				playerInventory.inventory.remove_at(0)
 		if Input.is_action_just_pressed("debug_selsect_2"):
 			if playerInventory.inventory.size() >= 2:
 				AddBranchToLeafPlatform(playerInventory.inventory[1])
-				testTextLebel.text = playerInventory.inventory[1].text
-				print (playerInventory.inventory[1].text)
 				playerInventory.inventory.remove_at(1)
 		if Input.is_action_just_pressed("debug_selsect_3"):
 			if playerInventory.inventory.size() >= 3:
 				AddBranchToLeafPlatform(playerInventory.inventory[2])
-				testTextLebel.text = playerInventory.inventory[2].text
-				print (playerInventory.inventory[2].text)
 				playerInventory.inventory.remove_at(2)
 		if Input.is_action_just_pressed("debug_selsect_4"):
 			if playerInventory.inventory.size() >= 4:
 				AddBranchToLeafPlatform(playerInventory.inventory[3])
-				testTextLebel.text = playerInventory.inventory[3].text
-				print (playerInventory.inventory[3].text)
 				playerInventory.inventory.remove_at(3)
 		if Input.is_action_just_pressed("debug_selsect_5"):
 			if playerInventory.inventory.size() >= 5:
 				AddBranchToLeafPlatform(playerInventory.inventory[4])
-				testTextLebel.text = playerInventory.inventory[4].text
-				print (playerInventory.inventory[4].text)
 				playerInventory.inventory.remove_at(4)
 		if Input.is_action_just_pressed("debug_selsect_6"):
 			if playerInventory.inventory.size() >= 6:
-				AddBranchToLeafPlatform(playerInventory.inventory[5],)
-				testTextLebel.text = playerInventory.inventory[5].text
-				print (playerInventory.inventory[5].text)
+				AddBranchToLeafPlatform(playerInventory.inventory[5])
 				playerInventory.inventory.remove_at(5)
 		if Input.is_action_just_pressed("debug_selsect_7"):
 			if playerInventory.inventory.size() >= 7:
 				AddBranchToLeafPlatform(playerInventory.inventory[6])
-				testTextLebel.text = playerInventory.inventory[6].text
-				print (playerInventory.inventory[6].text)
 				playerInventory.inventory.remove_at(6)
 		if Input.is_action_just_pressed("debug_selsect_8"):
 			if playerInventory.inventory.size() >= 8:
 				AddBranchToLeafPlatform(playerInventory.inventory[7])
-				testTextLebel.text = playerInventory.inventory[7].text
-				print (playerInventory.inventory[7].text)
 				playerInventory.inventory.remove_at(7)
 		
 		
@@ -241,6 +231,11 @@ func _process(delta: float) -> void:
 	
 
 func AddBranchToLeafPlatform(word:Word)->void:
+	if StringTemplate.DoesThisWordFitTheSentance(closetLeafPlatform.templateString, word) == true:
+		testTextLebel.text = word.text
+		textResetTime = Time.get_ticks_msec() + (testTextDuration * 1000)
+		print (word.text)
+		
 	var sentanceNeedsMoreWords = closetLeafPlatform.AddWordToTemplate(word)
 	print("sentanceNeedsMoreWords: %s"%sentanceNeedsMoreWords)
 	if sentanceNeedsMoreWords == false:
