@@ -25,6 +25,10 @@ Wordlist="*res://Scripts/wordlist.gd"
 Inventory="*res://Scripts/inventory.gd"
 AudioManager="*res://Prefabs/audio_manager.tscn"
 
+[display]
+
+window/size/mode=4
+
 [dotnet]
 
 project/assembly_name="New Game Project"
