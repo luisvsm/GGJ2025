@@ -68,7 +68,7 @@ func AddWordToTemplate(word:Word) -> bool:
 				
 		var newLeafParticles = FALLING_LEAVES.instantiate()
 		if leafColours.size() == 0:
-			leafColours.append(TreeEffect.LeafColours.ForestGreen)
+			leafColours.append(TreeEffect.LeafColours.TeaGreen)
 			
 		if leafShapes.size() == 0:
 			leafShapes.append(TreeEffect.LeafShape.Fig)
@@ -85,12 +85,12 @@ func AddWordToTemplate(word:Word) -> bool:
 func UpdateTemplateText() -> void:
 	leaf_text.text = StringTemplate.HidePlayerBrackets(templateString)
 
-func GrowLeaf(treeEffects:Array[TreeEffect]):
+func GrowLeaf(inputTreeEffects:Array[TreeEffect]):
 	var leafShapes:Array = []
 	var leafColours:Array = []
 	var numberOfBranches = 1
 	
-	for effect in treeEffects:
+	for effect in inputTreeEffects:
 		if effect.type == TreeEffect.EffectType.leafColour:
 			leafColours.append(effect.value)
 		elif effect.type == TreeEffect.EffectType.leafShape:

@@ -4,7 +4,7 @@ extends Node3D
 @export var wormManager:Node3D
 
 var playerPrefab = load("res://Prefabs//Player.tscn")
-var sceneryPrefab = load("res://Prefabs//scene_decorations.tscn")
+# var sceneryPrefab = load("res://Prefabs//scene_decorations.tscn")
 var treePrefab = load("res://Prefabs//Tree.tscn")
 
 
@@ -29,5 +29,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

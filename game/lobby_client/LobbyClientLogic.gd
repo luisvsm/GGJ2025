@@ -59,7 +59,7 @@ func ConnectToLobbyServer() -> void:
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 
-func _OnGetTokenResponse(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray):
+func _OnGetTokenResponse(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray):
 	if response_code != 200:
 		push_error("An error occurred requesting a session token\nError %s:\n%s"%[response_code,body.get_string_from_utf8()])
 		_OnDisconnected()
@@ -88,7 +88,7 @@ func _OnConnected() -> void:
 		(sessionToken+"~").to_ascii_buffer()
 	)
 
-func _process( delta ):	
+func _process(_delta ):	
 	if connection == null:
 		return
 		

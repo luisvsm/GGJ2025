@@ -21,7 +21,7 @@ static func HidePlayerBrackets(input:String, bracketOpen:String = "[", bracketCl
 	var openingBracket = input.find(bracketOpen)
 	var closingBracket = input.find(bracketClose)
 	if openingBracket >= 0 && closingBracket >= 0:
-		var stringToReplace = input.substr(openingBracket+1, closingBracket-openingBracket-1)
+		var _stringToReplace = input.substr(openingBracket+1, closingBracket-openingBracket-1)
 		return HidePlayerBrackets("%s%s%s"%[
 			input.substr(0, openingBracket),
 			"____",

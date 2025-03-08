@@ -1,9 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cnljuy3jgomcb"]
-
-[ext_resource type="PackedScene" path="res://art_assets/VFX/FallingLeaves.tscn" id="1_22xsx"]
-[ext_resource type="ArrayMesh" uid="uid://dqqioldd4336e" path="res://art_assets/Leaf_Test_WithColour.obj" id="2_eopsk"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ili10"]
+[gd_scene load_steps=50 format=3 uid="uid://cnljuy3jgomcb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xlopc"]
 
@@ -136,7 +131,8 @@ albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aen7r"]
 albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_prsx7"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgde5"]
+size = Vector3(25, 5.51373, 6.34717)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i4acx"]
 
@@ -144,6 +140,7 @@ albedo_color = Color(0.533333, 0.533333, 0.533333, 1)
 albedo_color = Color(0.380392, 0.521569, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rpa6"]
+size = Vector3(15.2626, 9.67145, 15.3121)
 
 [node name="SceneDecorations" type="Node3D"]
 transform = Transform3D(0.999999, 0.00174533, 0, -0.00174533, 0.999999, 0, 0, 0, 1, 0, -6.08646, 0)
@@ -163,11 +160,6 @@ light_volumetric_fog_energy = 3.453
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
-
-[node name="FallingLeaves" parent="." instance=ExtResource("1_22xsx")]
-transform = Transform3D(1.14, -2.10889e-11, 5.82077e-11, -1.91847e-11, 1.14, 0, -5.82077e-11, -5.82077e-11, 1.14, -0.00112356, 0.736399, 0.000346405)
-mesh1 = ExtResource("2_eopsk")
-mesh2 = SubResource("CapsuleMesh_ili10")
 
 [node name="LevelEnvironment" type="Node3D" parent="."]
 transform = Transform3D(0.525, -5.57563e-11, 2.03727e-10, 6.17106e-11, 0.524999, 0, -2.03727e-10, -2.91038e-11, 0.525, 1.57625, 0.799672, 0.250926)
@@ -577,11 +569,11 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_aen7r")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(3.145, -3.24974e-09, 1.28057e-09, 1.41284e-09, 3.145, 5.82077e-10, -6.98492e-10, 5.82077e-10, 3.145, -1.74893, -10.1774, 9.75422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74893, -10.1774, 9.75422)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(6.42, -3.34126e-09, -2.32831e-10, 1.32775e-09, 6.42, 0, -4.65661e-10, -6.98492e-10, 6.42, -0.000398219, 0.182675, 0.267069)
-shape = SubResource("BoxShape3D_prsx7")
+transform = Transform3D(0.999982, 1.60653e-08, 7.25368e-11, -1.60653e-08, 0.999982, 1.08795e-10, -7.2539e-11, -1.08797e-10, 1, 5.13335, 6.95979, -7.9043)
+shape = SubResource("BoxShape3D_mgde5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
 transform = Transform3D(1, 7.12959e-11, 5.82077e-11, 1.89587e-10, 1, -1.16415e-10, 2.32831e-10, 5.82077e-11, 1, 2.28211e-05, -0.00182036, -0.0447218)
@@ -589,24 +581,25 @@ mesh = SubResource("BoxMesh_i4acx")
 surface_material_override/0 = SubResource("StandardMaterial3D_7p5r6")
 
 [node name="Boundaries" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.74949, 0.0135255, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Boundaries"]
-transform = Transform3D(15.735, -1.18134e-08, 7.91624e-09, 1.42929e-08, 15.735, 9.31323e-10, -8.3819e-09, -4.65661e-10, 15.735, 12.1484, 1.13326, -0.994036)
+transform = Transform3D(1, -9.08351e-10, 5.32691e-10, 9.08351e-10, 1, 2.9594e-11, -5.32691e-10, -2.9594e-11, 1, 12.1484, 1.13326, -0.994036)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries/StaticBody3D"]
-transform = Transform3D(35.6, 4.04179e-09, 1.30385e-08, -1.45233e-08, 35.6, 0, 1.86265e-09, 0, 35.6, -0.317763, -0.00048475, -0.000142254)
+transform = Transform3D(0.999997, 1.16415e-09, -5.23137e-11, -2.15368e-08, 0.999997, -3.747e-16, 5.23199e-11, -9.36751e-17, 0.999998, -4.43164, -0.000484943, -0.000142276)
 shape = SubResource("BoxShape3D_7rpa6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boundaries/StaticBody3D/CollisionShape3D"]
 
 [node name="Boundaries2" type="Node3D" parent="."]
-transform = Transform3D(0.999999, 3.03984e-10, 2.91038e-10, 8.87923e-10, 0.999999, 0, -5.23869e-10, -8.73115e-11, 0.999999, -26.1745, -0.0403286, 0.835795)
+transform = Transform3D(0.999999, 3.49246e-10, 2.91038e-10, 9.31323e-10, 0.999999, 0, -5.23869e-10, -8.73115e-11, 0.999999, -29.4558, -0.0460558, 0.835795)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Boundaries2"]
-transform = Transform3D(15.735, -1.18134e-08, 7.91624e-09, 1.42929e-08, 15.735, 9.31323e-10, -8.3819e-09, -4.65661e-10, 15.735, 12.1484, 1.13326, -0.994036)
+transform = Transform3D(1, -9.08351e-10, 5.32691e-10, 9.08351e-10, 1, 2.9594e-11, -5.32691e-10, -2.9594e-11, 1, 12.1484, 1.13326, -0.994036)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries2/StaticBody3D"]
-transform = Transform3D(21.933, -2.30102e-08, 1.49012e-08, 2.10412e-08, 65.072, -3.72529e-09, 1.86265e-09, -1.86265e-09, 120.247, 0.436043, 0.000665151, 0.000195199)
+transform = Transform3D(1, -9.31323e-10, -8.4927e-11, 9.31323e-10, 1, 2.86243e-11, 8.49443e-11, -2.86242e-11, 0.999991, 3.00229, 0.584982, 1.87793)
 shape = SubResource("BoxShape3D_7rpa6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boundaries2/StaticBody3D/CollisionShape3D"]

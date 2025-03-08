@@ -123,7 +123,6 @@ func _process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("debug_place_word"):
-		var treeNode
 		closetLeafPlatform = treeInstance.GetClosestLeafPlatform(global_position, 1)
 	
 		if (radialMenuInstance != null):

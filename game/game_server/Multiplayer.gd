@@ -35,11 +35,11 @@ func _input(event):
 			)
 
 @rpc("any_peer", "call_local", "reliable")
-func make_particle(position:Vector2):
-	print("Todo make particle: %s,%s"%[position.x,position.y])
+func make_particle(inputPosition:Vector2):
+	print("Todo make particle: %s,%s"%[inputPosition.x,inputPosition.y])
 	var instance = particlePrefab.instantiate()
 	add_child(instance)
-	instance.position = position
+	instance.position = inputPosition
 	instance.emitting = true
 	await get_tree().create_timer(4.0).timeout
 	remove_child(instance)
