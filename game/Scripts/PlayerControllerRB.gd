@@ -77,6 +77,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.get_action_strength("ResetGame"):
+		get_tree().reload_current_scene()
+		
 	if textResetTime > 0 && Time.get_ticks_msec() > textResetTime:
 		testTextLebel.text = ""
 		textResetTime = 0
