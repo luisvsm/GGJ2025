@@ -1,12 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmm6mh7thsyu4"]
+[gd_scene load_steps=22 format=3 uid="uid://bmm6mh7thsyu4"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerControllerRB.gd" id="1_cwjx1"]
 [ext_resource type="ArrayMesh" uid="uid://bcqele0se7pg1" path="res://Meshes/Teapot1.obj" id="2_4grkb"]
-[ext_resource type="Texture2D" uid="uid://boedu5ssxepxn" path="res://art_assets/THAGRADIENT.png" id="3_hkv3c"]
+[ext_resource type="Texture2D" uid="uid://b28uejsqilaj0" path="res://art_assets/Willy_lambert5SG_BaseColor.png" id="3_elmlj"]
 [ext_resource type="ArrayMesh" uid="uid://br8tms4q2bhxm" path="res://art_assets/Final/Bird_Body+LegsOnly.obj" id="4_bk08d"]
+[ext_resource type="Texture2D" uid="uid://bxx6undlaxdct" path="res://art_assets/Willy_lambert5SG_Metallic.png" id="4_d2b7k"]
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="4_ynj5i"]
-[ext_resource type="PackedScene" uid="uid://84wik3dyjjvi" path="res://Prefabs/Radial Menu.tscn" id="5_dsch3"]
+[ext_resource type="PackedScene" path="res://Prefabs/Radial Menu.tscn" id="5_dsch3"]
 [ext_resource type="ArrayMesh" uid="uid://bnwftyfwn27wm" path="res://art_assets/Final/Bird_Head.obj" id="5_r6s5s"]
+[ext_resource type="Texture2D" uid="uid://cak4dd28rd4t6" path="res://art_assets/Willy_lambert5SG_Normal.png" id="5_rso2k"]
+[ext_resource type="Texture2D" uid="uid://cwcm8ngrmtu0i" path="res://art_assets/Willy_lambert5SG_Roughness.png" id="6_idxut"]
 [ext_resource type="ArrayMesh" uid="uid://het5bgjvlcq8" path="res://art_assets/Final/Bird_Tail.obj" id="6_sutup"]
 [ext_resource type="ArrayMesh" uid="uid://o2m3nuh3f2iy" path="res://art_assets/Final/Bird_Wings_L.obj" id="7_q1v8j"]
 [ext_resource type="ArrayMesh" uid="uid://bc1kskc8o3gl5" path="res://art_assets/Final/Bird_Wings_R.obj" id="8_of7un"]
@@ -21,18 +24,33 @@ size = Vector3(0.40027, 0.685547, 1)
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0iotx"]
-albedo_texture = ExtResource("3_hkv3c")
+albedo_texture = ExtResource("3_elmlj")
+metallic = 1.0
+metallic_texture = ExtResource("4_d2b7k")
+roughness_texture = ExtResource("6_idxut")
+normal_enabled = true
+normal_texture = ExtResource("5_rso2k")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax56k"]
 albedo_color = Color(0.143354, 0.540223, 0.422607, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6cl8"]
-albedo_texture = ExtResource("3_hkv3c")
+albedo_texture = ExtResource("3_elmlj")
+metallic = 1.0
+metallic_texture = ExtResource("4_d2b7k")
+roughness_texture = ExtResource("6_idxut")
+normal_enabled = true
+normal_texture = ExtResource("5_rso2k")
 
 [sub_resource type="SphereMesh" id="SphereMesh_0mcax"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rh0x3"]
-albedo_texture = ExtResource("3_hkv3c")
+albedo_texture = ExtResource("3_elmlj")
+metallic = 1.0
+metallic_texture = ExtResource("4_d2b7k")
+roughness_texture = ExtResource("6_idxut")
+normal_enabled = true
+normal_texture = ExtResource("5_rso2k")
 
 [node name="RigidBody3D - Player" type="RigidBody3D" node_paths=PackedStringArray("testTextLebel", "playerInventory")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
