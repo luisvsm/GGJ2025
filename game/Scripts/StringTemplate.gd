@@ -1,17 +1,17 @@
 extends Node
 
 static var TemplateList:Array[String] = [
-	"Look for the [object descriptor] [object], \n especially when it’s cloudy.",
-	"{Adverb}, the [object] [verb].",
+	"Look for the [adjective] [object], \n especially when it’s cloudy.",
+	"{Adverb}, the [object] {verb}.",
 	"Far below, the [adjective] \n {object} [verb].",
-	"Although it was {weather}, \n everyone but the [animal] [ending verb].",
+	"Although it was {weather}, \n everyone but the [animal] [verb].",
 	"Somewhere in the {environment} \n the [object] turned [colour].",
-	"They hadn’t [verb] near the \n [colour] {environment} for some time.",
-	"The [adjective] wind and \n [colour] sand [adverb] combined.",
-	"The [object] was {adverb} \n hidden in the {colour} [environment].",
+	"They hadn’t [verb] near the \n {colour} {environment} for some time.",
+	"The {adjective} wind and \n [colour] sand [adverb] combined.",
+	"The [object] was {adverb} \n hidden in the [colour] {environment}.",
 	"Under the {object descriptor} [object], \n the {animal} {ending verb}.",
-	"Where the [collective noun] are, \n the [colour] wind blows.",
-	"The {object}s may appear [object descriptor].",
+	"Where the {collective noun} are, \n the [colour] wind blows.",
+	"The {object}s may appear [adjective].",
 	"A [animal] {verb} the [collective noun]",
 	"[verb] is how the {object} felt.",
 	"Why was the [object] {colour}? \n It's {weather}."

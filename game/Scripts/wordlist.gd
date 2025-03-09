@@ -21,12 +21,12 @@ static var Wordlist:Array[Word] = [
 	), 
 	Word.create(
 		"spotted",
-		["texture", "adjective", "object descriptor"],
+		["texture", "adjective", "object descriptor", "colour"],
 		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
 	),
 	Word.create(
 		"speckled",
-		["texture", "adjective", "object descriptor"],
+		["texture", "adjective", "object descriptor", "colour"],
 		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Speckles)]
 	),
 	Word.create(
@@ -40,7 +40,92 @@ static var Wordlist:Array[Word] = [
 		[]
 	),
 	Word.create(
+		"sang",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
 		"felt",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"unfurled",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"groaned",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"shrivelled",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"shivered",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"shook",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"trembled",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"whispered",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"expanded",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"matured",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"flourished",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"tickled",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"rose",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"crumbled",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"shimmered",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"withered",
+		["action", "verb"],
+		[]
+	),
+	Word.create(
+		"writhed",
 		["action", "verb"],
 		[]
 	),
@@ -125,6 +210,136 @@ static var Wordlist:Array[Word] = [
 		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
 	),
 	Word.create(
+		"swirly",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"pretty",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"luminous",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"whimsical",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"dusty",
+		["adjective", "object descriptor", "colour"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"prickly",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"delicate",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"mystical",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"twinkly",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"fleeting",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"sinister",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"verdant",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"radiant",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"vivid",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"weary",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"lonesome",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"majestic",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"timid",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"shy",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"frightened",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"majestic",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"inquisitive",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"peculiar",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"strange",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"funny",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
+		"questioning",
+		["adjective", "object descriptor"],
+		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Spots)]
+	),
+	Word.create(
 		"ragged",
 		["action", "verb"],
 		[TreeEffect.create(TreeEffect.EffectType.leafShape,TreeEffect.LeafShape.Maple)]
@@ -168,6 +383,11 @@ static var Wordlist:Array[Word] = [
 		"twinkly",
 		["adjective", "object descriptor"],
 		[TreeEffect.create(TreeEffect.EffectType.leafPattern,TreeEffect.LeafPattern.Speckles)]
+	),
+	Word.create(
+		"grasped",
+		["action", "verb"],
+		[]
 	),
 	Word.create(
 		"grasped",
@@ -335,6 +555,31 @@ static var Wordlist:Array[Word] = [
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.TeaGreen)]
 	),
 	Word.create(
+		"periwinkle",
+		["colour"],
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.TeaGreen)]
+	),
+	Word.create(
+		"coral",
+		["colour"],
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.TeaGreen)]
+	),
+	Word.create(
+		"aubergine",
+		["colour"],
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.TeaGreen)]
+	),
+	Word.create(
+		"amber",
+		["colour"],
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.TeaGreen)]
+	),
+	Word.create(
+		"indigo",
+		["colour"],
+		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.TeaGreen)]
+	),
+	Word.create(
 		"field",
 		["natural object", "object", "colour"],
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.Bronze)]
@@ -471,7 +716,7 @@ static var Wordlist:Array[Word] = [
 	),
 	Word.create(
 		"crimson rosella",
-		["animal", "object"],
+		["animal", "object", "colour"],
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.CandyRed)]
 	),
 	Word.create(
@@ -648,6 +893,61 @@ static var Wordlist:Array[Word] = [
 		"bronze",
 		["colour"],
 		[TreeEffect.create(TreeEffect.EffectType.leafColour,TreeEffect.LeafColours.Bronze)]
+	),
+	Word.create(
+		"rainbow",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"rainbow",
+		["sandy"],
+		[]
+	),
+	Word.create(
+		"chocolate",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"velvet",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"meringue",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"fairy floss",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"oak",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"teal",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"sludge",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"the colour of milky tea",
+		["colour"],
+		[]
+	),
+	Word.create(
+		"pepper",
+		["colour"],
+		[]
 	),
 	Word.create(
 		"rainy",
